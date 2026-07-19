@@ -13,5 +13,15 @@
 - `store.js` — 상품 상세·연계 콘텐츠·결제 이동 UI
 - `checkout.html` — 상품 검증 및 글로벌 결제 연결 페이지
 - `PAYMENT_SETUP.md` — 결제 연결·출시 전 체크리스트
+- `paypal-products.csv` — 16개 PayPal 상품 등록·URL 관리 원본
+- `PayPal_Product_Registry.xlsx` — 운영자가 바로 입력할 수 있는 등록 순서표
+- `PAYPAL_PRODUCT_REGISTRY.md` — 일회성 결제·구독 플랜 등록 절차
+- `scripts/validate-paypal-registry.mjs` — 카탈로그·가격·링크 정합성 검사
 - `CNAME` — 커스텀 도메인 설정
 - `404.html` — 오류 페이지
+
+## PayPal 등록표 검증
+
+```bash
+node scripts/validate-paypal-registry.mjs
+```
