@@ -8,5 +8,10 @@
 
 ## 구조
 - `index.html` — 메인 랜딩(히어로·베스트셀러·구독·교재·라이브·컨설팅)
+- `catalog.js` — 상품 SKU·가격·포함 콘텐츠·강의↔교재 관계
+- `payment-links.js` — PayPal 상품별 결제 링크 중앙 설정
+- `store.js` — 상품 상세·연계 콘텐츠·결제 이동 UI
+- `checkout.html` — 상품 검증 및 글로벌 결제 연결 페이지
+- `PAYMENT_SETUP.md` — 결제 연결·출시 전 체크리스트
 - `CNAME` — 커스텀 도메인 설정
 - `404.html` — 오류 페이지
