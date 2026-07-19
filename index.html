@@ -31,6 +31,7 @@
   nav{display:flex;gap:22px;font-size:14px;flex:1;flex-wrap:nowrap;white-space:nowrap;}
   nav a{color:#344054;}nav a:hover{color:var(--navy);}
   .hbtns{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--gray);}
+  .portal-link{color:var(--navy);font-weight:600;}
   .mini{padding:8px 16px;border-radius:8px;background:var(--gold);color:#3a2e00;font-weight:700;}
   .hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 55%,#1c4d80 100%);color:#fff;position:relative;overflow:hidden;}
   .hero:after{content:"";position:absolute;right:-60px;top:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(201,162,39,.32),transparent 70%);}
@@ -68,6 +69,7 @@
   .price .now{font-weight:800;font-size:18px;color:var(--navy);}
   .price .was{font-size:12px;color:#98A2B3;text-decoration:line-through;}
   .meta{font-size:12px;color:var(--gray);margin-top:8px;}
+  .content-pair{margin-top:12px;padding:10px;border-radius:9px;background:#F3F6FA;font-size:11.5px;color:#475467;line-height:1.45;}.content-pair b,.content-pair span{display:block}.content-pair b{color:var(--navy);margin-bottom:2px}.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.product-actions a,.product-actions button{border-radius:8px;padding:9px 8px;text-align:center;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.product-detail{border:1px solid var(--line);background:#fff;color:var(--navy)}.product-buy{border:1px solid var(--gold);background:var(--gold);color:#3a2e00}.product-modal{position:fixed;inset:0;z-index:100;display:none}.product-modal[aria-hidden="false"]{display:block}.product-modal__backdrop{position:absolute;inset:0;background:rgba(5,20,35,.68);backdrop-filter:blur(3px)}.product-modal__panel{position:relative;max-width:620px;max-height:86vh;overflow:auto;margin:7vh auto;background:#fff;border-radius:18px;padding:30px;box-shadow:0 24px 80px rgba(0,0,0,.3)}.product-modal__close{position:absolute;right:16px;top:12px;border:0;background:transparent;color:var(--gray);font-size:30px;cursor:pointer}.modal-kicker{font-size:11px;text-transform:uppercase;color:var(--gold);font-weight:800}.product-modal h2{color:var(--navy);font-size:24px;line-height:1.35;margin:7px 34px 8px 0}.product-modal h3{color:var(--navy);font-size:14px;margin:20px 0 6px}.product-modal ul{padding-left:20px;color:#475467;font-size:14px}.modal-summary{color:var(--gray);font-size:14px}.modal-price{font-size:25px;font-weight:800;color:var(--navy);margin-top:14px}.modal-related{display:flex;gap:8px;flex-wrap:wrap}.modal-related button{background:#EEF3F8;color:var(--navy);padding:7px 11px;border:0;border-radius:999px;font-size:12px;cursor:pointer}.modal-checkout{display:block;text-align:center;margin-top:24px}.modal-open{overflow:hidden}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .plan{border:1px solid var(--line);border-radius:16px;padding:28px 24px;text-align:center;background:#fff;}
   .plan.hot{border:2px solid var(--gold);box-shadow:0 12px 30px rgba(201,162,39,.15);}
@@ -86,10 +88,12 @@
   footer a{color:#9fb3c8;}footer a:hover{color:#fff;}
   .fcol h4{color:#cdd9e6;font-size:13px;margin-bottom:8px;}
   .fcol div{padding:2px 0;}
+  .business-info{margin-top:10px;color:#6f8298;font-size:12px;}
   .copy{border-top:1px solid #1c3550;text-align:center;padding:16px;color:#6f8298;font-size:12px;}
   @media(max-width:860px){
     nav{display:none;} .cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3{grid-template-columns:1fr;}
   }
+  @media(max-width:560px){.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -99,7 +103,7 @@
     <nav>
       <a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a>
     </nav>
-    <div class="hbtns"><a href="https://www.stargateedu.co.kr/" rel="noopener" style="color:var(--navy);font-weight:600;">← 메인 포털</a><a href="#">로그인</a><a href="#courses" class="mini">수강신청</a></div>
+    <div class="hbtns"><a href="https://www.stargateedu.co.kr/" rel="noopener" class="portal-link">← 메인 포털</a><a href="#">로그인</a><a href="#courses" class="mini">수강신청</a></div>
   </div>
 </header>
 
@@ -172,7 +176,7 @@
 
 <section class="block" id="live">
   <div class="wrap">
-    <div class="head"><h2>라이브 · 특강 & 1:1 컨설팅</h2><p id="consult">시즌 집중과 개인 맞춤 지도</p></div>
+    <div class="head"><h2>라이브 · 특강 &amp; 1:1 컨설팅</h2><p id="consult">시즌 집중과 개인 맞춤 지도</p></div>
     <div class="grid">
       <div class="card"><div class="thumb"><span class="badge">시즌</span>방학 라이브특강</div><div class="body"><div class="lbl">라이브 · 주말 8회</div><h3>방학 집중 라이브특강 (4주)</h3><div class="price"><span class="dc">12%</span><span class="now">281,600</span><span class="was">320,000</span></div></div></div>
       <div class="card"><div class="thumb">KOI 파이널 캠프</div><div class="body"><div class="lbl">오프라인 · 2일</div><h3>KOI 직전 파이널 캠프</h3><div class="price"><span class="dc">10%</span><span class="now">405,000</span><span class="was">450,000</span></div></div></div>
@@ -195,7 +199,7 @@
     <div class="fcol">
       <div class="logo">STARGATE<b>EDU</b></div>
       <div>정보·수학 올림피아드 전문 온라인 스쿨</div>
-      <div style="margin-top:10px;color:#6f8298;font-size:12px;">상호: 스타게이트 · 대표: 정동수<br>사업자등록번호: 000-00-00000<br>통신판매업신고: 제0000호</div>
+      <div class="business-info">상호: 스타게이트 · 대표: 정동수<br>사업자등록번호: 000-00-00000<br>통신판매업신고: 제0000호</div>
     </div>
     <div class="fcol"><h4>고객센터</h4><div>평일 10:00–18:00</div><div>카카오 채널 상담</div><div>1:1 문의</div></div>
     <div class="fcol"><h4>바로가기</h4><div><a href="https://www.stargateedu.co.kr/" rel="noopener">메인 포털 (stargateedu.co.kr)</a></div><div><a href="#courses">온라인 강의</a></div><div><a href="#sub">문제은행·모의고사</a></div><div><a href="#consult">1:1 컨설팅</a></div></div>
@@ -203,6 +207,7 @@
   </div>
   <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr</div>
 </footer>
+<script src="/catalog.js"></script><script src="/payment-links.js"></script><script src="/store.js"></script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
