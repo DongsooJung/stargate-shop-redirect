@@ -5,7 +5,7 @@
   const lang = document.documentElement.lang.toLowerCase().startsWith("en") ? "en" : "ko";
   const translations = catalog.i18n?.[lang] || {};
   const localize = (id) => products[id] ? { ...products[id], ...(translations[id] || {}) } : null;
-  const copy = lang === "en" ? { planned: "Planned", content: "Related content", detail: "Details & bundle", checkout: "Buy & checkout", included: "What’s included", related: "Related courses & books", close: "Close", month: "month", year: "year" } : { planned: "제작 예정", content: "연계 콘텐츠", detail: "내용·연계 보기", checkout: "구매·결제", included: "포함 콘텐츠", related: "연결된 강의·교재", close: "닫기", month: "월", year: "년" };
+  const copy = lang === "en" ? { planned: "Planned", content: "Related content", detail: "Details & bundle", checkout: "Buy & checkout", included: "What’s included", related: "Related courses & books", marketplaces: "Also available from", externalNote: "External marketplace · price and availability may vary", close: "Close", month: "month", year: "year" } : { planned: "제작 예정", content: "연계 콘텐츠", detail: "내용·연계 보기", checkout: "구매·결제", included: "포함 콘텐츠", related: "연결된 강의·교재", marketplaces: "외부 판매처에서도 구매", externalNote: "외부 판매처 · 가격과 재고는 판매처 기준", close: "닫기", month: "월", year: "년" };
   const checkoutSuffix = lang === "en" ? "&lang=en" : "";
   const money = new Intl.NumberFormat(lang === "en" ? "en-US" : "ko-KR", { style: "currency", currency: catalog.currency, maximumFractionDigits: 0 });
   const bindings = {
@@ -13,6 +13,24 @@
     sub: ["subscription-bank-monthly", "subscription-bank-yearly", "subscription-mock-monthly"],
     books: ["book-koi-intro", "book-algorithm-vol1", "book-koi-past", "ebook-algorithm-set"],
     live: ["live-vacation", "live-koi-final", "consult-strategy", "mentoring-monthly"]
+  };
+
+  const marketplaceStyle = document.createElement("style");
+  marketplaceStyle.textContent = ".marketplace-box{margin-top:12px;padding:11px;border:1px solid #DDE5EE;border-radius:10px;background:#FAFBFC}.marketplace-title{font-size:11.5px;font-weight:800;color:var(--navy);margin-bottom:7px}.marketplace-links{display:grid;grid-template-columns:1fr 1fr;gap:7px}.marketplace-link{display:flex;align-items:center;justify-content:center;min-height:36px;padding:8px;border:1px solid #D7DEE8;border-radius:8px;background:#fff;color:#263B50;font-size:11.5px;font-weight:750;text-align:center;transition:.15s}.marketplace-link:hover{border-color:var(--gold);box-shadow:0 5px 14px rgba(11,42,74,.08);transform:translateY(-1px)}.marketplace-note{margin-top:6px;color:var(--gray);font-size:10.5px}.product-modal .marketplace-box{margin-top:18px}@media(max-width:420px){.marketplace-links{grid-template-columns:1fr}}";
+  document.head.appendChild(marketplaceStyle);
+
+  const marketplaceMarkup = (id, item) => {
+    if (item.type !== "physical_book") return "";
+    const marketplaces = catalog.marketplaces || {};
+    const query = encodeURIComponent(`스타게이트 ${products[id]?.name || item.name}`);
+    const links = Object.values(marketplaces).map((marketplace) => {
+      const direct = marketplace.links?.[item.sku];
+      const href = direct || `${marketplace.searchUrl}${query}`;
+      const text = lang === "en" ? marketplace.en : marketplace.ko;
+      return `<a class="marketplace-link" href="${href}" target="_blank" rel="noopener noreferrer nofollow sponsored" aria-label="${text}: ${item.name}">${text} ↗</a>`;
+    }).join("");
+    if (!links) return "";
+    return `<div class="marketplace-box"><div class="marketplace-title">${copy.marketplaces}</div><div class="marketplace-links">${links}</div><div class="marketplace-note">${copy.externalNote}</div></div>`;
   };
 
   const label = (id) => {
@@ -44,7 +62,7 @@
     if (!item) return;
     const modal = ensureModal();
     const related = (item.related || []).map((relatedId) => `<button type="button" data-detail="${relatedId}">${label(relatedId)}</button>`).join("");
-    document.getElementById("product-modal-content").innerHTML = `<div class="modal-kicker">${item.type.replaceAll("_", " ")} · ${item.sku}</div><h2 id="product-modal-title">${item.name}</h2><p class="modal-summary">${item.summary}</p><div class="modal-price">${money.format(item.amount)}${item.interval ? ` / ${item.interval === "month" ? copy.month : copy.year}` : ""}</div><h3>${copy.included}</h3><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h3>${copy.related}</h3><div class="modal-related">${related}</div>` : ""}<a class="btn gold modal-checkout" href="/checkout.html?sku=${encodeURIComponent(item.sku)}${checkoutSuffix}">${copy.checkout}</a>`;
+    document.getElementById("product-modal-content").innerHTML = `<div class="modal-kicker">${item.type.replaceAll("_", " ")} · ${item.sku}</div><h2 id="product-modal-title">${item.name}</h2><p class="modal-summary">${item.summary}</p><div class="modal-price">${money.format(item.amount)}${item.interval ? ` / ${item.interval === "month" ? copy.month : copy.year}` : ""}</div><h3>${copy.included}</h3><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h3>${copy.related}</h3><div class="modal-related">${related}</div>` : ""}<a class="btn gold modal-checkout" href="/checkout.html?sku=${encodeURIComponent(item.sku)}${checkoutSuffix}">${copy.checkout}</a>${marketplaceMarkup(id, item)}`;
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
     modal.querySelector(".product-modal__close").focus();
@@ -61,7 +79,7 @@
       const body = card.querySelector(".body") || card;
       body.querySelectorAll(":scope > .btn").forEach((button) => button.remove());
       const related = (item.related || []).map(label).join(" · ");
-      body.insertAdjacentHTML("beforeend", `<div class="content-pair"><b>${copy.content}</b><span>${related}</span></div><div class="product-actions"><button type="button" class="product-detail" data-detail="${id}">${copy.detail}</button><a class="product-buy" href="/checkout.html?sku=${encodeURIComponent(item.sku)}${checkoutSuffix}">${copy.checkout}</a></div>`);
+      body.insertAdjacentHTML("beforeend", `<div class="content-pair"><b>${copy.content}</b><span>${related}</span></div><div class="product-actions"><button type="button" class="product-detail" data-detail="${id}">${copy.detail}</button><a class="product-buy" href="/checkout.html?sku=${encodeURIComponent(item.sku)}${checkoutSuffix}">${copy.checkout}</a></div>${marketplaceMarkup(id, item)}`);
     });
   });
 
