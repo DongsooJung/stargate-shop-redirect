@@ -6,6 +6,20 @@
   window.STARGATE_CATALOG = {
     version: "2026-07-20",
     currency: "KRW",
+    marketplaces: {
+      coupang: {
+        ko: "쿠팡에서 구매",
+        en: "Buy on Coupang",
+        searchUrl: "https://www.coupang.com/np/search?q=",
+        links: {}
+      },
+      naverSmartStore: {
+        ko: "네이버 스마트스토어에서 구매",
+        en: "Buy on Naver Smart Store",
+        searchUrl: "https://search.shopping.naver.com/search/all?query=",
+        links: {}
+      }
+    },
     products: {
       "course-koi-advanced": product("SGE-COURSE-KOI-ADV", "course", "정보올림피아드 심화 (자료구조·알고리즘)", 429000, "자료구조부터 고급 알고리즘까지 대회 문제 해결력을 완성하는 심화 과정", ["자료구조 핵심", "그래프·동적계획법", "문제 풀이·코드 리뷰"], ["book-algorithm-vol1", "book-koi-past"]),
       "course-algorithm-bundle": product("SGE-COURSE-ALGO-BUNDLE", "course", "알고리즘 종합 패키지 (입문+심화)", 690600, "C++ 입문과 정보올림피아드 심화를 하나의 학습 경로로 구성한 패키지", ["C++ 문법과 구현", "자료구조·알고리즘", "입문→심화 로드맵"], ["book-koi-intro", "book-algorithm-vol1", "ebook-algorithm-set"]),
