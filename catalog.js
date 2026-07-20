@@ -4,7 +4,7 @@
   });
 
   window.STARGATE_CATALOG = {
-    version: "2026-07-19",
+    version: "2026-07-20",
     currency: "KRW",
     products: {
       "course-koi-advanced": product("SGE-COURSE-KOI-ADV", "course", "정보올림피아드 심화 (자료구조·알고리즘)", 429000, "자료구조부터 고급 알고리즘까지 대회 문제 해결력을 완성하는 심화 과정", ["자료구조 핵심", "그래프·동적계획법", "문제 풀이·코드 리뷰"], ["book-algorithm-vol1", "book-koi-past"]),
@@ -26,6 +26,28 @@
       "live-koi-final": product("SGE-LIVE-KOI-FINAL", "offline", "KOI 직전 파이널 캠프", 405000, "KOI 직전 2일간 실전 문제와 시간 관리 전략을 점검하는 캠프", ["실전 모의고사", "오답 분석", "대회 전략"], ["book-koi-past"]),
       "consult-strategy": product("SGE-CONSULT-STRATEGY-90", "consulting", "입시·대회 전략 컨설팅", 250000, "현재 수준과 목표를 진단해 90분 동안 개인 학습 전략을 설계", ["사전 진단", "90분 상담", "학습 로드맵"], ["course-algorithm-bundle"]),
       "mentoring-monthly": product("SGE-MENTOR-M4", "mentoring", "1:1 정기 멘토링", 752000, "월 4회 개인별 진도 관리와 코드·풀이 피드백을 제공", ["월 4회 1:1", "코드·풀이 피드백", "진도 관리"], ["course-koi-advanced"], { interval: "month" })
+    }
+
+  };
+
+  window.STARGATE_CATALOG.i18n = {
+    en: {
+      "course-koi-advanced": { name: "Advanced Computing Olympiad: Data Structures & Algorithms", summary: "Master competition problem-solving from core data structures to advanced algorithms.", contents: ["Core data structures", "Graphs and dynamic programming", "Problem solving and code review"] },
+      "course-algorithm-bundle": { name: "Complete Algorithms Package: Beginner + Advanced", summary: "A single learning path from C++ fundamentals to advanced Computing Olympiad preparation.", contents: ["C++ syntax and implementation", "Data structures and algorithms", "Beginner-to-advanced roadmap"] },
+      "course-kmo-number-combination": { name: "KMO Number Theory & Combinatorics", summary: "Concepts, proofs, and past-problem applications for high-frequency KMO topics.", contents: ["Core number theory", "Combinatorial thinking", "KMO problem strategies"] },
+      "course-koi-intro": { name: "Computing Olympiad Fundamentals: C++ Basics", summary: "C++ fundamentals and introductory problem solving for first-time learners.", contents: ["Input, conditions, and loops", "Arrays, functions, and STL", "Basic implementation problems"] },
+      "subscription-bank-monthly": { name: "Monthly Problem Bank", summary: "Monthly access to graded problems, judging, and a personalized mistake notebook.", contents: ["Problems across all programs", "Difficulty filters", "Mistake notebook"] },
+      "subscription-bank-yearly": { name: "Annual Problem Bank", summary: "Unlimited annual access to the complete problem bank.", contents: ["Unlimited problem access", "Early access to new problems", "Two-month price benefit"] },
+      "subscription-mock-monthly": { name: "Monthly Mock Exams", summary: "Two competition-style mock exams per month with analytics and solution lectures.", contents: ["Two monthly mock exams", "Performance report", "Solution lectures"] },
+      "book-koi-intro": { name: "Computing Olympiad Fundamentals Textbook", summary: "A beginner textbook with C++ concepts and hands-on practice aligned to the course.", contents: ["Concepts by lesson", "Beginner exercises", "Review checklists"] },
+      "book-algorithm-vol1": { name: "Algorithms Workbook, Volume 1", summary: "A structured workbook designed to accompany the advanced Computing Olympiad course.", contents: ["Data structures", "Graphs and search", "Dynamic programming"] },
+      "book-koi-past": { name: "KOI Past Papers & Solutions (2015–2025)", summary: "Past KOI problems from 2015–2025 organized by topic with practical solutions.", contents: ["Problems by year", "Topic-based solutions", "Competition checkpoints"] },
+      "ebook-algorithm-set": { name: "Algorithms Workbook eBook Set", summary: "A digital workbook set for immediate use alongside beginner and advanced courses.", contents: ["Beginner eBook", "Advanced eBook", "Study progress tracker"] },
+      "book-kmo-number-combination": { name: "KMO Number Theory & Combinatorics Workbook", summary: "A proof and past-problem workbook aligned with the KMO course.", contents: ["Number theory theorems", "Combinatorial proofs", "KMO application problems"] },
+      "live-vacation": { name: "Vacation Live Intensive (4 Weeks)", summary: "Eight weekend live sessions focused on correcting individual weaknesses.", contents: ["Eight weekend sessions", "Assignment feedback", "Class materials"] },
+      "live-koi-final": { name: "KOI Final Camp", summary: "A two-day final camp for competition problems, review, and time-management strategy.", contents: ["Full mock exam", "Mistake analysis", "Competition strategy"] },
+      "consult-strategy": { name: "Admissions & Competition Strategy Consulting", summary: "A 90-minute personal assessment and learning roadmap based on current level and goals.", contents: ["Pre-assessment", "90-minute consultation", "Personal learning roadmap"] },
+      "mentoring-monthly": { name: "Ongoing 1:1 Mentoring", summary: "Four monthly sessions with progress management and code or solution feedback.", contents: ["Four 1:1 sessions per month", "Code and solution feedback", "Progress management"] }
     }
   };
 })();
