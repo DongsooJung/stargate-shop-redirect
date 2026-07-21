@@ -43,3 +43,7 @@ export async function recordWebhook(transmissionId: string, eventType: string, o
   const rows = await getDb()`INSERT INTO payment_webhook_events (transmission_id, event_type, order_id, payload) VALUES (${transmissionId}, ${eventType}, ${orderId}, ${JSON.stringify(payload)}::jsonb) ON CONFLICT (transmission_id) DO NOTHING RETURNING transmission_id`;
   return rows.length === 1;
 }
+
+export async function releaseWebhook(transmissionId: string) {
+  await getDb()`DELETE FROM payment_webhook_events WHERE transmission_id=${transmissionId}`;
+}

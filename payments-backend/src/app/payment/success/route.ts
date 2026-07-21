@@ -10,6 +10,7 @@ export async function GET(request: Request) {
   const orderId = url.searchParams.get("orderId") || "";
   const amount = Number(url.searchParams.get("amount"));
   try {
+    if (!paymentKey || !orderId || !Number.isSafeInteger(amount) || amount <= 0) throw new Error("INVALID_SUCCESS_PARAMETERS");
     await confirmOrder({ paymentKey, orderId, amount });
     return NextResponse.redirect(`${origins().pay}/orders/${encodeURIComponent(orderId)}`);
   } catch (error) {

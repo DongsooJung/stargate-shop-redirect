@@ -9,6 +9,7 @@ Server-side Toss Payments gateway for `shop.stargateedu.co.kr`, intended for dep
 - Toss secret keys are read only from server environment variables.
 - Payment approval compares the stored order ID, amount, and currency.
 - Webhook payloads are verified by fetching the payment from Toss before the database is updated.
+- Non-PayPal foreign-wallet webhooks complete the required server-side payment confirmation.
 - Duplicate webhook transmissions and payment mutations are idempotent.
 
 ## Setup
