@@ -54,7 +54,7 @@
     const localized = { ...raw, ...(translations[relatedId] || {}) };
     return `<a href="${shopUrl}#${relatedId}">${localized.name}</a>`;
   }).join("");
-  const methodEntries = Object.entries(payments?.toss?.methods || {}).filter(([, method]) => method.enabled);
+  const methodEntries = Object.entries(payments?.toss?.methods || {}).filter(([key, method]) => method.enabled && (key !== "globalWallet" || Number.isFinite(payments?.usdPrices?.[item.sku])));
   const methods = methodEntries.map(([key, method], index) => `<label class="method"><input type="radio" name="payment-method" value="${key}" ${index === 0 ? "checked" : ""}><span><b>${lang === "en" ? method.en : method.ko}</b><small>${lang === "en" ? method.descriptionEn : method.descriptionKo}</small></span><span class="currency">${method.currency}</span></label>`).join("");
   const subject = encodeURIComponent(`[${item.sku}] ${item.name} ${lang === "en" ? "payment inquiry" : "결제 문의"}`);
   root.innerHTML = `<div class="kicker">Secure checkout · ${item.sku}</div><h1>${item.name}</h1><p class="summary">${item.summary}</p><div class="price">${money.format(item.amount)}${interval}</div><h2>${copy.included}</h2><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h2>${copy.related}</h2><div class="related">${related}</div>` : ""}<h2>${copy.choose}</h2><div class="methods">${methods}</div><label class="consent"><input id="policy-consent" type="checkbox"><span>${copy.agree} <a href="/terms.html" target="_blank" rel="noopener">${copy.terms}</a>, <a href="/privacy.html" target="_blank" rel="noopener">${copy.privacy}</a>, <a href="https://stargateedu.co.kr/refund/" target="_blank" rel="noopener">${copy.refund}</a>.</span></label><button id="pay-button" class="pay" type="button" disabled>${copy.pay}</button><div id="setup-notice" class="notice"><b>${copy.setup}</b><br>${copy.setupBody}</div><a class="support" href="mailto:${payments.supportEmail}?subject=${subject}">${copy.support}</a><p class="trust-note">${copy.trust}</p>`;
@@ -68,7 +68,8 @@
   const checkoutUrl = () => {
     const method = document.querySelector('input[name="payment-method"]:checked')?.value;
     const apiBase = safeHttps(payments?.toss?.apiBase);
-    if (apiBase) {
+    const testSkus = Array.isArray(payments?.toss?.testSkus) ? payments.toss.testSkus : [];
+    if (apiBase && testSkus.includes(item.sku)) {
       const url = new URL("checkout", apiBase.href.endsWith("/") ? apiBase.href : apiBase.href + "/");
       url.searchParams.set("sku", item.sku);
       url.searchParams.set("method", method);
