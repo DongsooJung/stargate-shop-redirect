@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>글로벌 결제 · Stargate Edu Shop</title><meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>결제 · Stargate Edu Shop</title>
+<meta name="robots" content="noindex,nofollow">
 <style>
-:root{--navy:#0B2A4A;--gold:#C9A227;--ink:#1A2233;--gray:#667085;--line:#E4E7EC;--bg:#F7F9FC}*{box-sizing:border-box}body{margin:0;font-family:'Pretendard','Noto Sans KR','Malgun Gothic',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}.wrap{max-width:760px;margin:auto;padding:0 20px}.top{height:64px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:800;color:var(--navy);text-decoration:none}.logo b{color:var(--gold)}.back{font-size:13px;color:var(--gray);text-decoration:none}main{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;margin:34px 0 60px;box-shadow:0 16px 40px rgba(11,42,74,.08)}.kicker{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:.5px;text-transform:uppercase}h1{font-size:28px;color:var(--navy);line-height:1.3;margin:8px 0}.summary{color:var(--gray)}.price{font-size:30px;font-weight:800;color:var(--navy);padding:18px 0;border-bottom:1px solid var(--line)}h2{font-size:16px;color:var(--navy);margin-top:24px}ul{padding-left:22px;color:#475467}.related{display:flex;gap:8px;flex-wrap:wrap}.related a{font-size:13px;background:#EEF3F8;color:var(--navy);border-radius:999px;padding:7px 12px;text-decoration:none}.notice{background:#FFF8E1;border:1px solid #F0D77A;border-radius:12px;padding:14px 16px;color:#5B4A12;font-size:14px;margin-top:24px}.pay{display:block;text-align:center;margin-top:18px;background:var(--gold);color:#302600;border-radius:10px;padding:14px 20px;font-weight:800;text-decoration:none}.pay.disabled{background:#D0D5DD;color:#667085;cursor:not-allowed}.support{display:block;text-align:center;color:var(--navy);font-size:13px;margin-top:12px}.trust-note{font-size:12px;color:var(--gray);text-align:center;margin-top:18px}@media(max-width:560px){main{margin-top:18px;padding:24px}h1{font-size:23px}}
-</style></head>
-<body><div class="wrap"><div class="top"><a class="logo" id="home-link" href="/">STARGATE<b>EDU</b></a><a class="back" id="back-link" href="/">← 상품으로 돌아가기</a></div><main id="checkout"><p id="loading">상품 정보를 확인하고 있습니다.</p></main></div>
-<script src="/catalog.js?v=20260720"></script><script src="/payment-links.js?v=20260720"></script>
+:root{--navy:#0B2A4A;--navy2:#123A63;--gold:#C9A227;--ink:#1A2233;--gray:#667085;--line:#E4E7EC;--bg:#F7F9FC;--ok:#067647;--warn:#8A6100}*{box-sizing:border-box}body{margin:0;font-family:'Pretendard','Noto Sans KR','Malgun Gothic',Inter,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}.wrap{max-width:800px;margin:auto;padding:0 20px}.top{height:64px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:800;color:var(--navy);text-decoration:none}.logo b{color:var(--gold)}.back{font-size:13px;color:var(--gray);text-decoration:none}main{background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;margin:34px 0 60px;box-shadow:0 16px 40px rgba(11,42,74,.08)}.kicker{font-size:12px;font-weight:800;color:var(--gold);letter-spacing:.5px;text-transform:uppercase}h1{font-size:28px;color:var(--navy);line-height:1.3;margin:8px 0}.summary{color:var(--gray)}.price{font-size:30px;font-weight:800;color:var(--navy);padding:18px 0;border-bottom:1px solid var(--line)}h2{font-size:17px;color:var(--navy);margin:26px 0 10px}ul{padding-left:22px;color:#475467}.related{display:flex;gap:8px;flex-wrap:wrap}.related a{font-size:13px;background:#EEF3F8;color:var(--navy);border-radius:999px;padding:7px 12px;text-decoration:none}.methods{display:grid;gap:10px}.method{border:1px solid var(--line);border-radius:13px;padding:14px 15px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:.15s}.method:hover{border-color:var(--gold)}.method:has(input:checked){border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,162,39,.16)}.method input{margin-top:5px;accent-color:var(--navy)}.method b{display:block;color:var(--navy)}.method small{display:block;color:var(--gray);font-size:12px}.currency{margin-left:auto;background:#EEF3F8;color:var(--navy);border-radius:999px;padding:3px 9px;font-size:11px;font-weight:800}.consent{display:flex;gap:9px;align-items:flex-start;margin:20px 0 0;padding:14px;border-radius:10px;background:#F8FAFC;font-size:13px;color:#475467}.consent input{margin-top:4px;accent-color:var(--navy)}.consent a{color:var(--navy)}.pay{display:block;width:100%;border:0;text-align:center;margin-top:16px;background:var(--gold);color:#302600;border-radius:10px;padding:14px 20px;font:inherit;font-weight:800;cursor:pointer}.pay:disabled{background:#D0D5DD;color:#667085;cursor:not-allowed}.notice{background:#FFF8E1;border:1px solid #F0D77A;border-radius:12px;padding:14px 16px;color:#5B4A12;font-size:13px;margin-top:14px}.support{display:block;text-align:center;color:var(--navy);font-size:13px;margin-top:12px}.trust-note{font-size:12px;color:var(--gray);text-align:center;margin-top:18px}.status{font-size:12px;color:var(--warn);margin-top:8px}.status.ready{color:var(--ok)}@media(max-width:560px){main{margin-top:18px;padding:24px}h1{font-size:23px}.method{align-items:flex-start}.currency{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="logo" id="home-link" href="/">STARGATE<b>EDU</b></a><a class="back" id="back-link" href="/">← 상품으로 돌아가기</a></div>
+  <main id="checkout"><p id="loading">상품 정보를 확인하고 있습니다.</p></main>
+</div>
+<script src="/catalog.js?v=20260721"></script>
+<script src="/payment-links.js?v=20260721"></script>
 <script>
 (() => {
   const params = new URLSearchParams(location.search);
@@ -15,31 +23,17 @@
   const lang = params.get("lang") === "en" ? "en" : "ko";
   const catalog = window.STARGATE_CATALOG;
   const payments = window.STARGATE_PAYMENTS;
-  const translations = catalog.i18n?.[lang] || {};
-  const entry = Object.entries(catalog.products).find(([, item]) => item.sku === sku);
   const root = document.getElementById("checkout");
+  const translations = catalog?.i18n?.[lang] || {};
+  const entry = Object.entries(catalog?.products || {}).find(([, item]) => item.sku === sku);
   const copy = lang === "en" ? {
-    back: "← Return to products", loading: "Checking product information.",
-    missing: "Product not found", retry: "Please select the product again.",
-    list: "View products", included: "What’s included", related: "Related courses & books",
-    pay: "Pay securely with", waitTitle: "Payment link pending",
-    wait: "The product, pricing, and content mapping are ready. Checkout activates automatically when the PayPal Business link is registered.",
-    preparing: "Global checkout coming soon", support: "Payment support for this product",
-    trust: "Payment details are processed on the payment provider’s secure page and are never stored by Stargate Edu.",
-    month: "month", year: "year"
+    back:"← Return to products",loading:"Checking product information.",missing:"Product not found",retry:"Please select the product again.",list:"View products",included:"What’s included",related:"Related courses & books",choose:"Choose a payment method",agree:"I agree to the",terms:"Terms of Service",privacy:"Privacy Policy",refund:"Refund Policy",pay:"Continue to secure payment",setup:"Payment connection pending",setupBody:"The checkout UI is ready. This method will activate after the Toss server endpoint and merchant contract are configured.",support:"Payment support",trust:"Card and wallet details are entered only on the payment provider’s secure page. Stargate Edu does not store full payment credentials.",month:"month",year:"year",invalid:"The selected payment method is not available yet."
   } : {
-    back: "← 상품으로 돌아가기", loading: "상품 정보를 확인하고 있습니다.",
-    missing: "상품을 찾을 수 없습니다", retry: "상품 목록에서 다시 선택해 주세요.",
-    list: "상품 목록 보기", included: "포함 콘텐츠", related: "연결된 강의·교재",
-    pay: "안전하게 결제", waitTitle: "결제 링크 연결 대기",
-    wait: "상품·금액·연계 콘텐츠 구성은 완료되었으며 PayPal Business 링크가 등록되면 자동 활성화됩니다.",
-    preparing: "글로벌 결제 준비 중", support: "이 상품 결제 문의",
-    trust: "결제 정보는 Stargate Edu 서버에 저장하지 않고 결제 플랫폼의 보안 화면에서 처리합니다.",
-    month: "월", year: "년"
+    back:"← 상품으로 돌아가기",loading:"상품 정보를 확인하고 있습니다.",missing:"상품을 찾을 수 없습니다",retry:"상품 목록에서 다시 선택해 주세요.",list:"상품 목록 보기",included:"포함 콘텐츠",related:"연결된 강의·교재",choose:"결제수단 선택",agree:"다음 정책에 동의합니다:",terms:"이용약관",privacy:"개인정보처리방침",refund:"환불정책",pay:"안전한 결제 페이지로 이동",setup:"결제 API 연결 대기",setupBody:"결제 선택 화면은 준비되었습니다. 토스 서버 주소와 가맹점 계약이 설정되면 해당 결제수단이 자동 활성화됩니다.",support:"결제 문의",trust:"카드·전자지갑 정보는 결제 플랫폼의 보안 화면에서만 입력하며 Stargate Edu는 전체 결제정보를 저장하지 않습니다.",month:"월",year:"년",invalid:"선택한 결제수단은 아직 사용할 수 없습니다."
   };
   const shopUrl = lang === "en" ? "/en.html" : "/";
   document.documentElement.lang = lang;
-  document.title = (lang === "en" ? "Global Checkout" : "글로벌 결제") + " · Stargate Edu Shop";
+  document.title = (lang === "en" ? "Checkout" : "결제") + " · Stargate Edu Shop";
   document.getElementById("home-link").href = shopUrl;
   document.getElementById("back-link").href = shopUrl;
   document.getElementById("back-link").textContent = copy.back;
@@ -52,23 +46,53 @@
 
   const [id, source] = entry;
   const item = { ...source, ...(translations[id] || {}) };
-  const money = new Intl.NumberFormat(lang === "en" ? "en-US" : "ko-KR", {
-    style: "currency", currency: catalog.currency, maximumFractionDigits: 0
-  });
-  const paymentUrl = payments.links[item.sku];
-  let safePaymentUrl = "";
-  try {
-    const parsed = new URL(paymentUrl);
-    if (parsed.protocol === "https:") safePaymentUrl = parsed.href;
-  } catch (error) {}
-  const related = (item.related || []).map((relatedId) => {
-    const relatedSource = catalog.products[relatedId];
-    if (!relatedSource) return "";
-    const relatedItem = { ...relatedSource, ...(translations[relatedId] || {}) };
-    return `<a href="${shopUrl}#${relatedId}">${relatedItem.name}</a>`;
-  }).join("");
-  const subject = encodeURIComponent(`[${item.sku}] ${item.name} ${lang === "en" ? "payment inquiry" : "결제 문의"}`);
+  const money = new Intl.NumberFormat(lang === "en" ? "en-US" : "ko-KR", {style:"currency",currency:catalog.currency,maximumFractionDigits:0});
   const interval = item.interval ? ` / ${item.interval === "month" ? copy.month : copy.year}` : "";
-  root.innerHTML = `<div class="kicker">${payments.provider} Global Checkout · ${item.sku}</div><h1>${item.name}</h1><p class="summary">${item.summary}</p><div class="price">${money.format(item.amount)}${interval}</div><h2>${copy.included}</h2><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h2>${copy.related}</h2><div class="related">${related}</div>` : ""}${safePaymentUrl ? `<a class="pay" href="${safePaymentUrl}" rel="noopener">${copy.pay} ${payments.provider}</a>` : `<div class="notice"><b>${copy.waitTitle}</b><br>${copy.wait}</div><span class="pay disabled" aria-disabled="true">${copy.preparing}</span>`}<a class="support" href="mailto:${payments.supportEmail}?subject=${subject}">${copy.support}</a><p class="trust-note">${copy.trust}</p>`;
+  const related = (item.related || []).map((relatedId) => {
+    const raw = catalog.products[relatedId];
+    if (!raw) return "";
+    const localized = { ...raw, ...(translations[relatedId] || {}) };
+    return `<a href="${shopUrl}#${relatedId}">${localized.name}</a>`;
+  }).join("");
+  const methodEntries = Object.entries(payments?.toss?.methods || {}).filter(([key, method]) => method.enabled && (key !== "globalWallet" || Number.isFinite(payments?.usdPrices?.[item.sku])));
+  const methods = methodEntries.map(([key, method], index) => `<label class="method"><input type="radio" name="payment-method" value="${key}" ${index === 0 ? "checked" : ""}><span><b>${lang === "en" ? method.en : method.ko}</b><small>${lang === "en" ? method.descriptionEn : method.descriptionKo}</small></span><span class="currency">${method.currency}</span></label>`).join("");
+  const subject = encodeURIComponent(`[${item.sku}] ${item.name} ${lang === "en" ? "payment inquiry" : "결제 문의"}`);
+  root.innerHTML = `<div class="kicker">Secure checkout · ${item.sku}</div><h1>${item.name}</h1><p class="summary">${item.summary}</p><div class="price">${money.format(item.amount)}${interval}</div><h2>${copy.included}</h2><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h2>${copy.related}</h2><div class="related">${related}</div>` : ""}<h2>${copy.choose}</h2><div class="methods">${methods}</div><label class="consent"><input id="policy-consent" type="checkbox"><span>${copy.agree} <a href="/terms.html" target="_blank" rel="noopener">${copy.terms}</a>, <a href="/privacy.html" target="_blank" rel="noopener">${copy.privacy}</a>, <a href="https://stargateedu.co.kr/refund/" target="_blank" rel="noopener">${copy.refund}</a>.</span></label><button id="pay-button" class="pay" type="button" disabled>${copy.pay}</button><div id="setup-notice" class="notice"><b>${copy.setup}</b><br>${copy.setupBody}</div><a class="support" href="mailto:${payments.supportEmail}?subject=${subject}">${copy.support}</a><p class="trust-note">${copy.trust}</p>`;
+
+  const consent = document.getElementById("policy-consent");
+  const payButton = document.getElementById("pay-button");
+  const notice = document.getElementById("setup-notice");
+  const safeHttps = (value) => {
+    try { const url = new URL(value); return url.protocol === "https:" ? url : null; } catch (_) { return null; }
+  };
+  const checkoutUrl = () => {
+    const method = document.querySelector('input[name="payment-method"]:checked')?.value;
+    const apiBase = safeHttps(payments?.toss?.apiBase);
+    const testSkus = Array.isArray(payments?.toss?.testSkus) ? payments.toss.testSkus : [];
+    if (apiBase && testSkus.includes(item.sku)) {
+      const url = new URL("checkout", apiBase.href.endsWith("/") ? apiBase.href : apiBase.href + "/");
+      url.searchParams.set("sku", item.sku);
+      url.searchParams.set("method", method);
+      url.searchParams.set("lang", lang);
+      return url;
+    }
+    if (method === "globalWallet") return safeHttps(payments?.paypal?.links?.[item.sku]);
+    return null;
+  };
+  const refresh = () => {
+    const url = checkoutUrl();
+    payButton.disabled = !consent.checked || !url;
+    notice.hidden = Boolean(url);
+  };
+  consent.addEventListener("change", refresh);
+  document.querySelectorAll('input[name="payment-method"]').forEach((input) => input.addEventListener("change", refresh));
+  payButton.addEventListener("click", () => {
+    const url = checkoutUrl();
+    if (!url) { alert(copy.invalid); return; }
+    location.assign(url.href);
+  });
+  refresh();
 })();
-</script></body></html>
+</script>
+</body>
+</html>
