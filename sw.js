@@ -1,5 +1,5 @@
-const CACHE = "stargate-edu-shop-v3";
-const ASSETS = ["/", "/index.html", "/checkout.html", "/catalog.js", "/payment-links.js", "/store.js", "/manifest.json",
+const CACHE = "stargate-edu-shop-v4";
+const ASSETS = ["/", "/index.html", "/checkout.html", "/catalog.js", "/payment-links.js", "/store.js", "/manifest.json", "/faq.html",
   "/icons/icon-192.png", "/icons/icon-512.png"];
 
 self.addEventListener("install", (e) => {
