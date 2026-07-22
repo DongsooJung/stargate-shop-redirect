@@ -1,11 +1,12 @@
 // Public checkout routing only. Never put Toss secret keys in this file.
-// Keep apiBase empty until the server-side Toss integration is deployed.
+// eBook pilot routes only the allow-listed test SKU to the isolated Toss backend.
 window.STARGATE_PAYMENTS = {
-  mode: "setup",
+  mode: "ebook-test",
   supportEmail: "ceo@stargateedu.co.kr",
   toss: {
     provider: "Toss Payments",
-    apiBase: "",
+    apiBase: "https://stargate-payments.vercel.app/",
+    testSkus: ["SGE-EBOOK-ALGO-SET"],
     methods: {
       domestic: {
         enabled: true,
