@@ -10,7 +10,7 @@
   const money = new Intl.NumberFormat(lang === "en" ? "en-US" : "ko-KR", { style: "currency", currency: catalog.currency, maximumFractionDigits: 0 });
   const bindings = {
     courses: ["course-koi-advanced", "course-algorithm-bundle", "course-kmo-number-combination", "course-koi-intro"],
-    sub: ["subscription-bank-monthly", "subscription-bank-yearly", "subscription-mock-monthly"],
+    sub: ["subscription-bank-monthly", "subscription-mock-monthly"],
     books: ["book-koi-intro", "book-algorithm-vol1", "book-koi-past", "ebook-algorithm-set"],
     live: ["live-vacation", "live-koi-final", "consult-strategy", "mentoring-monthly"]
   };
