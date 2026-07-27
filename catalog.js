@@ -4,7 +4,7 @@
   });
 
   window.STARGATE_CATALOG = {
-    version: "2026-07-20",
+    version: "2026-07-27",
     currency: "KRW",
     marketplaces: {
       coupang: {
@@ -27,7 +27,6 @@
       "course-koi-intro": product("SGE-COURSE-KOI-INTRO", "course", "정보올림피아드 입문 (C++ 기초)", 297000, "처음 시작하는 학습자를 위한 C++ 기초와 문제 해결 입문 과정", ["입출력·조건·반복", "배열·함수·STL", "기초 구현 문제"], ["book-koi-intro", "ebook-algorithm-set"]),
 
       "subscription-bank-monthly": product("SGE-SUB-BANK-M", "subscription", "문제은행 월 구독", 39000, "난이도별 문제, 채점 및 오답노트를 매월 이용하는 구독", ["전 과정 문제", "난이도별 필터", "오답노트"], ["course-koi-intro", "course-koi-advanced"], { interval: "month" }),
-      "subscription-bank-yearly": product("SGE-SUB-BANK-Y", "subscription", "문제은행 연 구독", 390000, "문제은행 전 과정을 1년간 이용하는 연간 구독", ["전 과정 무제한", "신규 문제 우선", "2개월 가격 혜택"], ["course-algorithm-bundle"], { interval: "year" }),
       "subscription-mock-monthly": product("SGE-SUB-MOCK-M", "subscription", "월간 모의고사", 49000, "월 2회 실전 모의고사와 성적 분석 및 해설 강의 구독", ["월 2회 모의고사", "성적 리포트", "해설 강의"], ["book-koi-past", "course-koi-advanced"], { interval: "month" }),
 
       "book-koi-intro": product("SGE-BOOK-KOI-INTRO", "physical_book", "정보올림피아드 입문 교재", 28800, "C++ 기초 강의의 개념 설명과 실습 문제를 담은 입문 교재", ["강의별 핵심 개념", "기초 실습", "복습 체크리스트"], ["course-koi-intro", "course-algorithm-bundle"]),
@@ -51,7 +50,6 @@
       "course-kmo-number-combination": { name: "KMO Number Theory & Combinatorics", summary: "Concepts, proofs, and past-problem applications for high-frequency KMO topics.", contents: ["Core number theory", "Combinatorial thinking", "KMO problem strategies"] },
       "course-koi-intro": { name: "Computing Olympiad Fundamentals: C++ Basics", summary: "C++ fundamentals and introductory problem solving for first-time learners.", contents: ["Input, conditions, and loops", "Arrays, functions, and STL", "Basic implementation problems"] },
       "subscription-bank-monthly": { name: "Monthly Problem Bank", summary: "Monthly access to graded problems, judging, and a personalized mistake notebook.", contents: ["Problems across all programs", "Difficulty filters", "Mistake notebook"] },
-      "subscription-bank-yearly": { name: "Annual Problem Bank", summary: "Unlimited annual access to the complete problem bank.", contents: ["Unlimited problem access", "Early access to new problems", "Two-month price benefit"] },
       "subscription-mock-monthly": { name: "Monthly Mock Exams", summary: "Two competition-style mock exams per month with analytics and solution lectures.", contents: ["Two monthly mock exams", "Performance report", "Solution lectures"] },
       "book-koi-intro": { name: "Computing Olympiad Fundamentals Textbook", summary: "A beginner textbook with C++ concepts and hands-on practice aligned to the course.", contents: ["Concepts by lesson", "Beginner exercises", "Review checklists"] },
       "book-algorithm-vol1": { name: "Algorithms Workbook, Volume 1", summary: "A structured workbook designed to accompany the advanced Computing Olympiad course.", contents: ["Data structures", "Graphs and search", "Dynamic programming"] },

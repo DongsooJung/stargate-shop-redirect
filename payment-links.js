@@ -10,7 +10,6 @@ window.STARGATE_PAYMENTS = {
     "SGE-COURSE-KMO-NC": "",
     "SGE-COURSE-KOI-INTRO": "",
     "SGE-SUB-BANK-M": "",
-    "SGE-SUB-BANK-Y": "",
     "SGE-SUB-MOCK-M": "",
     "SGE-BOOK-KOI-INTRO": "",
     "SGE-BOOK-ALGO-V1": "",
