@@ -4,7 +4,7 @@
   });
 
   window.STARGATE_CATALOG = {
-    version: "2026-07-27",
+    version: "2026-08-06",
     currency: "KRW",
     marketplaces: {
       coupang: {
@@ -21,6 +21,7 @@
       }
     },
     products: {
+      "ebook-koi-25": product("SGE-EBOOK-KOI-25", "digital_book", "KOI 수상자의 25개 핵심 알고리즘 가이드", 30000, "핵심 알고리즘 25개와 권장 학습 순서를 정리한 ISBN 등록 PDF 전자책", ["25개 핵심 알고리즘", "주제별 학습 순서", "알고리즘 학습 가이드"], ["course-koi-intro", "consult-strategy"]),
       "course-koi-advanced": product("SGE-COURSE-KOI-ADV", "course", "정보올림피아드 심화 (자료구조·알고리즘)", 429000, "자료구조부터 고급 알고리즘까지 대회 문제 해결력을 완성하는 심화 과정", ["자료구조 핵심", "그래프·동적계획법", "문제 풀이·코드 리뷰"], ["book-algorithm-vol1", "book-koi-past"]),
       "course-algorithm-bundle": product("SGE-COURSE-ALGO-BUNDLE", "course", "알고리즘 종합 패키지 (입문+심화)", 690600, "C++ 입문과 정보올림피아드 심화를 하나의 학습 경로로 구성한 패키지", ["C++ 문법과 구현", "자료구조·알고리즘", "입문→심화 로드맵"], ["book-koi-intro", "book-algorithm-vol1", "ebook-algorithm-set"]),
       "course-kmo-number-combination": product("SGE-COURSE-KMO-NC", "course", "KMO 대비 정수론·조합", 384000, "KMO 빈출 정수론과 조합 영역의 개념·증명·기출 적용 과정", ["정수론 핵심", "조합적 사고", "KMO 유형별 풀이"], ["book-kmo-number-combination"]),
@@ -45,6 +46,7 @@
 
   window.STARGATE_CATALOG.i18n = {
     en: {
+      "ebook-koi-25": { name: "25 Essential Algorithms by a KOI Award Winner", summary: "An ISBN-registered PDF guide to 25 essential algorithms and a recommended learning sequence.", contents: ["25 essential algorithms", "Topic-by-topic learning order", "Algorithm study guide"] },
       "course-koi-advanced": { name: "Advanced Computing Olympiad: Data Structures & Algorithms", summary: "Master competition problem-solving from core data structures to advanced algorithms.", contents: ["Core data structures", "Graphs and dynamic programming", "Problem solving and code review"] },
       "course-algorithm-bundle": { name: "Complete Algorithms Package: Beginner + Advanced", summary: "A single learning path from C++ fundamentals to advanced Computing Olympiad preparation.", contents: ["C++ syntax and implementation", "Data structures and algorithms", "Beginner-to-advanced roadmap"] },
       "course-kmo-number-combination": { name: "KMO Number Theory & Combinatorics", summary: "Concepts, proofs, and past-problem applications for high-frequency KMO topics.", contents: ["Core number theory", "Combinatorial thinking", "KMO problem strategies"] },

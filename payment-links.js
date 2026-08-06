@@ -5,6 +5,7 @@ window.STARGATE_PAYMENTS = {
   mode: "setup",
   supportEmail: "ceo@stargateedu.co.kr",
   links: {
+    "SGE-EBOOK-KOI-25": "",
     "SGE-COURSE-KOI-ADV": "",
     "SGE-COURSE-ALGO-BUNDLE": "",
     "SGE-COURSE-KMO-NC": "",
