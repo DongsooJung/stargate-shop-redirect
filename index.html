@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stargate Edu · 정보·수학 올림피아드 전문 온라인 스쿨</title>
-<meta name="description" content="KOI·KMO 정보/수학 올림피아드 전문. 서울대 박사·KOI 대상 강사진이 설계한 검증된 온라인 커리큘럼 — 강의·교재·문제은행·1:1 컨설팅.">
+<meta name="description" content="KOI·KMO 정보/수학 올림피아드 전문. 서울대 공대·스마트도시공학 박사과정 수료 대표 강사의 알고리즘 교재·강의·1:1 컨설팅.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://shop.stargateedu.co.kr/">
 <link rel="alternate" hreflang="ko" href="https://shop.stargateedu.co.kr/">
@@ -55,6 +55,12 @@
   .trust .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:16px;padding:26px 20px;text-align:center;}
   .trust b{display:block;font-size:26px;color:var(--gold);}
   .trust span{font-size:13px;color:#AFC6DD;}
+  .funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .funnel-step{border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff;}
+  .funnel-step .step{display:inline-block;color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.5px;margin-bottom:8px;}
+  .funnel-step h3{color:var(--navy);font-size:19px;margin-bottom:8px;}
+  .funnel-step p{color:var(--gray);font-size:14px;min-height:68px;}
+  .funnel-step .btn{display:block;text-align:center;margin-top:18px;padding:12px 16px;}
   section.block{padding:64px 0;}
   section.block.alt{background:var(--bg);}
   .head{text-align:center;margin-bottom:38px;}
@@ -105,7 +111,7 @@
   .business-info{margin-top:10px;color:#6f8298;font-size:12px;}
   .copy{border-top:1px solid #1c3550;text-align:center;padding:16px;color:#6f8298;font-size:12px;}
   @media(max-width:860px){
-    nav{display:none;} .cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3{grid-template-columns:1fr;}
+    nav{display:none;} .cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3,.funnel{grid-template-columns:1fr;}
   }
   @media(max-width:560px){.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}}
 </style>
@@ -125,17 +131,17 @@
   <div class="wrap">
     <div class="eyebrow">KOI · KMO 정보/수학 올림피아드 전문</div>
     <h1>대치동 최상위 커리큘럼을,<br>온라인에서 그대로.</h1>
-    <p>서울대 박사·KOI 대상 강사진이 설계한 검증된 올림피아드 과정. 강의·교재·문제은행·1:1 컨설팅을 한곳에서 만나보세요.</p>
-    <div class="cta"><a href="#courses" class="btn gold">수강 신청하기</a><a href="#courses" class="btn ghost">무료 체험 강의 ▶</a></div>
+    <p>서울대 공대 출신·스마트도시공학 박사과정 수료 대표 강사가 현재 수준과 목표에 맞춰 알고리즘 학습 경로를 제안합니다.</p>
+    <div class="cta"><a href="/start.html" class="btn gold">3분 무료 진단 시작</a><a href="#quick-start" class="btn ghost">상품 3개만 보기</a></div>
   </div>
 </section>
 
 <div class="trust">
   <div class="wrap">
-    <div><b>12,800+</b><span>누적 수강생</span></div>
-    <div><b>KOI 대상</b><span>지도 실적</span></div>
-    <div><b>서울대 박사</b><span>대표 강사</span></div>
-    <div><b>4.9 / 5.0</b><span>수강 만족도</span></div>
+    <div><b>25개</b><span>핵심 알고리즘</span></div>
+    <div><b>KOI 수상</b><span>대표 강사</span></div>
+    <div><b>서울대 공대</b><span>학부 졸업</span></div>
+    <div><b>1:1</b><span>진단·전략 상담</span></div>
   </div>
 </div>
 
@@ -153,14 +159,25 @@
   </div>
 </section>
 
-<section class="block alt" id="courses">
+<section class="block alt" id="quick-start">
   <div class="wrap">
-    <div class="head"><h2>베스트셀러 강의</h2><p>지금 가장 많이 찾는 과정</p></div>
+    <div class="head"><h2>가장 빠른 시작 경로</h2><p>현재 수준에 따라 필요한 상품 하나만 선택하세요.</p></div>
+    <div class="funnel">
+      <article class="funnel-step"><span class="step">STEP 1 · 무료</span><h3>3분 KOI 진단</h3><p>학년, C++ 경험, 목표를 입력하면 입문·심화·상담 중 적합한 경로를 바로 추천합니다.</p><a class="btn gold" href="/start.html">무료 진단 시작</a></article>
+      <article class="funnel-step"><span class="step">STEP 2 · ₩30,000</span><h3>25개 알고리즘 가이드</h3><p>ISBN 979-11-993413-0-2 전자책으로 핵심 주제와 학습 순서를 먼저 익힙니다.</p><a class="btn gold" href="/checkout.html?sku=SGE-EBOOK-KOI-25">전자책 주문</a></article>
+      <article class="funnel-step"><span class="step">STEP 3 · 1:1</span><h3>입시·대회 전략 컨설팅</h3><p>학생의 현재 수준과 목표를 바탕으로 학습 순서와 대회 준비 로드맵을 설계합니다.</p><a class="btn gold" href="/checkout.html?sku=SGE-CONSULT-STRATEGY-90">상담 신청</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="courses">
+  <div class="wrap">
+    <div class="head"><h2>온라인 강의</h2><p>목표와 선수학습에 따라 선택하는 과정</p></div>
     <div class="grid">
-      <div class="card"><div class="thumb"><span class="badge">BEST</span>정보올림피아드 심화</div><div class="body"><div class="lbl">온라인 강의 · 심화</div><h3>정보올림피아드 심화 (자료구조·알고리즘)</h3><div class="price"><span class="dc">22%</span><span class="now">429,000</span><span class="was">550,000</span></div><div class="meta">⭐ 4.9 · 수강생 1,240명</div></div></div>
-      <div class="card"><div class="thumb"><span class="badge">HOT</span>알고리즘 종합 패키지</div><div class="body"><div class="lbl">온라인 강의 · 패키지</div><h3>알고리즘 종합 패키지 (입문+심화)</h3><div class="price"><span class="dc">27%</span><span class="now">690,600</span><span class="was">946,000</span></div><div class="meta">⭐ 4.8 · 수강생 860명</div></div></div>
-      <div class="card"><div class="thumb">KMO 대비 정수론·조합</div><div class="body"><div class="lbl">온라인 강의 · 대회대비</div><h3>KMO 대비 정수론·조합</h3><div class="price"><span class="dc">20%</span><span class="now">384,000</span><span class="was">480,000</span></div><div class="meta">⭐ 4.9 · 수강생 540명</div></div></div>
-      <div class="card"><div class="thumb">정보올림피아드 입문</div><div class="body"><div class="lbl">온라인 강의 · 입문</div><h3>정보올림피아드 입문 (C++ 기초)</h3><div class="price"><span class="dc">25%</span><span class="now">297,000</span><span class="was">396,000</span></div><div class="meta">⭐ 4.9 · 수강생 2,100명</div></div></div>
+      <div class="card"><div class="thumb">정보올림피아드 심화</div><div class="body"><div class="lbl">온라인 강의 · 심화</div><h3>정보올림피아드 심화 (자료구조·알고리즘)</h3><div class="price"><span class="dc">22%</span><span class="now">429,000</span><span class="was">550,000</span></div><div class="meta">선수학습 확인 후 수강 권장</div></div></div>
+      <div class="card"><div class="thumb">알고리즘 종합 패키지</div><div class="body"><div class="lbl">온라인 강의 · 패키지</div><h3>알고리즘 종합 패키지 (입문+심화)</h3><div class="price"><span class="dc">27%</span><span class="now">690,600</span><span class="was">946,000</span></div><div class="meta">입문부터 심화까지 단계별 구성</div></div></div>
+      <div class="card"><div class="thumb">KMO 대비 정수론·조합</div><div class="body"><div class="lbl">온라인 강의 · 대회대비</div><h3>KMO 대비 정수론·조합</h3><div class="price"><span class="dc">20%</span><span class="now">384,000</span><span class="was">480,000</span></div><div class="meta">정수론·조합 집중 과정</div></div></div>
+      <div class="card"><div class="thumb">정보올림피아드 입문</div><div class="body"><div class="lbl">온라인 강의 · 입문</div><h3>정보올림피아드 입문 (C++ 기초)</h3><div class="price"><span class="dc">25%</span><span class="now">297,000</span><span class="was">396,000</span></div><div class="meta">프로그래밍 입문자용 C++ 기초</div></div></div>
     </div>
   </div>
 </section>
@@ -213,9 +230,9 @@
 
 <section class="block">
   <div class="cta-band">
-    <h2>지금, 무료 오리엔테이션으로 시작하세요</h2>
-    <p>레벨 진단부터 학습 로드맵까지 — 스타게이트가 함께합니다.</p>
-    <a href="#courses" class="btn gold">무료 상담 신청</a>
+    <h2>어떤 상품이 맞는지 3분 안에 확인하세요</h2>
+    <p>결과에 따라 전자책·입문 강의·전략 상담 중 하나를 추천합니다.</p>
+    <a href="/start.html" class="btn gold">무료 진단 시작</a>
   </div>
 </section>
 
@@ -231,7 +248,7 @@
   </div>
   <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr<div class="business-info">상호 : 주식회사 별의문 · 대표자명 : 정동수 · 사업자번호 : 848-86-03835 · 통신판매업신고번호 : 2025-서울강남-05246호</div></div>
 </footer>
-<script src="/catalog.js?v=20260727"></script><script src="/payment-links.js?v=20260727"></script><script src="/store.js?v=20260727"></script>
+<script src="/catalog.js?v=20260806"></script><script src="/payment-links.js?v=20260806"></script><script src="/store.js?v=20260806"></script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
