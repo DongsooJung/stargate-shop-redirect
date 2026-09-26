@@ -35,10 +35,10 @@
   .gnb{display:flex;align-items:center;gap:24px;height:64px;}
   .logo{font-weight:800;color:var(--navy);font-size:20px;letter-spacing:-.5px;}
   .logo b{color:var(--gold);}
-  nav{display:flex;gap:22px;font-size:14px;flex:1;flex-wrap:nowrap;white-space:nowrap;}
+  nav{display:flex;gap:14px;font-size:13px;flex:1;flex-wrap:nowrap;white-space:nowrap;}
   nav a{color:#344054;}nav a:hover{color:var(--navy);}
   .hbtns{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--gray);}
-  .portal-link{color:var(--navy);font-weight:600;}
+
   .lang-switch{padding:7px 10px;border:1px solid var(--line);border-radius:8px;color:var(--navy);font-weight:800;background:#fff;}
   .mini{padding:8px 16px;border-radius:8px;background:var(--gold);color:#3a2e00;font-weight:700;}
   .hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 55%,#1c4d80 100%);color:#fff;position:relative;overflow:hidden;}
@@ -98,10 +98,11 @@
   .fcol div{padding:2px 0;}
   .business-info{margin-top:10px;color:#6f8298;font-size:12px;}
   .copy{border-top:1px solid #1c3550;text-align:center;padding:16px;color:#6f8298;font-size:12px;}
+  .sale-status{grid-column:1/-1;color:var(--gray);font-size:11px;font-weight:700;padding-top:4px}.product-actions .sale-status{grid-column:1/-1}.mobile-menu{display:none;position:relative}.mobile-menu summary{cursor:pointer;list-style:none;border:1px solid var(--line);border-radius:8px;padding:7px 10px;color:var(--navy);font-weight:800}.mobile-menu[open] .mobile-menu__links{position:absolute;right:0;top:42px;min-width:220px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.15);padding:10px;display:grid;gap:2px}.mobile-menu__links a{display:block;padding:8px;color:var(--navy)}
   @media(max-width:860px){
-    nav{display:none;} .cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3{grid-template-columns:1fr;}
+    nav{display:none;} .mobile-menu{display:block}.gnb{gap:10px;justify-content:space-between}.hbtns{margin-left:auto}.cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3{grid-template-columns:1fr;}
   }
-  @media(max-width:560px){.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}}
+  @media(max-width:560px){.lang-switch{display:none}.mini{padding:8px 10px;font-size:12px}.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -109,9 +110,10 @@
   <div class="wrap gnb">
     <div class="logo">STARGATE<b>EDU</b></div>
     <nav>
-      <a href="#courses">Online Courses</a><a href="#books">Books & Workbooks</a><a href="#sub">Problem Bank & Mock Exams</a><a href="#live">Live Classes</a><a href="#consult">1:1 Consulting</a>
+      <a href="#courses">Online Courses</a><a href="#books">Books & Workbooks</a><a href="#sub">Problem Bank & Mock Exams</a><a href="#live">Live Classes</a><a href="#consult">1:1 Consulting</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">Company</a>
     </nav>
-    <div class="hbtns"><a class="lang-switch" href="/" lang="ko" hreflang="ko" aria-label="View this shop in Korean">KO</a><a href="https://www.stargateedu.co.kr/" rel="noopener" class="portal-link">← Main Portal</a><a href="#">Sign In</a><a href="#courses" class="mini">Enroll</a></div>
+    <details class="mobile-menu"><summary>Menu</summary><div class="mobile-menu__links"><a href="#courses">Courses</a><a href="#books">Books</a><a href="#sub">Problem Bank</a><a href="#live">Live &amp; consulting</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">Company</a></div></details>
+    <div class="hbtns"><a class="lang-switch" href="/" lang="ko" hreflang="ko" aria-label="View this shop in Korean">KO</a><a href="/start.html" class="mini">Free diagnosis (KO)</a></div>
   </div>
 </header>
 
@@ -197,7 +199,7 @@
   <div class="cta-band">
     <h2>Start with a Free Orientation</h2>
     <p>From level assessment to a personalized learning roadmap, Stargate is with you.</p>
-    <a href="#courses" class="btn gold">Request a Free Consultation</a>
+    <a href="/start.html" class="btn gold">Free diagnosis (Korean)</a>
   </div>
 </section>
 
@@ -214,7 +216,7 @@
   </div>
   <div class="copy">© 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr/en/</div>
 </footer>
-<script src="/catalog.js?v=20260806"></script><script src="/payment-links.js?v=20260806"></script><script src="/store.js?v=20260806"></script>
+<script src="/catalog.js?v=20260927"></script><script src="/payment-links.js?v=20260927"></script><script src="/store.js?v=20260927"></script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));

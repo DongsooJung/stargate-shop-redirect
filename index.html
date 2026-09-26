@@ -35,10 +35,10 @@
   .gnb{display:flex;align-items:center;gap:24px;height:64px;}
   .logo{font-weight:800;color:var(--navy);font-size:20px;letter-spacing:-.5px;}
   .logo b{color:var(--gold);}
-  nav{display:flex;gap:22px;font-size:14px;flex:1;flex-wrap:nowrap;white-space:nowrap;}
+  nav{display:flex;gap:14px;font-size:13px;flex:1;flex-wrap:nowrap;white-space:nowrap;}
   nav a{color:#344054;}nav a:hover{color:var(--navy);}
   .hbtns{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--gray);}
-  .portal-link{color:var(--navy);font-weight:600;}
+
   .lang-switch{padding:7px 10px;border:1px solid var(--line);border-radius:8px;color:var(--navy);font-weight:800;background:#fff;}
   .mini{padding:8px 16px;border-radius:8px;background:var(--gold);color:#3a2e00;font-weight:700;}
   .hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy2) 55%,#1c4d80 100%);color:#fff;position:relative;overflow:hidden;}
@@ -125,10 +125,11 @@
   .channel-card li{margin:5px 0;}
   .smart-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px;}
   .btn.navy{background:var(--navy);color:#fff;}
+  .sale-status{grid-column:1/-1;color:var(--gray);font-size:11px;font-weight:700;padding-top:4px}.product-actions .sale-status{grid-column:1/-1}.mobile-menu{display:none;position:relative}.mobile-menu summary{cursor:pointer;list-style:none;border:1px solid var(--line);border-radius:8px;padding:7px 10px;color:var(--navy);font-weight:800}.mobile-menu[open] .mobile-menu__links{position:absolute;right:0;top:42px;min-width:220px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.15);padding:10px;display:grid;gap:2px}.mobile-menu__links a{display:block;padding:8px;color:var(--navy)}
   @media(max-width:860px){
-    nav{display:none;} .cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3,.funnel,.channel-role{grid-template-columns:1fr;}
+    nav{display:none;} .mobile-menu{display:block}.gnb{gap:10px;justify-content:space-between}.hbtns{margin-left:auto}.cats{grid-template-columns:repeat(3,1fr);} .grid{grid-template-columns:repeat(2,1fr);} .grid3,.funnel,.channel-role{grid-template-columns:1fr;}
   }
-  @media(max-width:560px){.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}.strategy-report-entry{align-items:flex-start;flex-direction:column}.strategy-report-entry b{width:100%;text-align:center}}
+  @media(max-width:560px){.lang-switch{display:none}.mini{padding:8px 10px;font-size:12px}.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}.strategy-report-entry{align-items:flex-start;flex-direction:column}.strategy-report-entry b{width:100%;text-align:center}}
 </style>
 </head>
 <body>
@@ -136,9 +137,10 @@
   <div class="wrap gnb">
     <div class="logo">STARGATE<b>EDU</b></div>
     <nav>
-      <a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/smartstore-strategy.html">스마트스토어 전략</a><a href="/amazon-strategy.html">아마존 전략</a>
+      <a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
     </nav>
-    <div class="hbtns"><a class="lang-switch" href="/en.html" lang="en" hreflang="en" aria-label="View this shop in English">EN</a><a href="https://www.stargateedu.co.kr/" rel="noopener" class="portal-link">← 메인 포털</a><a href="#">로그인</a><a href="#courses" class="mini">수강신청</a></div>
+    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
+    <div class="hbtns"><a class="lang-switch" href="/en.html" lang="en" hreflang="en" aria-label="View this shop in English">EN</a><a href="/start.html" class="mini">무료 진단</a></div>
   </div>
 </header>
 
@@ -179,8 +181,8 @@
     <div class="head"><h2>가장 빠른 시작 경로</h2><p>현재 수준에 따라 필요한 상품 하나만 선택하세요.</p></div>
     <div class="funnel">
       <article class="funnel-step"><span class="step">STEP 1 · 무료</span><h3>3분 KOI 진단</h3><p>학년, C++ 경험, 목표를 입력하면 입문·심화·상담 중 적합한 경로를 바로 추천합니다.</p><a class="btn gold" href="/start.html">무료 진단 시작</a></article>
-      <article class="funnel-step"><span class="step">STEP 2 · ₩30,000</span><h3>25개 알고리즘 가이드</h3><p>ISBN 979-11-993413-0-2 전자책으로 핵심 주제와 학습 순서를 먼저 익힙니다.</p><a class="btn gold" href="/checkout.html?sku=SGE-EBOOK-KOI-25">전자책 주문</a></article>
-      <article class="funnel-step"><span class="step">STEP 3 · 1:1</span><h3>입시·대회 전략 컨설팅</h3><p>학생의 현재 수준과 목표를 바탕으로 학습 순서와 대회 준비 로드맵을 설계합니다.</p><a class="btn gold" href="/checkout.html?sku=SGE-CONSULT-STRATEGY-90">상담 신청</a></article>
+      <article class="funnel-step"><span class="step">STEP 2 · ₩30,000</span><h3>25개 알고리즘 가이드</h3><p>ISBN 979-11-993413-0-2 전자책으로 핵심 주제와 학습 순서를 먼저 익힙니다.</p><a class="btn gold" href="/checkout.html?sku=SGE-EBOOK-KOI-25">전자책 주문 신청</a></article>
+      <article class="funnel-step"><span class="step">STEP 3 · 1:1</span><h3>입시·대회 전략 컨설팅</h3><p>학생의 현재 수준과 목표를 바탕으로 학습 순서와 대회 준비 로드맵을 설계합니다.</p><a class="btn gold" href="mailto:ceo@stargateedu.co.kr?subject=KOI%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD">상담 신청</a></article>
     </div>
   </div>
 </section>
@@ -209,24 +211,12 @@
 
 <section class="block alt" id="books">
   <div class="wrap">
-    <div class="head"><h2>Cafe24 교재 상세 갤러리</h2><p>교재 판매 페이지에 활용할 AI 상세페이지 4선을 확인하세요</p></div>
+    <div class="head"><h2>교재·전자책</h2><p>학습 단계에 맞는 교재를 살펴보고 판매 가능 상태를 확인하세요.</p></div>
     <div class="grid">
-      <a class="card book-link" href="https://stargateedu.co.kr/stargate-ai-gallery/files/cafe24-001.html" aria-label="KOI 영재고 교재 상세페이지 보기">
-        <div class="thumb"><img src="https://stargateedu.co.kr/stargate-ai-gallery/files/thumbs/cafe24-001.png" alt="KOI 영재고 교재 Cafe24 상품 상세페이지 미리보기" loading="lazy"></div>
-        <div class="body"><div class="lbl">CAFE24 · KOI 영재고</div><h3>KOI 영재고 교재 상세</h3><span class="view">AI 갤러리에서 보기 →</span></div>
-      </a>
-      <a class="card book-link" href="https://stargateedu.co.kr/stargate-ai-gallery/files/cafe24-002.html" aria-label="KOI 영재고 교재 상세페이지 두 번째 안 보기">
-        <div class="thumb"><img src="https://stargateedu.co.kr/stargate-ai-gallery/files/thumbs/cafe24-002.png" alt="KOI 영재고 교재 Cafe24 상품 상세페이지 두 번째 안 미리보기" loading="lazy"></div>
-        <div class="body"><div class="lbl">CAFE24 · KOI 영재고</div><h3>KOI 영재고 교재 상세 2안</h3><span class="view">AI 갤러리에서 보기 →</span></div>
-      </a>
-      <a class="card book-link" href="https://stargateedu.co.kr/stargate-ai-gallery/files/cafe24-003.html" aria-label="고등수학 교재 상세페이지 보기">
-        <div class="thumb"><img src="https://stargateedu.co.kr/stargate-ai-gallery/files/thumbs/cafe24-003.png" alt="고등수학 교재 Cafe24 상품 상세페이지 미리보기" loading="lazy"></div>
-        <div class="body"><div class="lbl">CAFE24 · 고등수학</div><h3>고등수학 교재 상세</h3><span class="view">AI 갤러리에서 보기 →</span></div>
-      </a>
-      <a class="card book-link" href="https://stargateedu.co.kr/stargate-ai-gallery/files/cafe24-004.html" aria-label="학부모 교재 선택 가이드 상세페이지 보기">
-        <div class="thumb"><img src="https://stargateedu.co.kr/stargate-ai-gallery/files/thumbs/cafe24-004.png" alt="학부모 교재 선택 가이드 Cafe24 상품 상세페이지 미리보기" loading="lazy"></div>
-        <div class="body"><div class="lbl">CAFE24 · 학부모 가이드</div><h3>학부모 교재 선택 가이드</h3><span class="view">AI 갤러리에서 보기 →</span></div>
-      </a>
+      <div class="card"><div class="thumb">정보올림피아드 입문 교재</div><div class="body"><div class="lbl">실물 교재</div><h3>정보올림피아드 입문 교재</h3><div class="price"><span class="now">28,800원</span></div></div></div>
+      <div class="card"><div class="thumb">알고리즘 문제집 상권</div><div class="body"><div class="lbl">실물 교재</div><h3>알고리즘 문제집 상권</h3><div class="price"><span class="now">31,500원</span></div></div></div>
+      <div class="card"><div class="thumb">KOI 기출·해설집</div><div class="body"><div class="lbl">실물 교재</div><h3>KOI 기출·해설집 (2015–2025)</h3><div class="price"><span class="now">37,800원</span></div></div></div>
+      <div class="card"><div class="thumb">알고리즘 문제집 eBook</div><div class="body"><div class="lbl">전자책</div><h3>알고리즘 문제집 eBook 세트</h3><div class="price"><span class="now">47,600원</span></div></div></div>
     </div>
   </div>
 </section>
@@ -244,43 +234,6 @@
 </section>
 
 
-<section class="block alt" id="smartstore">
-  <div class="wrap">
-    <div class="head"><h2>네이버 스마트스토어 수익화</h2><p>검색 유입은 스마트스토어에서, 심화 학습과 상담은 Stargate Edu에서 연결합니다.</p></div>
-    <a class="strategy-report-entry" href="/smartstore-strategy.html"><div><small>먼저 읽기 · STRATEGY REPORT</small><strong>네이버 스마트스토어 수익화 전략 보고서</strong><span>채널 역할 · 상품 포트폴리오 · 단위경제성 · 90일 로드맵 · KPI</span></div><b>보고서 보기 →</b></a>
-    <div class="channel-note"><strong>운영 방향:</strong> 1단계는 배송·환불이 명확한 실물 교재 중심으로 시작하고, 실제 판매·전환 데이터를 확인한 뒤 묶음상품과 후속 교육상품을 확장합니다.</div>
-    <div class="channel-role">
-      <article class="channel-card"><span class="step">01 · 유입 상품</span><h3>실물 교재 단품</h3><p>네이버 검색에서 발견하기 쉬운 입문형 상품으로 첫 구매 장벽을 낮춥니다.</p><ul><li>KOI 핵심 알고리즘 인쇄본</li><li>정보올림피아드 입문 교재</li><li>대표 이미지·상품명 SEO 점검</li></ul></article>
-      <article class="channel-card"><span class="step">02 · 객단가 확대</span><h3>교재·문제집 묶음</h3><p>학습 단계가 이어지는 구성으로 단품 구매자를 패키지 구매로 전환합니다.</p><ul><li>입문 교재 + 문제집 세트</li><li>대회 대비 기출·해설 묶음</li><li>세트별 원가·배송비·마진 관리</li></ul></article>
-      <article class="channel-card"><span class="step">03 · 후속 전환</span><h3>강의·상담 연결</h3><p>교재 구매 후 필요한 진단, 강의, 전략 컨설팅을 자체몰의 학습 여정으로 안내합니다.</p><ul><li>구매자용 3분 무료 진단</li><li>입문·심화 강의 추천</li><li>1:1 대회 전략 컨설팅</li></ul></article>
-    </div>
-    <div class="smart-actions">
-      <a class="btn navy" href="https://sell.smartstore.naver.com/" target="_blank" rel="noopener noreferrer">스마트스토어 판매자센터</a>
-      <a class="btn gold" href="https://help.sell.smartstore.naver.com/" target="_blank" rel="noopener noreferrer">공식 운영 가이드</a>
-      <a class="btn navy" href="/start.html">구매자 무료 진단</a>
-    </div>
-  </div>
-</section>
-
-
-<section class="block" id="amazon">
-  <div class="wrap">
-    <div class="head"><h2>아마존 글로벌 수익화</h2><p>KDP 전자책과 주문형 인쇄로 해외 수요를 먼저 검증하고, 실물 묶음 판매는 데이터 확인 후 확장합니다.</p></div>
-    <a class="strategy-report-entry" href="/amazon-strategy.html"><div><small>먼저 읽기 · STRATEGY REPORT</small><strong>아마존 수익화 전략 보고서</strong><span>KDP · POD · 가격 가설 · 단위경제성 · 90일 실행안 · KPI</span></div><b>보고서 보기 →</b></a>
-    <div class="channel-note"><strong>운영 방향:</strong> 기존 KOI 교재의 영문 현지화 가능성을 검증한 뒤 Kindle 전자책을 출시하고, 같은 원고를 페이퍼백 POD로 확장합니다. 재고형 Seller Central 입점은 판매량과 묶음상품 수요가 확인된 뒤 진행합니다.</div>
-    <div class="channel-role">
-      <article class="channel-card"><span class="step">01 · DIGITAL FIRST</span><h3>KDP Kindle 전자책</h3><p>배송·재고 없이 영어권 검색 수요와 가격 반응을 가장 먼저 확인합니다.</p><ul><li>KOI 가이드 영문판 기획</li><li>키워드·카테고리·설명 현지화</li><li>$9.99–$12.99 가격 가설 테스트</li></ul></article>
-      <article class="channel-card"><span class="step">02 · PRINT ON DEMAND</span><h3>KDP 페이퍼백</h3><p>주문형 인쇄로 초기 재고를 만들지 않고 실물 교재 수요를 검증합니다.</p><ul><li>판형·페이지·잉크별 인쇄비 계산</li><li>전자책과 동일한 브랜드 체계</li><li>교정쇄 확인 후 정식 출시</li></ul></article>
-      <article class="channel-card"><span class="step">03 · SCALE LATER</span><h3>Seller Central 확장</h3><p>판매 데이터가 쌓이면 교재 세트와 부가 학습 도구를 묶어 객단가를 높입니다.</p><ul><li>월 41개 이상이면 Professional 검토</li><li>FBA 수수료·반품비 포함 손익 확인</li><li>자체몰 진단·강의로 브랜드 검색 연결</li></ul></article>
-    </div>
-    <div class="smart-actions">
-      <a class="btn navy" href="https://kdp.amazon.com/" target="_blank" rel="noopener noreferrer">Amazon KDP</a>
-      <a class="btn gold" href="https://kdp.amazon.com/royalty-calculator" target="_blank" rel="noopener noreferrer">인쇄비·로열티 계산</a>
-      <a class="btn navy" href="https://sell.amazon.com/pricing" target="_blank" rel="noopener noreferrer">Seller Central 요금</a>
-    </div>
-  </div>
-</section>
-
 <section class="block">
   <div class="cta-band">
     <h2>어떤 상품이 맞는지 3분 안에 확인하세요</h2>
@@ -296,12 +249,12 @@
       <div>정보·수학 올림피아드 전문 온라인 스쿨</div>
     </div>
     <div class="fcol"><h4>고객센터</h4><div>평일 10:00–18:00</div><div><a href="/faq.html">자주 묻는 질문</a></div><div><a href="mailto:ceo@stargateedu.co.kr?subject=STARGATE%20EDU%20상담%20문의">1:1 이메일 문의</a></div></div>
-    <div class="fcol"><h4>바로가기</h4><div><a href="https://www.stargateedu.co.kr/" rel="noopener">메인 포털 (stargateedu.co.kr)</a></div><div><a href="#courses">온라인 강의</a></div><div><a href="#sub">문제은행·모의고사</a></div><div><a href="#consult">1:1 컨설팅</a></div><div><a href="#smartstore">스마트스토어 수익화</a></div><div><a href="#amazon">아마존 수익화</a></div></div>
+    <div class="fcol"><h4>바로가기</h4><div><a href="https://www.stargateedu.co.kr/" rel="noopener">메인 포털 (stargateedu.co.kr)</a></div><div><a href="#courses">온라인 강의</a></div><div><a href="#sub">문제은행·모의고사</a></div><div><a href="#consult">1:1 컨설팅</a></div><div><a href="/faq.html">FAQ</a></div></div>
     <div class="fcol"><h4>정책</h4><div><a href="/terms.html">이용약관</a></div><div><a href="/privacy.html">개인정보처리방침</a></div><div><a href="https://stargateedu.co.kr/refund/">환불정책</a></div></div>
   </div>
   <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr<div class="business-info">상호: 주식회사 별의문 · 대표자: 정동수 · 사업자등록번호: 848-86-03835 · 통신판매업신고번호: 2025-서울강남-05246호<br>사업장 주소: 서울 강남구 강남대로112길 47 · 이메일: ceo@stargateedu.co.kr · 개인정보 보호책임자: 정동수 · 호스팅 제공자: GitHub Pages</div></div>
 </footer>
-<script src="/catalog.js?v=20260806"></script><script src="/payment-links.js?v=20260806"></script><script src="/store.js?v=20260806"></script>
+<script src="/catalog.js?v=20260927"></script><script src="/payment-links.js?v=20260927"></script><script src="/store.js?v=20260927"></script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));

@@ -1,4 +1,4 @@
-const CACHE = "stargate-edu-shop-v7";
+const CACHE = "stargate-edu-shop-v8";
 const ASSETS = ["/", "/index.html", "/start.html", "/checkout.html", "/success.html", "/cancel.html", "/catalog.js", "/payment-links.js", "/payment-config.js", "/legal.js", "/store.js", "/manifest.json", "/faq.html",
   "/icons/icon-192.png", "/icons/icon-512.png"];
 
