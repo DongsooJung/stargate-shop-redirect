@@ -4,7 +4,7 @@
   });
 
   window.STARGATE_CATALOG = {
-    version: "2026-08-06",
+    version: "2026-09-27",
     currency: "KRW",
     marketplaces: {
       coupang: {
@@ -19,6 +19,24 @@
         searchUrl: "https://search.shopping.naver.com/search/all?query=",
         links: {}
       }
+    },
+    availability: {
+        "ebook-koi-25": "request",
+        "course-koi-advanced": "consultation",
+        "course-algorithm-bundle": "consultation",
+        "course-kmo-number-combination": "consultation",
+        "course-koi-intro": "consultation",
+        "subscription-bank-monthly": "consultation",
+        "subscription-mock-monthly": "consultation",
+        "book-koi-intro": "external",
+        "book-algorithm-vol1": "external",
+        "book-koi-past": "external",
+        "ebook-algorithm-set": "request",
+        "book-kmo-number-combination": "planned",
+        "live-vacation": "consultation",
+        "live-koi-final": "consultation",
+        "consult-strategy": "consultation",
+        "mentoring-monthly": "consultation"
     },
     products: {
       "ebook-koi-25": product("SGE-EBOOK-KOI-25", "digital_book", "KOI 수상자의 25개 핵심 알고리즘 가이드", 30000, "핵심 알고리즘 25개와 권장 학습 순서를 정리한 ISBN 등록 PDF 전자책", ["25개 핵심 알고리즘", "주제별 학습 순서", "알고리즘 학습 가이드"], ["course-koi-intro", "consult-strategy"]),
