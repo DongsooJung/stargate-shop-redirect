@@ -4,6 +4,8 @@
  */
 window.STARGATE_TOSS = Object.freeze({
   clientKey: "",
+  // PayPal uses a separate Toss USD MID. Leave blank until that client key is issued.
+  paypalClientKey: "",
   confirmEndpoint: "https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/toss-confirm",
   supabasePublishableKey: "sb_publishable_-D0A-aWNMTMTHXeL0oqBXg_9Tz0bdvs",
   successUrl: "https://shop.stargateedu.co.kr/success.html",
@@ -21,6 +23,13 @@ window.STARGATE_TOSS = Object.freeze({
     "SGE-LIVE-VACATION-4W": "vacation-live-intensive",
     "SGE-LIVE-KOI-FINAL": "koi-final-camp",
     "SGE-CONSULT-STRATEGY-90": "strategy-consulting"
+  }),
+
+  // PayPal (Toss FOREIGN_EASY_PAY, USD) for payment-list items 1 and 3.
+  // Set a positive USD major-unit price before the button can open a charge.
+  paypalUsd: Object.freeze({
+    "SGE-EBOOK-KOI-25": null,
+    "SGE-COURSE-ALGO-BUNDLE": null
   })
 });
 
@@ -30,7 +39,8 @@ window.STARGATE_BUSINESS = Object.freeze({
   businessNumber: "848-86-03835",
   mailOrderNumber: "2025-서울강남-05246호",
   address: "서울 강남구 강남대로112길 47",
-  phone: "",
+  phone: "070-8027-8225",
+  mobile: "010-9587-8225",
   email: "ceo@stargateedu.co.kr",
   privacyOfficer: "정동수 (대표)",
   hostingProvider: "GitHub Pages"

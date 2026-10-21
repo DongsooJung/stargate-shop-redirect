@@ -7,20 +7,34 @@
   const labels = en ? {
     companyName: "Company", representative: "Representative",
     businessNumber: "Business registration", mailOrderNumber: "E-commerce registration",
-    address: "Address", phone: "Phone", email: "Email",
+    address: "Address", phone: "Phone", mobile: "Payment line", email: "Email",
     privacyOfficer: "Privacy officer", hostingProvider: "Hosting"
   } : {
     companyName: "상호", representative: "대표자",
     businessNumber: "사업자등록번호", mailOrderNumber: "통신판매업신고번호",
-    address: "사업장 주소", phone: "전화", email: "이메일",
+    address: "사업장 주소", phone: "대표 전화", mobile: "결제 전화", email: "이메일",
     privacyOfficer: "개인정보 보호책임자", hostingProvider: "호스팅 제공자"
   };
-  const keys = ["companyName", "representative", "businessNumber", "mailOrderNumber", "address", "phone", "email", "privacyOfficer", "hostingProvider"];
+  const keys = ["companyName", "representative", "businessNumber", "mailOrderNumber", "address", "phone", "mobile", "email", "privacyOfficer", "hostingProvider"];
   const info = document.createElement("div");
   info.className = "legal-footer__info";
   keys.filter((key) => typeof business[key] === "string" && business[key].trim()).forEach((key) => {
     const span = document.createElement("span");
-    span.textContent = `${labels[key]} ${business[key].trim()}`;
+    const value = business[key].trim();
+    span.append(document.createTextNode(`${labels[key]} `));
+    if (key === "phone" || key === "mobile") {
+      const link = document.createElement("a");
+      link.href = `tel:+82${value.replace(/[^0-9]/g, "").replace(/^0/, "")}`;
+      link.textContent = value;
+      span.append(link);
+    } else if (key === "email") {
+      const link = document.createElement("a");
+      link.href = `mailto:${value}`;
+      link.textContent = value;
+      span.append(link);
+    } else {
+      span.append(document.createTextNode(value));
+    }
     info.appendChild(span);
   });
 
