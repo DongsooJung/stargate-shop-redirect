@@ -23,7 +23,7 @@
     availability: {
         "ebook-koi-25": "request",
         "course-koi-advanced": "consultation",
-        "course-algorithm-bundle": "consultation",
+        "course-algorithm-bundle": "request",
         "course-kmo-number-combination": "consultation",
         "course-koi-intro": "consultation",
         "subscription-bank-monthly": "consultation",
