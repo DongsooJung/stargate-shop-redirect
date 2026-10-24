@@ -132,15 +132,28 @@
   @media(max-width:560px){.lang-switch{display:none}.mini{padding:8px 10px;font-size:12px}.grid{grid-template-columns:1fr}.product-modal__panel{margin:4vh 14px;padding:24px;max-height:92vh}.product-actions{grid-template-columns:1fr}.strategy-report-entry{align-items:flex-start;flex-direction:column}.strategy-report-entry b{width:100%;text-align:center}}
 </style>
 <link rel="stylesheet" href="/assets/stargate-tokens.css?v=20261017">
+<style>
+.zoom-live-band{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center;background:linear-gradient(120deg,var(--navy),#1c4d80);color:#fff;border-radius:20px;padding:34px 30px}
+.zoom-live-band .zl-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border:1px solid var(--gold);border-radius:999px;color:#F3D98E;font-size:12px;font-weight:800}
+.zoom-live-band .zl-badge i{width:8px;height:8px;border-radius:50%;background:#ff5d5d}
+.zoom-live-band h2{margin:12px 0 8px;font-size:26px;letter-spacing:-.5px;line-height:1.3}
+.zoom-live-band p{color:#C9D8E8;font-size:14.5px;margin:0}
+.zoom-live-band .zl-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.zoom-live-band .zl-kakao{background:#fee500;color:#191600}
+.zoom-live-band ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.zoom-live-band li{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.06);font-size:13.5px}
+.zoom-live-band li b{color:#F3D98E;white-space:nowrap}
+@media(max-width:760px){.zoom-live-band{grid-template-columns:1fr;padding:28px 20px}.zoom-live-band h2{font-size:22px}}
+</style>
 </head>
 <body>
 <header>
   <div class="wrap gnb">
     <div class="logo">STARGATE<b>EDU</b></div>
     <nav>
-      <a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
+      <a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
     </nav>
-    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
+    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
     <div class="hbtns"><a class="lang-switch" href="/en.html" lang="en" hreflang="en" aria-label="View this shop in English">EN</a><a href="/start.html" class="mini">무료 진단</a></div>
   </div>
 </header>
@@ -162,6 +175,28 @@
     <div><b>1:1</b><span>진단·전략 상담</span></div>
   </div>
 </div>
+
+<section class="block" id="zoom-live" aria-labelledby="zoom-live-title">
+  <div class="wrap">
+    <div class="zoom-live-band">
+      <div>
+        <span class="zl-badge"><i aria-hidden="true"></i>LIVE · 2026.11.08(일) 개강</span>
+        <h2 id="zoom-live-title">ZOOM 실시간 수업, 11월 8일 시작합니다</h2>
+        <p>KOI 정보올림피아드·알고리즘과 수학을 대표 강사가 ZOOM으로 실시간 지도합니다. 화면 공유로 코드를 함께 검토하고 질문에 바로 답합니다. 지방·해외에서도 대치동 커리큘럼 그대로 수강하세요.</p>
+        <div class="zl-cta">
+          <a class="btn zl-kakao" href="https://open.kakao.com/o/suuKwjTi" target="_blank" rel="noopener noreferrer">카카오톡 수강 상담 ↗</a>
+          <a class="btn gold" href="https://www.stargateedu.co.kr/zoom-class/">수업 안내 자세히 보기</a>
+        </div>
+      </div>
+      <ul aria-label="ZOOM 실시간 수업 요약">
+        <li><span>개강일</span><b>2026년 11월 8일 (일)</b></li>
+        <li><span>수업 방식</span><b>ZOOM 실시간 쌍방향</b></li>
+        <li><span>과정</span><b>KOI·알고리즘 / 수학</b></li>
+        <li><span>시간표·수강료</span><b>상담 시 개별 안내</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <section class="block" id="cat">
   <div class="wrap">
