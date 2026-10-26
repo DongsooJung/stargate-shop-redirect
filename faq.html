@@ -260,7 +260,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);bo
     </a>
     <nav class="nav" aria-label="고객센터 메뉴">
       <a href="#faq">자주 묻는 질문</a>
-      <a href="mailto:ceo@stargateedu.co.kr?subject=STARGATE%20EDU%20상담%20문의">1:1 문의</a>
+      <a href="/consult.html">수강 상담</a>
     </nav>
   </div>
 </header>
@@ -272,8 +272,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);bo
       <p class="hero__eyebrow">Customer Center</p>
       <h1>궁금한 점을<br><span class="accent">먼저 확인</span>하세요.</h1>
       <p>대치동 KOI·수학 프리미엄 1:1 지도에 대해 자주 묻는 질문을 정리했습니다. 답을 찾지 못하셨다면 이메일로 문의해 주세요. 확인 후 순차적으로 회신드립니다.</p>
-      <span class="hero__note"><span class="hero__dot"></span> 대면(대치동) / 온라인 병행</span>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"><a class="btn btn--primary" href="mailto:ceo@stargateedu.co.kr?subject=STARGATE%20EDU%20상담%20문의">1:1 이메일 문의</a><a class="btn btn--ghost" href="/faq-guide.pdf" download>PDF 안내문 다운로드</a></div>
+      <span class="hero__note"><span class="hero__dot"></span> ZOOM 실시간 · 전자책 · 1:1 전략 상담</span>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"><a class="btn btn--primary" href="/consult.html">수강 상담 내용 준비</a><a class="btn btn--ghost" href="/#quick-start">대표 상품 비교</a></div>
     </div>
   </section>
 
@@ -290,21 +290,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);bo
     <div class="faq" id="faqList"></div>
   </section>
 
-  <!-- ===== Board ===== -->
-  <section class="section wrap" id="board">
-    <div class="section__head">
-      <span class="section__num">02</span>
-      <div>
-        <h2 class="section__title">상담 사례 · 1:1 문의</h2>
-        <p class="section__desc">아래 내용은 자주 접수되는 상담 사례입니다. 실제 문의는 이메일을 이용해 주세요.</p>
-      </div>
-    </div>
-    <div class="board-bar">
-      <span class="board-count">전체 <b id="postCount">0</b>건</span>
-      <button class="btn btn--primary" id="openWrite">✉ 이메일 문의 작성</button>
-    </div>
-    <div class="board" id="boardList"></div>
-  </section>
+<section class="section wrap" id="contact"><div class="section__head"><span class="section__num">02</span><div><h2 class="section__title">상담을 준비하세요</h2><p class="section__desc">학년·경험·목표를 선택해 문의 내용을 만들 수 있습니다. 이 페이지에는 문의가 접수되지 않습니다.</p></div></div><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn--primary" href="/consult.html">수강 상담 내용 준비</a><a class="btn btn--ghost" href="/refund.html">환불정책 확인</a><a class="btn btn--ghost" href="/">대표 상품 보기</a></div></section>
 </main>
 
 <footer class="site-foot">
@@ -320,320 +306,16 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);bo
       주소 서울 강남구 강남대로112길 47<br>
       대표 전화 <a class="mono" href="tel:+827080278225">070-8027-8225</a><br>
       결제 전화 <a class="mono" href="tel:+821095878225">010-9587-8225</a><br>
-      문의 <a class="mono" href="mailto:ceo@stargateedu.co.kr">ceo@stargateedu.co.kr</a>
+      문의 <a class="mono" href="mailto:support@stargateedu.co.kr">support@stargateedu.co.kr</a>
     </div>
   </div>
 </footer>
 
-<!-- ===== Write Modal ===== -->
-<div class="modal" id="writeModal" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
-  <div class="modal__scrim" data-close></div>
-  <div class="modal__card">
-    <div class="modal__head">
-      <h3 id="writeTitle">1:1 문의 작성</h3>
-      <button class="modal__x" data-close aria-label="닫기">×</button>
-    </div>
-    <div class="modal__body">
-      <div class="row-2">
-        <div class="field">
-          <label for="fName">이름 / 닉네임<span class="req">*</span></label>
-          <input id="fName" type="text" maxlength="20" placeholder="예: 김OO 학부모">
-        </div>
-        <div class="field">
-          <label for="fCat">카테고리<span class="req">*</span></label>
-          <select id="fCat">
-            <option value="상담">상담·수강신청</option>
-            <option value="수업방식">수업 방식</option>
-            <option value="KOI">KOI(정보올림피아드)</option>
-            <option value="수학">수학</option>
-            <option value="수강료">수강료·환불</option>
-            <option value="기타">기타</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label for="fTitle">제목<span class="req">*</span></label>
-        <input id="fTitle" type="text" maxlength="60" placeholder="문의 제목을 입력하세요">
-      </div>
-      <div class="field">
-        <label for="fBody">문의 내용<span class="req">*</span></label>
-        <textarea id="fBody" maxlength="1500" placeholder="학생의 학년·목표·과목을 함께 적어 주시면 더 정확히 안내드립니다."></textarea>
-      </div>
-      <div class="field">
-        <label class="check"><input type="checkbox" id="fSecret"> 비공개 문의로 작성 (비밀번호 열람)</label>
-        <div id="pwWrap" style="display:none;margin-top:10px">
-          <input id="fPw" type="password" inputmode="numeric" maxlength="8" placeholder="열람용 비밀번호 (숫자 4자리 이상)">
-          <p class="hint">비공개 글은 이 비밀번호를 입력해야 내용을 볼 수 있습니다. 분실 시 복구되지 않습니다.</p>
-        </div>
-      </div>
-      <button class="btn btn--primary btn--block" id="submitPost">문의 등록</button>
-      <p class="hint" style="text-align:center;margin-top:12px">등록하신 문의는 강사 확인 후 답변드립니다.</p>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
 <script>
-/* =====================================================================
-   STARGATE EDU · 고객 게시판
-   ---------------------------------------------------------------------
-   [저장 방식] 기본값은 브라우저 localStorage 입니다. 이 상태에서는
-   각 방문자의 브라우저에만 문의가 저장되어 "혼자 테스트/운영"에 적합합니다.
-   방문자 모두가 공유하는 실제 게시판으로 만들려면 아래 SUPABASE 설정을
-   채우고 USE_SUPABASE 를 true 로 바꾸면 됩니다. (테이블 스키마는 하단 주석 참고)
-   ===================================================================== */
-const CONFIG = {
-  USE_SUPABASE: false,
-  SUPABASE_URL:  "",          // 예: https://xxxx.supabase.co
-  SUPABASE_ANON: "",          // 공개(anon) 키
-  ADMIN_PIN:     ""      // 관리자 답변용 PIN (배포 전 반드시 변경하세요)
-};
-
-/* ---------- FAQ 데이터 ---------- */
-const FAQ_CATS = [
-  {key:"all",   label:"전체"},
-  {key:"상담",   label:"상담·수강신청"},
-  {key:"수업방식", label:"수업 방식"},
-  {key:"KOI",   label:"KOI"},
-  {key:"수학",   label:"수학"},
-  {key:"수강료", label:"수강료·환불"}
-];
-const FAQ = [
-  {cat:"상담", q:"상담과 수강 신청은 어떻게 하나요?",
-   a:"아래 ‘1:1 문의’ 게시판에 남겨 주시거나 홈페이지 대표 연락처로 연락 주시면 됩니다. 학생의 현재 학년·목표·과목을 함께 알려 주시면 진단 후 24시간 이내에 회신드립니다."},
-  {cat:"수업방식", q:"수업은 어떤 방식으로 진행되나요?",
-   a:"전 과정 프리미엄 1:1 맞춤 지도입니다. ① 진단 → ② 개인별 커리큘럼 설계 → ③ 주간 학습·과제 점검의 3단계로 운영하며, 대면(대치동)과 실시간 온라인을 병행할 수 있습니다."},
-  {cat:"수업방식", q:"대면과 온라인 중 선택할 수 있나요?",
-   a:"예. 대치동 대면 수업과 화상 온라인 수업 모두 가능합니다. 온라인은 실시간 판서·코드 공유 환경에서 대면과 동일한 밀도로 진행됩니다."},
-  {cat:"KOI", q:"정보올림피아드(KOI)도 준비할 수 있나요?",
-   a:"가능합니다. C++ 기반 알고리즘 커리큘럼(자료구조·그래프·DP·기하 등 25개 핵심 주제)으로 지도하며, 시·도 정보올림피아드 대상 수상 강사가 직접 담당합니다."},
-  {cat:"KOI", q:"코딩이 처음인데 KOI를 시작할 수 있나요?",
-   a:"예. 프로그래밍 기초부터 경시 수준까지 단계별로 설계합니다. 진단을 통해 현재 수준에 맞는 출발점을 정하므로 무경험자도 시작할 수 있습니다."},
-  {cat:"수학", q:"수학은 어느 범위까지 지도하나요?",
-   a:"초·중·고 교과 수학부터 경시·심화까지 지도합니다. 학생의 목표(내신·수능·경시)에 따라 커리큘럼을 다르게 구성합니다."},
-  {cat:"상담", q:"어떤 학년·수준이 대상인가요?",
-   a:"초등 고학년부터 고등학생, 그리고 올림피아드·경시 준비생까지입니다. 수준은 진단 후 배정하므로 학년보다 목표가 더 중요합니다."},
-  {cat:"수업방식", q:"강사 이력이 궁금합니다.",
-   a:"서울대학교 공학 박사 과정 수료, 대구과학고 졸업, 시·도 정보올림피아드 대상 수상, 7년 이상의 수학·KOI 지도 경력을 보유한 대표 강사가 직접 지도합니다."},
-  {cat:"수강료", q:"수강료는 어떻게 되나요?",
-   a:"학년·과목·목표·수업 빈도에 따라 다르게 책정되어 상담 후 개별 안내드립니다. 커리큘럼 제안과 함께 정확한 견적을 제공합니다."},
-  {cat:"수강료", q:"결제와 환불 규정은 어떻게 되나요?",
-   a:"수업 시작 전 결제를 원칙으로 하며, 환불은 관련 법령상 학습비 반환 기준을 준용합니다. 상세 규정은 상담 시 안내드립니다."}
-];
-
-/* 공개 페이지에 가상의 상담 사례를 주입하지 않습니다. */
-const SEED_POSTS = [];
-
-/* ===================== 저장소 어댑터 ===================== */
-const KEY = "stargate_edu_board_v2";
-let memoryStore = null; // localStorage 불가 환경(미리보기 등) 폴백
-
-const Store = {
-  read(){
-    if(memoryStore) return memoryStore;
-    try{
-      const raw = localStorage.getItem(KEY);
-      if(raw) return JSON.parse(raw);
-      localStorage.setItem(KEY, JSON.stringify(SEED_POSTS));
-      return SEED_POSTS.slice();
-    }catch(e){
-      memoryStore = SEED_POSTS.slice();
-      return memoryStore;
-    }
-  },
-  write(list){
-    if(memoryStore){ memoryStore = list; return; }
-    try{ localStorage.setItem(KEY, JSON.stringify(list)); }
-    catch(e){ memoryStore = list; }
-  }
-};
-
-/* ===================== 상태 ===================== */
-let posts = Store.read();
-let faqFilter = "all";
-let isAdmin = false;
-
-/* ===================== 유틸 ===================== */
-const $ = s => document.querySelector(s);
-const esc = s => String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function timeAgo(ts){
-  const d = Math.floor((Date.now()-ts)/1000);
-  if(d<60) return "방금 전";
-  if(d<3600) return Math.floor(d/60)+"분 전";
-  if(d<86400) return Math.floor(d/3600)+"시간 전";
-  if(d<86400*7) return Math.floor(d/86400)+"일 전";
-  return new Date(ts).toLocaleDateString("ko-KR",{year:"numeric",month:"2-digit",day:"2-digit"});
-}
-let toastTimer;
-function toast(msg){
-  const t=$("#toast"); t.textContent=msg; t.classList.add("is-show");
-  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("is-show"),2200);
-}
-
-/* ===================== FAQ 렌더 ===================== */
-function renderFaqChips(){
-  $("#faqChips").innerHTML = FAQ_CATS.map(c=>
-    `<button class="chip${c.key===faqFilter?" is-active":""}" data-fcat="${c.key}" role="tab" aria-selected="${c.key===faqFilter}">${c.label}</button>`
-  ).join("");
-}
-function renderFaq(){
-  const list = FAQ.filter(f=>faqFilter==="all"||f.cat===faqFilter);
-  $("#faqList").innerHTML = list.map((f,i)=>`
-    <div class="faq__item" data-faq="${i}">
-      <button class="faq__q" aria-expanded="false">
-        <span class="tag">[${esc(f.cat)}]</span>
-        <span class="faq__qtext">${esc(f.q)}</span>
-        <span class="faq__icon" aria-hidden="true"></span>
-      </button>
-      <div class="faq__a"><div class="faq__a-inner">${esc(f.a)}</div></div>
-    </div>`).join("");
-  $("#faqList").querySelectorAll(".faq__item").forEach(item=>{
-    const btn=item.querySelector(".faq__q"), panel=item.querySelector(".faq__a");
-    btn.addEventListener("click",()=>{
-      const open=item.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded",open);
-      panel.style.maxHeight = open ? panel.scrollHeight+"px" : "0";
-    });
-  });
-}
-
-/* ===================== 게시판 렌더 ===================== */
-function catClassLabel(cat){
-  const map={"상담":"상담","수업방식":"수업","KOI":"KOI","수학":"수학","수강료":"수강료","기타":"기타"};
-  return map[cat]||cat;
-}
-function renderBoard(){
-  posts = posts.slice().sort((a,b)=>b.createdAt-a.createdAt);
-  $("#postCount").textContent = posts.length;
-  if(!posts.length){
-    $("#boardList").innerHTML = `<div class="empty"><div class="empty__g">✦</div>아직 등록된 문의가 없습니다.<br>첫 문의를 남겨 주세요.</div>`;
-    return;
-  }
-  $("#boardList").innerHTML = posts.map(p=>{
-    const answered = !!p.answer;
-    return `
-    <div class="post" data-id="${p.id}">
-      <button class="post__row" aria-expanded="false">
-        <span class="tag">[${esc(catClassLabel(p.cat))}]</span>
-        <span class="post__title">
-          <h3>${p.secret?'<span class="lock">🔒</span>':""}${esc(p.title)}</h3>
-          <span class="post__meta">
-            <span>${esc(p.name)}</span>
-            <span class="mono">${timeAgo(p.createdAt)}</span>
-          </span>
-        </span>
-        <span class="status ${answered?"status--ok":"status--wait"}">${answered?"답변 완료":"답변 대기"}</span>
-      </button>
-      <div class="post__body"><div class="post__body-inner" data-body></div></div>
-    </div>`;
-  }).join("");
-
-  $("#boardList").querySelectorAll(".post").forEach(el=>{
-    const id=el.dataset.id, p=posts.find(x=>x.id===id);
-    const row=el.querySelector(".post__row"), body=el.querySelector(".post__body"), inner=el.querySelector("[data-body]");
-    row.addEventListener("click",()=>{
-      const open=!body.style.maxHeight||body.style.maxHeight==="0px";
-      document.querySelectorAll(".post__body").forEach(b=>{if(b!==body){b.style.maxHeight="0";b.closest(".post").querySelector(".post__row").setAttribute("aria-expanded","false");}});
-      if(open){ inner.innerHTML=buildBody(p); row.setAttribute("aria-expanded","true"); requestAnimationFrame(()=>{body.style.maxHeight=inner.scrollHeight+40+"px";}); bindBody(el,p,body,inner); }
-      else{ body.style.maxHeight="0"; row.setAttribute("aria-expanded","false"); }
-    });
-  });
-}
-function buildBody(p){
-  if(p.secret && !p._unlocked && !isAdmin){
-    return `<div class="post__locked">🔒 비공개 문의입니다. 작성 시 설정한 비밀번호를 입력해 주세요.
-      <div class="pw-inline"><input type="password" inputmode="numeric" maxlength="8" data-pw placeholder="비밀번호"><button class="btn btn--ghost btn--sm" data-unlock>열람</button></div></div>`;
-  }
-  let html = `<div class="post__q">${esc(p.body)}</div>`;
-  if(p.answer){
-    html += `<div class="post__answer"><span class="post__answer-label">STARGATE EDU 답변 · ${timeAgo(p.answeredAt)}</span>${esc(p.answer)}</div>`;
-  } else {
-    html += `<p class="hint" style="margin-top:10px">아직 답변이 등록되지 않았습니다. 확인 후 빠르게 답변드리겠습니다.</p>`;
-  }
-  if(isAdmin){
-    html += `<div class="admin-box"><span class="post__answer-label">관리자 답변 작성<span class="admin-badge">admin</span></span>
-      <textarea data-answer placeholder="답변을 입력하세요">${esc(p.answer||"")}</textarea>
-      <button class="btn btn--primary btn--sm" data-save-answer style="margin-top:10px">답변 저장</button></div>`;
-  }
-  return html;
-}
-function bindBody(el,p,body,inner){
-  const unlockBtn=inner.querySelector("[data-unlock]");
-  if(unlockBtn){
-    unlockBtn.addEventListener("click",()=>{
-      const v=inner.querySelector("[data-pw]").value.trim();
-      if(v===p.pw){ p._unlocked=true; inner.innerHTML=buildBody(p); body.style.maxHeight=inner.scrollHeight+40+"px"; bindBody(el,p,body,inner);}
-      else toast("비밀번호가 일치하지 않습니다.");
-    });
-  }
-  const saveBtn=inner.querySelector("[data-save-answer]");
-  if(saveBtn){
-    saveBtn.addEventListener("click",()=>{
-      const v=inner.querySelector("[data-answer]").value.trim();
-      p.answer = v || null;
-      p.answeredAt = v ? Date.now() : null;
-      Store.write(posts); renderBoard(); toast(v?"답변이 저장되었습니다.":"답변이 삭제되었습니다.");
-    });
-  }
-}
-
-/* ===================== 문의 작성 ===================== */
-const modal=$("#writeModal");
-function openModal(){ window.location.href="mailto:ceo@stargateedu.co.kr?subject=STARGATE%20EDU%20상담%20문의"; }
-function closeModal(){ modal.classList.remove("is-open"); document.body.style.overflow=""; }
-$("#openWrite").addEventListener("click",openModal);
-modal.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeModal));
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("is-open"))closeModal();});
-$("#fSecret").addEventListener("change",e=>{ $("#pwWrap").style.display=e.target.checked?"block":"none"; });
-
-$("#submitPost").addEventListener("click",()=>{
-  const name=$("#fName").value.trim(), cat=$("#fCat").value,
-        title=$("#fTitle").value.trim(), bodyv=$("#fBody").value.trim(),
-        secret=$("#fSecret").checked, pw=$("#fPw").value.trim();
-  if(!name){toast("이름/닉네임을 입력해 주세요.");$("#fName").focus();return;}
-  if(!title){toast("제목을 입력해 주세요.");$("#fTitle").focus();return;}
-  if(!bodyv){toast("문의 내용을 입력해 주세요.");$("#fBody").focus();return;}
-  if(secret && pw.length<4){toast("비공개 비밀번호는 4자리 이상 입력해 주세요.");$("#fPw").focus();return;}
-  posts.push({id:"p"+Date.now(), cat, title, name, secret, pw:secret?pw:"", body:bodyv, answer:null, answeredAt:null, createdAt:Date.now()});
-  Store.write(posts);
-  ["fName","fTitle","fBody","fPw"].forEach(id=>$("#"+id).value="");
-  $("#fSecret").checked=false; $("#pwWrap").style.display="none";
-  closeModal(); renderBoard(); toast("문의가 등록되었습니다. 확인 후 답변드리겠습니다.");
-});
-
-/* ===================== 관리자 모드(로컬 답변용) ===================== */
-$("#adminToggle").addEventListener("click",()=>{
-  if(isAdmin){ isAdmin=false; renderBoard(); toast("관리자 모드를 종료했습니다."); return; }
-  const pin=prompt("관리자 PIN을 입력하세요");
-  if(pin===CONFIG.ADMIN_PIN){ isAdmin=true; renderBoard(); toast("관리자 모드 · 답변을 작성할 수 있습니다."); }
-  else if(pin!==null) toast("PIN이 일치하지 않습니다.");
-});
-
-/* ===================== FAQ 필터 이벤트 ===================== */
-$("#faqChips").addEventListener("click",e=>{
-  const b=e.target.closest("[data-fcat]"); if(!b)return;
-  faqFilter=b.dataset.fcat; renderFaqChips(); renderFaq();
-});
-
-/* ===================== init ===================== */
-renderFaqChips(); renderFaq(); renderBoard();
-
-/* =====================================================================
-   [Supabase 실서비스 전환 안내]
-   1) Supabase 프로젝트에 아래 테이블 생성:
-      create table board_posts (
-        id text primary key,
-        cat text, title text, name text,
-        secret boolean default false, pw text,
-        body text, answer text, answered_at bigint,
-        created_at bigint
-      );
-      -- RLS: 익명 insert/select 정책을 목적에 맞게 설정하세요.
-   2) 상단 CONFIG 에 SUPABASE_URL / SUPABASE_ANON 입력, USE_SUPABASE=true
-   3) Store.read()/write() 를 Supabase REST(fetch) 또는 supabase-js 로 교체.
-      (동수 님 기존 프로젝트: inftexpcnfinglwlrvsj 재사용 가능)
-   ===================================================================== */
-</script>
-</body>
-</html>
+const FAQ=[{"cat":"상담","q":"상담과 수강 신청은 어떻게 하나요?","a":"상담 준비 페이지에서 학년·코딩 경험·목표를 선택해 문의 내용을 만들 수 있습니다. 내용을 복사해 카카오톡으로 보내거나 이메일 초안을 열어 직접 발송해 주세요. 확인 후 순차적으로 회신드립니다."},{"cat":"수업방식","q":"11월 ZOOM 수업은 언제 시작하나요?","a":"2026년 11월 8일 일요일 개강 예정입니다. KOI·알고리즘과 수학을 실시간으로 지도합니다. 반별 시간표·총 회차·수강료·정원·보강 방식은 상담에서 확인해 주세요."},{"cat":"수업방식","q":"온라인 수업은 어떻게 진행되나요?","a":"ZOOM 실시간 쌍방향 방식으로 진행합니다. 화면 공유를 활용해 코드를 검토하고 문제 풀이와 질문을 함께 다룹니다. 수강 전 준비물과 접속 방법은 반별 안내를 확인해 주세요."},{"cat":"KOI","q":"코딩이 처음인데 시작할 수 있나요?","a":"무료 진단 또는 상담을 통해 현재 수준을 확인하고 적합한 입문 경로와 수강 가능 여부를 안내합니다. C++ 경험과 현재 학년을 함께 알려주세요."},{"cat":"KOI","q":"어떤 내용을 공부하나요?","a":"C++ 입문부터 자료구조·그래프·동적계획법 등 알고리즘 학습 경로를 안내합니다. 실제 반의 진도와 선수학습은 상담에서 확인해 주세요."},{"cat":"수학","q":"수학 상담에는 무엇을 준비하면 되나요?","a":"현재 학년, 학습 중인 단원, 어려운 유형, 내신·심화·경시 등 목표를 알려주세요. 지도 가능 범위와 수업 조건을 먼저 확인합니다."},{"cat":"상담","q":"강사 이력을 알려주세요.","a":"정동수 대표 강사는 서울대학교 공과대학 학부를 졸업하고, 서울대학교 건설환경공학부 스마트도시공학 박사과정을 수료했습니다. 수학·KOI 교육을 운영하고 있습니다."},{"cat":"수강료","q":"대표 상품 가격은 얼마인가요?","a":"25개 핵심 알고리즘 가이드 전자책은 30,000원, 입시·대회 전략 컨설팅은 90분 250,000원으로 안내하고 있습니다. ZOOM 수업은 시간표·회차와 함께 수강료를 상담에서 안내합니다."},{"cat":"주문","q":"전자책은 어떻게 주문하고 받나요?","a":"현재 전자책은 이메일 주문 신청을 받습니다. 제공 가능 여부와 결제·전달 방법은 주문 확인 후 안내합니다. 신청만으로 결제나 청구가 발생하지 않습니다."},{"cat":"주문","q":"카드 결제와 자동 다운로드가 가능한가요?","a":"현재 카드 결제와 전자책 자동 전달은 준비 중입니다. 주문·상담 버튼을 통해 제공 가능 여부를 먼저 확인해 주세요."},{"cat":"수강료","q":"변경·취소·환불은 어디로 문의하나요?","a":"쇼핑몰 환불정책을 확인하고 support@stargateedu.co.kr로 상품명과 신청 내용을 보내주세요. 개별 주문 조건과 적용 기준을 확인해 안내합니다."}];
+const cats=["전체",...new Set(FAQ.map(x=>x.cat))];let selected="전체";
+const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function render(){document.getElementById("faqChips").innerHTML=cats.map(cat=>'<button type="button" class="chip'+(cat===selected?' is-active':'')+'" data-category="'+esc(cat)+'" aria-pressed="'+(cat===selected)+'">'+esc(cat)+'</button>').join("");document.getElementById("faqList").innerHTML=FAQ.filter(x=>selected==="전체"||x.cat===selected).map(x=>'<details style="padding:18px;border-bottom:1px solid var(--line)"><summary style="cursor:pointer;font-weight:700">['+esc(x.cat)+'] '+esc(x.q)+'</summary><p style="margin-top:12px;color:var(--ink-2)">'+esc(x.a)+'</p></details>').join("");}
+document.getElementById("faqChips").removeAttribute("role");
+document.getElementById("faqChips").addEventListener("click",e=>{const b=e.target.closest("[data-category]");if(b){selected=b.dataset.category;render();}});render();
+</script></body></html>
