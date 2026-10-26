@@ -41,8 +41,8 @@
   const links = document.createElement("div");
   links.className = "legal-footer__links";
   const policies = en
-    ? [["/terms.html", "Terms"], ["/privacy.html", "Privacy"], ["https://stargateedu.co.kr/refund/", "Refund policy"]]
-    : [["/terms.html", "이용약관"], ["/privacy.html", "개인정보처리방침"], ["https://stargateedu.co.kr/refund/", "환불정책"]];
+    ? [["/terms.html", "Terms"], ["/privacy.html", "Privacy"], ["/refund.html", "Refund policy"]]
+    : [["/terms.html", "이용약관"], ["/privacy.html", "개인정보처리방침"], ["/refund.html", "환불정책"]];
   policies.forEach(([href, text]) => {
     const link = document.createElement("a");
     link.href = href;

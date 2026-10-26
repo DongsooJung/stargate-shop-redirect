@@ -51,3 +51,48 @@
 - 결제창을 열기 전에 서버가 금액과 SKU를 확인한 짧은 만료시간의 주문 nonce 또는 서명을 발급하고, 승인 함수가 이를 검증하도록 확장한다.
 
 비밀 키와 Supabase service-role 키는 저장소나 브라우저 코드에 넣지 않는다.
+
+## 8. PortOne(포트원) V2 — 테스트 연동 (2026-10-26)
+
+```
+checkout.html ── PortOne.requestPayment (storeId + channelKey, 테스트 채널)
+      ▼
+success.html?provider=portone&paymentId=…
+      │  POST {paymentId, productId, customer}
+      ▼
+Supabase Edge Function  portone-verify
+      │  ① GET https://api.portone.io/payments/{paymentId}  (PortOne V2 API Secret)
+      │  ② status=PAID · currency=KRW · amount.total=SERVER_CATALOG 확인
+      │  ③ 불일치·실결제(LIVE) 채널이면 즉시 자동 취소 → FAILED/CANCELED 기록
+      ▼
+public.shop_orders  (raw_response.provider = "portone", channelType = TEST/LIVE)
+
+PortOne 웹훅 → 같은 함수(webhook-id 헤더) → Standard Webhooks 서명 검증 → 같은 검증 로직
+```
+
+| 값 | 위치 | 공개 여부 |
+|---|---|---|
+| storeId (`store-…`) | `payment-config.js` `STARGATE_PORTONE.storeId` | 공개 가능 |
+| channelKey (`channel-key-…`) | `payment-config.js` | 공개 가능 |
+| V2 API Secret | Edge Function Secret `PORTONE_API_SECRET` | **저장소·브라우저 금지** |
+| 웹훅 시크릿 (`whsec_…`) | Edge Function Secret `PORTONE_WEBHOOK_SECRET` | **저장소·브라우저 금지** |
+| 상점 ID 서버 확인용 | Edge Function Secret `PORTONE_STORE_ID` | 비밀 아님(권장) |
+| 실결제 허용 스위치 | Edge Function Secret `PORTONE_ALLOW_LIVE=true` | 실결제 전환 때만 |
+
+### 활성화 순서
+1. `payment-config.js` 의 `STARGATE_PORTONE.storeId` 에 콘솔의 상점 ID 입력 → 커밋. 비어 있으면 PortOne 버튼은 열리지 않고 기존 이메일 안내가 유지된다.
+2. Edge Function `portone-verify` 배포 (`supabase/functions/portone-verify/index.ts`, verify_jwt=false — 함수 내부에서 출처·서명·금액을 검증).
+3. Supabase Secrets: `PORTONE_API_SECRET`, `PORTONE_STORE_ID`.
+4. (권장) PortOne 콘솔 웹훅 URL: `https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/portone-verify`, 버전 V2 → 발급된 시크릿을 `PORTONE_WEBHOOK_SECRET` 에 저장.
+5. 테스트 카드로 결제 → `success.html` 에 "(테스트)" 표시 확인 → `shop_orders` 에서 DONE 확인.
+
+```sql
+select order_id, amount, status, method, raw_response->>'channelType' as channel, approved_at
+from public.shop_orders where raw_response->>'provider' = 'portone'
+order by created_at desc limit 10;
+```
+
+### 실결제 전환
+- PG 심사 승인 후 실연동 채널키로 `channelKey` 교체, `mode: "live"` 로 변경.
+- Secret `PORTONE_ALLOW_LIVE=true` 추가. 이 값이 없으면 서버가 LIVE 결제를 자동 취소한다.
+- 가격 변경 시 `catalog.js`, `toss-confirm`, `portone-verify` 의 `SERVER_CATALOG` 를 함께 수정.
