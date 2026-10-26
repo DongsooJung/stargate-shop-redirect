@@ -42,7 +42,7 @@ window.STARGATE_TOSS = Object.freeze({
  */
 window.STARGATE_PORTONE = Object.freeze({
   mode: "test",
-  storeId: "",
+  storeId: "store-a7fa5e25-affe-4807-921e-bb22a82a8e33",
   channelKey: "channel-key-62b62435-7c4a-4a75-a906-9b93a3580d01",
   verifyEndpoint: "https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/portone-verify",
   redirectUrl: "https://shop.stargateedu.co.kr/success.html"
