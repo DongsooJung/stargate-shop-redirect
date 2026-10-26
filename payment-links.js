@@ -3,7 +3,7 @@
 window.STARGATE_PAYMENTS = {
   provider: "PayPal",
   mode: "setup",
-  supportEmail: "ceo@stargateedu.co.kr",
+  supportEmail: "support@stargateedu.co.kr",
   links: {
     "SGE-EBOOK-KOI-25": "",
     "SGE-COURSE-KOI-ADV": "",

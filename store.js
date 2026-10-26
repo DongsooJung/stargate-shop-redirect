@@ -39,7 +39,7 @@
     const body = encodeURIComponent(lang === "en"
       ? `Product: ${item.name}\nSKU: ${item.sku}\nName:\nContact:\nQuestions:`
       : `상품명: ${item.name}\nSKU: ${item.sku}\n신청자 이름:\n연락처:\n문의사항:`);
-    return `mailto:ceo@stargateedu.co.kr?subject=${subject}&body=${body}`;
+    return `mailto:support@stargateedu.co.kr?subject=${subject}&body=${body}`;
   };
   const actionFor = (id, item, modal = false) => {
     const mode = salesMode(id);
