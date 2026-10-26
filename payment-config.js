@@ -33,6 +33,21 @@ window.STARGATE_TOSS = Object.freeze({
   })
 });
 
+/**
+ * PortOne(포트원) V2 — 브라우저 공개값만 둔다.
+ * storeId·channelKey 는 공개되어도 되는 식별자다. V2 API Secret·웹훅 시크릿은
+ * Supabase Edge Function Secret(PORTONE_API_SECRET / PORTONE_WEBHOOK_SECRET)에만 둔다.
+ * mode "test": 테스트 채널. 결제창에 테스트 안내를 표시하고, 서버는 실결제(LIVE)를 거절·자동취소한다.
+ * storeId 가 비어 있으면 PortOne 결제 버튼은 열리지 않는다.
+ */
+window.STARGATE_PORTONE = Object.freeze({
+  mode: "test",
+  storeId: "",
+  channelKey: "channel-key-62b62435-7c4a-4a75-a906-9b93a3580d01",
+  verifyEndpoint: "https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/portone-verify",
+  redirectUrl: "https://shop.stargateedu.co.kr/success.html"
+});
+
 window.STARGATE_BUSINESS = Object.freeze({
   companyName: "주식회사 별의문",
   representative: "정동수",
