@@ -134,7 +134,7 @@ type PortOnePayment = Record<string, unknown> & {
   paidAt?: string;
   requestedAt?: string;
   receiptUrl?: string;
-  customData?: string;
+  customData?: unknown;
   amount?: { total?: number };
   channel?: { type?: string; pgProvider?: string };
   method?: { type?: string; provider?: string };
@@ -156,20 +156,29 @@ async function cancelPayment(paymentId: string, apiSecret: string, storeId: stri
       headers: { Authorization: `PortOne ${apiSecret}`, "Content-Type": "application/json" },
       body: JSON.stringify(storeId ? { storeId, reason } : { reason }),
     });
-    return res.ok;
+    if (!res.ok) return "failed" as const;
+    const body = (await res.json().catch(() => ({}))) as { cancellation?: { status?: string } };
+    const st = body?.cancellation?.status;
+    if (st === "SUCCEEDED") return "succeeded" as const;
+    if (st === "FAILED") return "failed" as const;
+    return "requested" as const; // REQUESTED 등 비동기 취소 — 완료 웹훅으로 확정
   } catch {
-    return false;
+    return "failed" as const;
   }
 }
 
 function productFromCustomData(raw: unknown): string | null {
-  if (typeof raw !== "string") return null;
-  try {
-    const parsed = JSON.parse(raw);
-    return typeof parsed?.productId === "string" ? parsed.productId : null;
-  } catch {
-    return null;
+  // 객체·JSON 문자열·이중 인코딩 문자열 모두 처리
+  let v: unknown = raw;
+  for (let i = 0; i < 3 && typeof v === "string"; i++) {
+    try {
+      v = JSON.parse(v);
+    } catch {
+      return null;
+    }
   }
+  const id = (v as { productId?: unknown } | null)?.productId;
+  return typeof id === "string" ? id : null;
 }
 
 function methodLabel(p: PortOnePayment): string | null {
@@ -213,6 +222,23 @@ async function syncPayment(
     .maybeSingle();
 
   if (existing?.status === "DONE") {
+    const fill: Record<string, string> = {};
+    if (customer.name) fill.customer_name = customer.name;
+    if (customer.email) fill.customer_email = customer.email;
+    if (customer.phone) fill.customer_phone = customer.phone;
+    if (Object.keys(fill).length) {
+      const { data: cur } = await db
+        .from("shop_orders")
+        .select("customer_name, customer_email, customer_phone")
+        .eq("order_id", paymentId)
+        .maybeSingle();
+      const patch: Record<string, string> = {};
+      for (const [k, v] of Object.entries(fill)) if (!(cur as Record<string, unknown> | null)?.[k]) patch[k] = v;
+      if (Object.keys(patch).length) {
+        const { error } = await db.from("shop_orders").update(patch).eq("order_id", paymentId);
+        if (error) console.error("shop_orders contact fill failed", error.message);
+      }
+    }
     const raw = (existing.raw_response ?? {}) as Record<string, unknown>;
     return {
       ok: true,
@@ -283,7 +309,9 @@ async function syncPayment(
       ? await db.from("shop_orders").update({ ...base, ...contact }).eq("order_id", paymentId)
       : await db.from("shop_orders").insert({ ...base, ...contact });
     if (error) console.error("shop_orders write failed", error.message);
+    return !error;
   };
+  const DB_FAIL = { ok: false as const, status: 500, code: "ORDER_WRITE_FAILED", message: "주문 기록에 실패했습니다. 잠시 후 다시 시도해 주세요." };
 
   if (storeId && pay.storeId && pay.storeId !== storeId) {
     return { ok: false, status: 400, code: "STORE_MISMATCH", message: "다른 상점의 결제입니다." };
@@ -291,11 +319,11 @@ async function syncPayment(
 
   if (pay.status !== "PAID") {
     if (pay.status === "FAILED" || pay.status === "CANCELLED") {
-      await writeOrder({
+      if (!await writeOrder({
         status: pay.status === "CANCELLED" ? "CANCELED" : "FAILED",
         fail_code: pay.failure?.pgCode ?? pay.status,
         fail_message: (pay.failure?.reason ?? pay.failure?.pgMessage ?? "결제가 완료되지 않았습니다.").slice(0, 500),
-      });
+      })) return DB_FAIL;
     }
     return {
       ok: false,
@@ -320,16 +348,19 @@ async function syncPayment(
   }
 
   if (rejectCode) {
-    const canceled = await cancelPayment(paymentId, apiSecret, storeId, `자동 취소: ${rejectCode}`);
-    await writeOrder({
-      status: canceled ? "CANCELED" : "FAILED",
+    const cancel = await cancelPayment(paymentId, apiSecret, storeId, `자동 취소: ${rejectCode}`);
+    const note = cancel === "succeeded" ? " (자동 취소됨)"
+      : cancel === "requested" ? " (자동 취소 요청 접수 — 완료 웹훅 대기)"
+      : " (자동 취소 실패 — 관리자 확인 필요)";
+    if (!await writeOrder({
+      status: cancel === "succeeded" ? "CANCELED" : "FAILED",
       fail_code: rejectCode,
-      fail_message: `${rejectMessage}${canceled ? " (자동 취소됨)" : " (자동 취소 실패 — 관리자 확인 필요)"}`.slice(0, 500),
-    });
+      fail_message: `${rejectMessage}${note}`.slice(0, 500),
+    })) return DB_FAIL;
     return { ok: false, status: 400, code: rejectCode, message: rejectMessage };
   }
 
-  await writeOrder({
+  const saved = await writeOrder({
     status: "DONE",
     method: methodLabel(pay),
     receipt_url: typeof pay.receiptUrl === "string" && pay.receiptUrl.startsWith("https://") ? pay.receiptUrl : null,
@@ -338,6 +369,7 @@ async function syncPayment(
     fail_code: null,
     fail_message: null,
   });
+  if (!saved) return DB_FAIL;
 
   return {
     ok: true,
