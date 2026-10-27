@@ -204,12 +204,12 @@ async function syncPayment(
   customer: { name: string | null; email: string | null; phone: string | null },
   origin: string | null,
 ): Promise<SyncResult> {
-  const apiSecret = Deno.env.get("PORTONE_API_SECRET");
+  const apiSecret = Deno.env.get("PORTONE_API_SECRET")?.trim().replace(/^PortOne\s+/i, "");
   if (!apiSecret) {
     return { ok: false, status: 500, code: "PORTONE_SECRET_NOT_CONFIGURED", message: "결제 검증 키가 서버에 설정되지 않았습니다." };
   }
-  const storeId = Deno.env.get("PORTONE_STORE_ID") || null;
-  const allowLive = Deno.env.get("PORTONE_ALLOW_LIVE") === "true";
+  const storeId = Deno.env.get("PORTONE_STORE_ID")?.trim() || null;
+  const allowLive = Deno.env.get("PORTONE_ALLOW_LIVE")?.trim() === "true";
 
   const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
     auth: { persistSession: false },
@@ -399,7 +399,7 @@ Deno.serve(async (req: Request) => {
 
   // 1) PortOne 웹훅
   if (req.headers.has("webhook-id")) {
-    const secret = Deno.env.get("PORTONE_WEBHOOK_SECRET");
+    const secret = Deno.env.get("PORTONE_WEBHOOK_SECRET")?.trim();
     if (!secret) return json({ ok: false, code: "WEBHOOK_SECRET_NOT_CONFIGURED" }, 500, null);
     if (!(await verifyWebhook(secret, req.headers, raw))) {
       return json({ ok: false, code: "INVALID_SIGNATURE" }, 401, null);
