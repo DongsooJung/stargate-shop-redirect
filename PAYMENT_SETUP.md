@@ -3,7 +3,7 @@
 ## 대표 결제 번호
 
 - 대표 전화: 070-8027-8225
-- 결제 전화: 010-9587-8225
+- 결제 전화: 010-5246-8224
 - 표기 위치: `payment-config.js`의 `STARGATE_BUSINESS.phone`, `mobile`. 푸터와 체크아웃이 이 값을 읽는다.
 
 ## 결제 경로
@@ -41,7 +41,7 @@
 1. Supabase Edge Function Secret `TOSS_SECRET_KEY`에 클라이언트 키와 같은 모드의 `test_sk_*` 또는 `live_sk_*`를 등록한다. PayPal USD MID 시크릿은 카드 시크릿과 섞지 않는다.
 2. `payment-config.js`의 빈 `clientKey`에 대응하는 `test_ck_*` 또는 `live_ck_*`를 등록한다.
 3. `paypalClientKey`에 PayPal USD MID 클라이언트 키를 넣고, `paypalUsd`의 1·3번 상품에 확정 USD 금액을 넣는다.
-4. 대표 전화번호 `070-8027-8225`, 결제 전화 `010-9587-8225`는 기재됐다.
+4. 대표 전화번호 `070-8027-8225`, 결제 전화 `010-5246-8224`는 기재됐다.
 5. 테스트 키로 승인, 새로고침 멈등성, 실패 화면, 매출전표 링크와 Supabase 주문 원장을 확인한다.
 6. 라이브 키 전환 후 소액 결제 1건을 승인하고 토스 관리자에서 취소한다.
 

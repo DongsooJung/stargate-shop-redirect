@@ -55,7 +55,7 @@ window.STARGATE_BUSINESS = Object.freeze({
   mailOrderNumber: "2025-서울강남-05246호",
   address: "서울 강남구 강남대로112길 47",
   phone: "070-8027-8225",
-  mobile: "010-9587-8225",
+  mobile: "010-5246-8224",
   email: "support@stargateedu.co.kr",
   privacyOfficer: "정동수 (대표)",
   hostingProvider: "GitHub Pages"
