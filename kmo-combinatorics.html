@@ -73,6 +73,7 @@
   .hero h1 em{font-style:normal;color:var(--gold)}
   .hero p.lead{color:#C9D8E8;font-size:clamp(15px,2vw,18px);max-width:560px}
   .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .hero-side{display:grid;gap:14px}
   .hero-fig{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px}
   .hero-fig svg{width:100%;height:auto;display:block}
   .hero-fig figcaption{color:#AFC6DD;font-size:12.5px;margin-top:10px;text-align:center}
@@ -227,6 +228,8 @@
         <a class="btn ghost" href="#sample">맛보기 문제 풀어보기</a>
       </div>
     </div>
+    <div class="hero-side">
+    <div data-kmo-countdown="full" id="kmo-dday"></div>
     <figure class="hero-fig">
       <svg viewBox="0 0 320 240" role="img" aria-labelledby="fig-title">
         <title id="fig-title">격자 경로: 왼쪽 아래에서 오른쪽 위로 가는 최단 경로 한 가지를 표시한 6×4 격자</title>
@@ -241,6 +244,7 @@
       </svg>
       <figcaption>A에서 B로 가는 최단 경로는 몇 가지일까요? 오른쪽 6번·위쪽 4번의 배열 수, 곧 ₁₀C₄ = 210가지입니다.</figcaption>
     </figure>
+    </div>
   </div>
 </section>
 
@@ -450,6 +454,7 @@
       <details><summary>선수학습이 필요한가요?</summary><p>중학교 수준의 기본 연산과 문자식에 익숙하면 1주차부터 따라올 수 있습니다. 순열·조합을 이미 배운 학생은 진단 후 2단계부터 시작하도록 조정합니다.</p></details>
       <details><summary>초등학생도 수강할 수 있나요?</summary><p>초등 고학년은 입문 트랙으로 셈의 원리부터 천천히 진행합니다. 현재 수준을 알려주시면 반 배정과 진도를 함께 안내합니다.</p></details>
       <details><summary>정수론·조합 정규 과정과 조합 집중반은 무엇이 다른가요?</summary><p>정규 과정은 정수론과 조합을 함께 다루고, 조합 집중반은 12주 전체를 조합에 배정해 논증 도구와 서술형 첨삭을 더 깊게 다룹니다. 1차 대비가 우선이면 정규 과정, 조합이 약점이거나 2차를 준비하면 집중반을 권합니다.</p></details>
+      <details><summary>2027 KMO 1차 시험은 언제인가요?</summary><p>대한수학회는 1차 시험을 매년 5월에 시행합니다. 최근 1차 시험이 2024년 5월 18일, 2026년 5월 16일로 모두 5월 셋째 토요일에 열려, 이 페이지의 카운트다운은 2027년 5월 15일(토)을 예상일로 잡았습니다. 확정 일정은 <a href="https://www.kmo.or.kr/" target="_blank" rel="noopener noreferrer">대한수학회 KMO 공지</a>로 확인해 주시고, 공지가 나오면 이 페이지도 바로 갱신합니다.</p></details>
       <details><summary>대면 수업도 가능한가요?</summary><p>기본은 ZOOM 실시간 수업입니다. 대치동 대면 또는 혼합 진행 가능 여부는 상담에서 일정과 함께 안내합니다.</p></details>
       <details><summary>변경·취소·환불은 어떻게 하나요?</summary><p><a href="/refund.html">환불정책</a>을 확인하시고 <a href="mailto:support@stargateedu.co.kr">support@stargateedu.co.kr</a>로 상품명과 신청 내용을 보내주세요.</p></details>
     </div>
@@ -482,6 +487,7 @@
   </div>
   <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr<br>상호: 주식회사 별의문 · 대표자: 정동수 · 사업자등록번호: 848-86-03835 · 통신판매업신고번호: 2025-서울강남-05246호 · 사업장 주소: 서울 강남구 강남대로112길 47 · 대표 전화: <a href="tel:+827080278225">070-8027-8225</a> · 이메일: support@stargateedu.co.kr</div>
 </footer>
+<script src="/kmo-countdown.js?v=20261112"></script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
