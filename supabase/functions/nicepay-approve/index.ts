@@ -30,10 +30,21 @@ const DEFAULT_CLIENT_KEY = "R2_92ee7f9929f24589b5808f7f94a393c8";
 
 const SHOP_ORIGIN = "https://shop.stargateedu.co.kr";
 
+/**
+ * 승인 후 돌려보낼 수 있는 결제 페이지 주소. 체크아웃이 returnUrl 의 site 파라미터로
+ * 자기 주소를 넘기면 이 목록에 있을 때만 그 주소로 돌려보낸다(오픈 리다이렉트 방지).
+ * shop 도메인을 아임웹에 넘기고 결제 페이지를 pay 로 옮겨도 함수 수정 없이 동작한다.
+ */
+const RETURN_ORIGINS = new Set<string>([
+  "https://shop.stargateedu.co.kr",
+  "https://pay.stargateedu.co.kr",
+]);
+
 const ALLOWED_ORIGINS = new Set<string>([
   "https://shop.stargateedu.co.kr",
   "https://stargateedu.co.kr",
   "https://www.stargateedu.co.kr",
+  "https://pay.stargateedu.co.kr",
   "http://localhost:8080",
   "http://127.0.0.1:5500",
 ]);
@@ -195,8 +206,8 @@ function httpsOrNull(value: unknown): string | null {
 
 /* ---------- 결과 화면으로 이동 ---------- */
 
-function back(params: Record<string, string>): Response {
-  const url = new URL(`${SHOP_ORIGIN}/success.html`);
+function back(site: string, params: Record<string, string>): Response {
+  const url = new URL(`${RETURN_ORIGINS.has(site) ? site : SHOP_ORIGIN}/success.html`);
   url.searchParams.set("provider", "nicepay");
   for (const [k, v] of Object.entries(params)) if (v) url.searchParams.set(k, v);
   return new Response(null, { status: 303, headers: { Location: url.toString(), "Cache-Control": "no-store" } });
@@ -217,8 +228,10 @@ async function handleReturn(req: Request, raw: string): Promise<Response> {
   const productId = trim(q.get("product"), 64) ?? "";
   const product = SERVER_CATALOG[productId];
   const orderId = trim(form.get("orderId"), 64) ?? "";
+  const site = q.get("site") ?? "";
   const ctx = { product: productId, sku: product?.sku ?? "", lang, orderId: ORDER_ID_RE.test(orderId) ? orderId : "" };
-  const failTo = (code: string, message = "") => back({ ...ctx, code, message: message.slice(0, 200) });
+  const done = () => back(site, ctx);
+  const failTo = (code: string, message = "") => back(site, { ...ctx, code, message: message.slice(0, 200) });
 
   const secretKey = Deno.env.get("NICEPAY_SECRET_KEY");
   const clientKey = Deno.env.get("NICEPAY_CLIENT_KEY") || DEFAULT_CLIENT_KEY;
@@ -251,7 +264,7 @@ async function handleReturn(req: Request, raw: string): Promise<Response> {
     .select("order_id, status, raw_response")
     .eq("order_id", orderId)
     .maybeSingle();
-  if (existing?.status === "DONE") return back(ctx);
+  if (existing?.status === "DONE") return done();
   if (existing && (existing.raw_response as Record<string, unknown> | null)?.provider !== "nicepay") {
     return failTo("ORDER_ID_CONFLICT", "다른 결제수단에서 사용된 주문번호입니다.");
   }
@@ -266,7 +279,7 @@ async function handleReturn(req: Request, raw: string): Promise<Response> {
       amount: product.amount,
       currency: "KRW",
       payment_key: tid,
-      client_origin: SHOP_ORIGIN,
+      client_origin: RETURN_ORIGINS.has(site) ? site : SHOP_ORIGIN,
       raw_response: { provider: "nicepay", channelType: sandbox ? "TEST" : "LIVE", tid, ...record },
       ...fields,
     };
@@ -373,7 +386,7 @@ async function handleReturn(req: Request, raw: string): Promise<Response> {
     console.error("ORDER_WRITE_FAILED after approval", orderId, paidTid);
     return failTo("ORDER_WRITE_FAILED", "결제는 승인됐지만 주문 기록에 실패했습니다. 주문번호와 함께 문의해 주세요.");
   }
-  return back(ctx);
+  return done();
 }
 
 /* ---------- 2) success.html: 주문 상태 조회 ---------- */

@@ -115,6 +115,12 @@ public.shop_orders  (raw_response.provider = "nicepay", channelType = LIVE/TEST)
 
 GitHub Pages 는 POST 를 받지 못하므로 `returnUrl` 은 정적 페이지가 아니라 Edge Function 이다.
 
+### 아임웹 연동 방식 (2026-11-12 결정)
+쇼핑몰 화면은 아임웹으로 옮기고, 결제는 이 저장소의 결제 페이지에서 받는다. 아임웹에서 산 나이스페이 키는 아임웹 결제 설정에 넣을 수 없으므로(아임웹은 자체 신청만 받음) 아임웹 상품의 구매 버튼을 `checkout.html?sku=…` 로 연결한다.
+- 체크아웃은 `returnUrl` 에 `site=<자기 주소>` 를 붙이고, 함수는 `RETURN_ORIGINS`(shop, pay)에 있을 때만 그 주소의 `success.html` 로 돌려보낸다.
+- `shop.stargateedu.co.kr` 을 아임웹에 연결할 때는 이 저장소의 `CNAME` 을 `pay.stargateedu.co.kr` 로 바꾸고, 도메인 DNS 에 `pay` CNAME → `dongsoojung.github.io` 를 추가한다. 함수는 수정하지 않아도 된다.
+- 아임웹 버튼 링크도 그때 `pay.` 주소로 바꾼다.
+
 | 값 | 위치 | 공개 여부 |
 |---|---|---|
 | 클라이언트 키 (`R2_…`) | `payment-config.js` `STARGATE_NICEPAY.clientId`, 함수의 `DEFAULT_CLIENT_KEY` | 공개 가능 |
