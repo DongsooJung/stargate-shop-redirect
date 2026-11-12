@@ -2,6 +2,7 @@
 (function () {
   "use strict";
   const settings = {
+    mallId: "stargate23", // 사용자 확인 쇼핑몰 ID; 쇼핑몰 운영 URL 검증은 별도
     enabled: false,  // 카페24 PG 심사·상품 공개·최종 점검 후 true
     mallOrigin: "",  // 예: https://YOUR-MALL.cafe24.com (실제 쇼핑몰 도메인)
     productUrls: {
@@ -30,6 +31,7 @@
 
   window.STARGATE_CAFE24 = Object.freeze({
     enabled: settings.enabled,
+    mallId: settings.mallId,
     productUrl
   });
 })();
