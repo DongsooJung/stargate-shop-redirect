@@ -6,6 +6,9 @@
  *     (GitHub Pages 는 POST 를 받지 못하므로 returnUrl 이 이 함수다)
  *     서명·주문번호·금액 확인 → 승인 API 호출 → 주문 원장 기록 → success.html 로 303 이동
  *  2) 주문 상태 조회     POST application/json {orderId, productId} ← success.html
+ *  3) 준비 상태 확인     POST application/json {ping: true} ← checkout.html
+ *     시크릿 키가 등록돼 있을 때만 ready=true. 체크아웃은 ready 가 아니면 나이스페이 버튼을
+ *     띄우지 않고 기존 결제 경로로 넘어간다(시크릿 등록 전 병합해도 운영 결제창은 그대로).
  *
  * 보안 원칙
  *  - 금액의 유일한 진실은 SERVER_CATALOG. 인증 금액이 다르면 승인 API 를 호출하지 않는다
@@ -397,6 +400,13 @@ async function handleLookup(raw: string, origin: string | null): Promise<Respons
     payload = JSON.parse(raw);
   } catch {
     return json({ ok: false, code: "INVALID_JSON", message: "요청 형식이 올바르지 않습니다." }, 400, origin);
+  }
+  if (!payload || typeof payload !== "object") {
+    return json({ ok: false, code: "INVALID_JSON", message: "요청 형식이 올바르지 않습니다." }, 400, origin);
+  }
+  if (payload.ping === true) {
+    // 시크릿 값은 노출하지 않고 등록 여부만 알린다.
+    return json({ ok: true, ready: Boolean(Deno.env.get("NICEPAY_SECRET_KEY")) }, 200, origin);
   }
   const orderId = trim(payload.orderId, 64);
   const productId = trim(payload.productId, 64);

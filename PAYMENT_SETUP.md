@@ -132,6 +132,9 @@ PayPal Payment Link → **NICEPAY** → PortOne(테스트) → TossPayments → 
 `STARGATE_NICEPAY.clientId` 를 빈 문자열로 바꾸면 즉시 이전 경로로 되돌아간다(롤백).
 
 ### 활성화 순서
+0. 체크아웃은 결제 버튼을 그리기 전에 `nicepay-approve` 에 `{"ping":true}` 를 보내 `ready` 를 확인한다.
+   시크릿이 없으면 `ready=false` → 나이스페이 버튼 대신 기존 경로(PortOne → Toss → 이메일)를 쓴다.
+   따라서 병합 순서와 무관하게 운영 결제창은 깨지지 않고, 시크릿을 등록하는 순간 나이스페이가 켜진다.
 1. Supabase > Edge Functions > Secrets 에 `NICEPAY_SECRET_KEY` 등록. 없으면 함수는 승인 API 를 호출하지 않고 `NICEPAY_SECRET_NOT_CONFIGURED` 로 닫힌다.
 2. Edge Function `nicepay-approve` 배포 (verify_jwt=false — 함수 내부에서 서명·금액을 검증).
 3. 이 브랜치를 `main` 에 병합 → GitHub Pages 반영.
