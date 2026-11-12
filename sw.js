@@ -1,5 +1,5 @@
-const CACHE = "stargate-edu-shop-v12-20261112";
-const ASSETS = ["/", "/index.html", "/start.html", "/checkout.html", "/success.html", "/cancel.html", "/catalog.js", "/payment-links.js", "/payment-config.js", "/legal.js", "/store.js", "/manifest.json", "/faq.html", "/kmo-combinatorics.html",
+const CACHE = "stargate-edu-shop-v13-kmo-home-20261112";
+const ASSETS = ["/", "/index.html", "/consult.html", "/assets/kmo-home.css?v=20261112-1", "/start.html", "/checkout.html", "/success.html", "/cancel.html", "/catalog.js", "/payment-links.js", "/payment-config.js", "/legal.js", "/store.js", "/manifest.json", "/faq.html", "/kmo-combinatorics.html",
   "/icons/icon-192.png", "/icons/icon-512.png"];
 
 self.addEventListener("install", (e) => {

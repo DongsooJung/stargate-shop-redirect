@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STARGATE EDU · 11월 8일 ZOOM 개강 · 알고리즘 전자책·상담</title>
-<meta name="description" content="KOI·KMO 정보/수학 올림피아드 전문. 서울대 공대·스마트도시공학 박사과정 수료 대표 강사의 알고리즘 교재·강의·1:1 컨설팅.">
+<title>KMO 조합 집중 강의 · 세는 힘에서 증명하는 힘으로 | STARGATE EDU</title>
+<meta name="description" content="KMO 조합 12주 집중 강의. 경우의 수·비둘기집·포함배제·불변량·그래프부터 서술형 증명 첨삭까지, ZOOM 실시간으로 준비하세요. 커리큘럼·맛보기 문제·수강 상담 안내.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://shop.stargateedu.co.kr/">
 <link rel="alternate" hreflang="ko" href="https://shop.stargateedu.co.kr/">
 <link rel="alternate" hreflang="en" href="https://shop.stargateedu.co.kr/en.html">
 <link rel="alternate" hreflang="x-default" href="https://shop.stargateedu.co.kr/en.html">
-<meta property="og:title" content="Stargate Edu Shop">
-<meta property="og:description" content="대치동 최상위 올림피아드 커리큘럼을 온라인에서 그대로.">
+<meta property="og:title" content="KMO 조합 집중 강의 · STARGATE EDU">
+<meta property="og:description" content="세는 힘에서 증명하는 힘으로. KMO 조합 12주 커리큘럼, ZOOM 실시간 수업과 서술형 첨삭.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shop.stargateedu.co.kr/">
 <meta property="og:locale" content="ko_KR">
@@ -183,90 +183,123 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
 .kmo-card .kmo-link{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:800;color:var(--navy);text-decoration:underline}
 @media(max-width:760px){.kmo-band{grid-template-columns:1fr;padding:26px 20px}.kmo-band h2{font-size:22px}.kmo-band .kb-cta .btn{width:100%;text-align:center}}
 </style>
+<link rel="stylesheet" href="/assets/kmo-home.css?v=20261112-1">
 </head>
 <body>
 <header>
   <div class="wrap gnb">
-    <div class="logo">STARGATE<b>EDU</b></div>
-    <nav>
-      <a href="/kmo-combinatorics.html" class="nav-kmo">KMO 조합</a><a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
+    <a class="logo" href="/" aria-label="STARGATE EDU 홈">STARGATE<b>EDU</b></a>
+    <nav aria-label="주요 메뉴">
+      <a href="/kmo-combinatorics.html" class="nav-kmo">KMO 조합</a><a href="/kmo-combinatorics.html#curriculum">커리큘럼</a><a href="/kmo-combinatorics.html#sample">맛보기 문제</a><a href="#courses">강의·교재</a><a href="#zoom-live">ZOOM 수업</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
     </nav>
-    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="/kmo-combinatorics.html"><b>KMO 조합 집중</b></a><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
-    <div class="hbtns"><a class="lang-switch" href="/en.html" lang="en" hreflang="en" aria-label="View this shop in English">EN</a><a href="/start.html" class="mini">무료 진단</a></div>
+    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="/kmo-combinatorics.html"><b>KMO 조합 집중 강의</b></a><a href="/kmo-combinatorics.html#curriculum">12주 커리큘럼</a><a href="/kmo-combinatorics.html#sample">맛보기 문제</a><a href="/consult.html?course=kmo">KMO 수강 상담</a><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
+    <div class="hbtns"><a class="lang-switch" href="/en.html" lang="en" hreflang="en" aria-label="View this shop in English">EN</a><a href="/consult.html?course=kmo" class="mini">KMO 수강 상담</a></div>
   </div>
 </header>
 
-<section class="hero">
+<main id="main-content">
+<section class="hero kmo-hero" aria-labelledby="home-kmo-title">
   <div class="wrap">
-    <div class="eyebrow">2026.11.08(일) 개강 · 수강 상담 접수</div>
-    <h1>11월 8일, ZOOM으로<br>KOI·수학을 함께 시작하세요.</h1>
-    <p>서울대 공대 출신 정동수 강사와 현재 수준에 맞는 학습 경로를 찾으세요. 전자책으로 시작하거나, 실시간 수업과 1:1 상담으로 대회 준비 계획을 세울 수 있습니다.</p>
-    <div class="cta"><a href="/consult.html" class="btn gold">11월 개강 수강 상담 준비</a><a href="#quick-start" class="btn ghost">대표 상품 3개 비교</a><a href="/start.html" class="hero-diagnosis">어디서 시작할지 모르겠다면? 무료 진단 →</a></div>
+    <div class="kmo-hero-copy">
+      <div class="eyebrow"><span aria-hidden="true"></span>KMO 수학올림피아드 · 조합 집중 강의</div>
+      <h1 id="home-kmo-title">KMO 조합,<br><em>세는 힘에서<br>증명하는 힘으로.</em></h1>
+      <p>경우의 수를 넘어 비둘기집·포함배제·불변량·그래프까지.<br class="desktop-break"> 문제의 구조를 읽고, 끝까지 설명하는 풀이를 만듭니다.</p>
+      <div class="kmo-hero-tags"><span>12주 단계별 학습</span><span>서술형 답안 첨삭</span><span>ZOOM 실시간</span></div>
+      <div class="cta">
+        <a href="/kmo-combinatorics.html" class="btn gold">KMO 조합 강의 보기 <span aria-hidden="true">↗</span></a>
+        <a href="/kmo-combinatorics.html#sample" class="btn ghost">맛보기 문제 풀기</a>
+      </div>
+      <div class="kmo-hero-foot"><span>서울대 공대 출신 정동수 강사</span><a href="/consult.html?course=kmo">나에게 맞는 반 상담하기 <span aria-hidden="true">→</span></a></div>
+    </div>
+    <div class="kmo-hero-example">
+      <div class="kmo-example-top"><span>THINK COMBINATORIALLY</span><b>01 / 격자 경로</b></div>
+      <h2>길을 세는 순간,<br>조합이 보입니다.</h2>
+      <figure>
+        <svg viewBox="0 0 360 225" role="img" aria-labelledby="home-grid-title home-grid-desc">
+          <title id="home-grid-title">A에서 B로 가는 3×3 격자의 최단 경로</title>
+          <desc id="home-grid-desc">오른쪽 세 번과 위쪽 세 번으로 이동하는 두 가지 경로를 금색 실선과 흰색 점선으로 표시했습니다.</desc>
+          <g fill="none" stroke="#56728d" stroke-width="1">
+            <path d="M48 30H312M48 83H312M48 136H312M48 189H312M48 30V189M136 30V189M224 30V189M312 30V189"/>
+          </g>
+          <path d="M48 189V136H136V83H224V30H312" fill="none" stroke="#d5e2ee" stroke-width="2" stroke-dasharray="5 7" stroke-linejoin="round"/>
+          <path d="M48 189H136V136H224V83H312V30" fill="none" stroke="#F3CF68" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="48" cy="189" r="7" fill="#F3CF68"/><circle cx="312" cy="30" r="7" fill="#F3CF68"/>
+          <text x="23" y="212" fill="#fff" font-size="15" font-family="sans-serif">A</text>
+          <text x="325" y="27" fill="#fff" font-size="15" font-family="sans-serif">B</text>
+          <text x="160" y="216" fill="#b8cbdd" font-size="12" font-family="sans-serif">오른쪽 3번 + 위쪽 3번</text>
+        </svg>
+        <figcaption>A에서 B까지, 최단 경로는 모두 몇 가지일까요?</figcaption>
+      </figure>
+      <details class="kmo-example-solution"><summary>생각의 실마리 열어보기 <span aria-hidden="true">＋</span></summary><p>총 6번의 이동 중 위로 갈 3번의 자리를 고르면 됩니다. <strong>₆C₃ = 20가지.</strong> 길을 하나씩 세는 대신, 이동 순서를 고르는 문제로 바꿔 보세요.</p></details>
+      <a href="/kmo-combinatorics.html#sample" class="kmo-example-more">다른 조합 문제도 풀어보기 <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
-<div class="trust">
+<div class="trust kmo-facts" aria-label="KMO 조합 강의 요약">
   <div class="wrap">
-    <div><b>25개</b><span>핵심 알고리즘</span></div>
-    <div><b>실시간</b><span>ZOOM 쌍방향 수업</span></div>
-    <div><b>서울대 공대</b><span>학부 졸업</span></div>
-    <div><b>1:1</b><span>진단·전략 상담</span></div>
+    <div><b>12주</b><span>조합에 집중하는 커리큘럼</span></div>
+    <div><b>1차 + 2차</b><span>단답형 풀이부터 서술형 증명까지</span></div>
+    <div><b>답안 첨삭</b><span>풀이의 논리와 표현을 함께 점검</span></div>
+    <div><b>ZOOM</b><span>어디서든 실시간 쌍방향 수업</span></div>
   </div>
 </div>
+
+<section class="block kmo-program" id="kmo-combinatorics" aria-labelledby="kmo-band-title">
+  <div class="wrap">
+    <div class="kmo-program-layout">
+      <div class="kmo-program-intro">
+        <div class="kmo-kicker">KMO COMBINATORICS · 12 WEEKS</div>
+        <h2 id="kmo-band-title">조합 한 영역을,<br>깊고 단단하게.</h2>
+        <p>빠짐없이 세는 기본기에서 논리적으로 증명하는 힘까지. 네 단계의 학습으로 개념과 문제 풀이, 서술형 답안을 연결합니다.</p>
+        <a class="kmo-text-link" href="/kmo-combinatorics.html#curriculum">주차별 전체 커리큘럼 보기 <span aria-hidden="true">↗</span></a>
+        <div data-kmo-countdown="badge" style="margin-top:24px"></div>
+        <div class="kmo-program-note">진단 결과와 중등부·고등부, 1차·2차 목표에 따라 학습 속도와 구성을 조정합니다.</div>
+      </div>
+      <ol class="kmo-roadmap" aria-label="KMO 조합 12주 학습 순서">
+        <li><span class="kmo-roadmap-num" aria-hidden="true">01</span><div><small>1–3주 · 셈의 원리</small><h3>빠짐없이, 중복 없이 세기</h3><p>순열·조합 · 이중 세기 · 포함배제</p></div></li>
+        <li><span class="kmo-roadmap-num" aria-hidden="true">02</span><div><small>4–7주 · 논증 도구</small><h3>왜 성립하는지 설명하기</h3><p>비둘기집 · 점화식 · 생성함수 · 불변량</p></div></li>
+        <li><span class="kmo-roadmap-num" aria-hidden="true">03</span><div><small>8–11주 · 구조와 전략</small><h3>문제를 새로운 관점으로 보기</h3><p>극단 원리 · 그래프 · 조합 게임 · 색칠 논증</p></div></li>
+        <li><span class="kmo-roadmap-num" aria-hidden="true">04</span><div><small>12주 · 실전 / 전 과정 · 첨삭</small><h3>아이디어를 완결된 답안으로</h3><p>실전 모의 세트 · 서술형 첨삭 · 오답 점검</p></div></li>
+      </ol>
+    </div>
+    <div class="kmo-audience"><strong>이런 학생에게 권합니다</strong><ul><li>경우의 수를 감으로 풀고 있다면</li><li>조합 문제에서 자주 막힌다면</li><li>증명은 떠오르는데 답안 쓰기가 어렵다면</li></ul><a href="/consult.html?course=kmo">맞는 반 문의하기 →</a></div>
+  </div>
+</section>
 
 <section class="block" id="zoom-live" aria-labelledby="zoom-live-title">
   <div class="wrap">
     <div class="zoom-live-band">
       <div>
-        <span class="zl-badge"><i aria-hidden="true"></i>LIVE · 2026.11.08(일) 개강</span>
-        <h2 id="zoom-live-title">ZOOM 실시간 수업, 11월 8일 시작합니다</h2>
-        <p>KOI 정보올림피아드·알고리즘과 수학을 대표 강사가 ZOOM으로 실시간 지도합니다. 화면 공유로 코드를 함께 검토하고 질문에 바로 답합니다. 지방·해외에서도 대치동 커리큘럼 그대로 수강하세요.</p>
+        <span class="zl-badge"><i aria-hidden="true"></i>ZOOM LIVE · 수강 상담</span>
+        <h2 id="zoom-live-title">KMO 조합, 질문하며 배우는 실시간 수업</h2>
+        <p>문제에 접근하는 방법부터 답안을 쓰는 과정까지, ZOOM으로 함께 풀고 질문합니다. KMO 조합 집중반과 KOI·알고리즘 수업 중 현재 수준과 목표에 맞는 과정을 상담하세요.</p>
         <div class="zl-cta">
           <a class="btn zl-kakao" href="https://open.kakao.com/o/suuKwjTi" target="_blank" rel="noopener noreferrer">카카오톡 수강 상담 ↗</a>
           <a class="btn gold" href="https://www.stargateedu.co.kr/zoom-class/">수업 안내 자세히 보기</a>
         </div>
       </div>
       <ul aria-label="ZOOM 실시간 수업 요약">
-        <li><span>개강일</span><b>2026년 11월 8일 (일)</b></li>
+        <li><span>반 편성·일정</span><b>수준과 목표 확인 후 안내</b></li>
         <li><span>수업 방식</span><b>ZOOM 실시간 쌍방향</b></li>
-        <li><span>과정</span><b>KOI·알고리즘 / 수학</b></li>
+        <li><span>과정</span><b>KMO 조합 / KOI·알고리즘</b></li>
         <li><span>시간표·수강료</span><b>상담 시 개별 안내</b></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="block" id="kmo-combinatorics" aria-labelledby="kmo-band-title" style="padding-top:0">
-  <div class="wrap">
-    <div class="kmo-band">
-      <div>
-        <span class="kb-tag">NEW · KMO 조합 집중 강의</span> <span data-kmo-countdown="badge"></span>
-        <h2 id="kmo-band-title">세는 법에서 <em>증명하는 법</em>까지,<br>KMO 조합 12주 집중</h2>
-        <p>학교 진도로 채워지지 않는 조합 영역을 비둘기집·포함배제·불변량·그래프까지 단계별로 다지고, 2차 서술형 답안은 직접 첨삭합니다.</p>
-        <div class="kb-cta">
-          <a class="btn navy" href="/kmo-combinatorics.html">조합 강의 자세히 보기</a>
-          <a class="btn gold" href="/kmo-combinatorics.html#sample">맛보기 문제 풀기</a>
-        </div>
-      </div>
-      <ol aria-label="KMO 조합 12주 단계">
-        <li><span><b>셈의 원리</b> · 순열·조합, 이중 세기, 포함배제</span></li>
-        <li><span><b>논증 도구</b> · 비둘기집, 점화식, 생성함수, 불변량</span></li>
-        <li><span><b>구조</b> · 극단 원리, 그래프, 조합 게임, 색칠 논증</span></li>
-        <li><span><b>실전</b> · 1차 단답형 모의 세트, 2차 서술형 첨삭</span></li>
-      </ol>
-    </div>
-  </div>
-</section>
+
 
 <section class="block alt" id="quick-start" aria-labelledby="featured-title">
   <div class="wrap">
-    <div class="head"><h2 id="featured-title">지금 시작할 수 있는 대표 상품 3개</h2><p>혼자 학습하기 · 함께 배우기 · 개인 전략 세우기</p></div>
+    <div class="head"><h2 id="featured-title">목표에 맞게 시작하세요</h2><p>KMO 조합 집중 · KOI 실시간 수업 · 알고리즘 전자책</p></div>
     <div class="funnel">
+      <article class="funnel-step featured-live kmo-featured"><span class="step">추천 과정 · KMO</span><h3>KMO 조합 집중반</h3><div class="featured-price">12주 집중 <small>· ZOOM 실시간</small></div><p>조합의 기본기와 서술형 증명을 함께 다지고 싶은 학생에게 권합니다.</p><ul class="featured-list"><li>셈의 원리부터 불변량·그래프까지</li><li>주간 과제와 서술형 답안 첨삭</li><li>진단 후 수준별 반 편성</li></ul><details class="featured-detail"><summary>수강 신청 안내</summary><p>학년·조합 학습 경험·목표 대회를 알려주세요. 반 편성·시간표·정원·수강료는 상담에서 안내합니다.</p></details><a class="btn gold" href="/consult.html?course=kmo">KMO 조합 수강 상담 준비</a><small><a href="/kmo-combinatorics.html#enroll">수강 옵션 자세히 보기 →</a></small></article>
+      <article class="funnel-step"><span class="step">ZOOM · 수강 상담 접수</span><h3>KOI·알고리즘 실시간 수업</h3><div class="featured-price">ZOOM 실시간 수업</div><p>혼자 풀다 막히는 코드와 문제를 강사에게 질문하며 학습하고 싶은 학생에게 권합니다.</p><ul class="featured-list"><li>방식: ZOOM 실시간 쌍방향</li><li>내용: 코드 검토·문제 풀이·질문</li><li>시간표·회차·수강료: 상담 시 안내</li></ul><details class="featured-detail"><summary>수강 신청 순서</summary><p>상담 시 학년·코딩 경험·학습 목표를 알려주세요. 수준에 맞는 반과 운영 조건을 확인한 뒤 수강을 결정합니다.</p></details><a class="btn gold" href="https://open.kakao.com/o/suuKwjTi" target="_blank" rel="noopener noreferrer">카카오톡으로 수강 상담 ↗</a><small><a href="/consult.html">학년·경험·목표로 상담 내용 준비 →</a></small></article>
       <article class="funnel-step"><span class="step">전자책 · 주문 신청</span><h3>25개 핵심 알고리즘 가이드</h3><div class="featured-price">30,000원</div><p>알고리즘의 전체 학습 순서를 먼저 잡고 싶은 학생에게 권합니다.</p><ul class="featured-list"><li>형식: PDF 전자책</li><li>내용: 핵심 알고리즘 25개·학습 순서</li><li>ISBN 979-11-993413-0-2</li></ul><details class="featured-detail"><summary>주문·전달 안내</summary><p>상품 페이지에서 내용을 확인한 뒤 이메일로 주문을 신청합니다. 제공 가능 여부와 결제·전달 방법은 주문 확인 후 안내합니다.</p></details><a class="btn gold" href="/checkout.html?sku=SGE-EBOOK-KOI-25">전자책 내용 확인·주문 신청</a><small>이메일 신청만으로 결제되지 않습니다.</small></article>
-      <article class="funnel-step featured-live"><span class="step">ZOOM · 수강 상담 접수</span><h3>KOI·알고리즘 / 수학 실시간 수업</h3><div class="featured-price">11월 8일 (일) 개강</div><p>혼자 풀다 막히는 코드와 문제를 강사에게 질문하며 학습하고 싶은 학생에게 권합니다.</p><ul class="featured-list"><li>방식: ZOOM 실시간 쌍방향</li><li>내용: 코드 검토·문제 풀이·질문</li><li>시간표·회차·수강료: 상담 시 안내</li></ul><details class="featured-detail"><summary>수강 신청 순서</summary><p>상담 시 학년·코딩 경험·학습 목표를 알려주세요. 수준에 맞는 반과 운영 조건을 확인한 뒤 수강을 결정합니다.</p></details><a class="btn gold" href="https://open.kakao.com/o/suuKwjTi" target="_blank" rel="noopener noreferrer">카카오톡으로 수강 상담 ↗</a><small><a href="/consult.html">학년·경험·목표로 상담 내용 준비 →</a></small></article>
-      <article class="funnel-step"><span class="step">1:1 · 일정 협의</span><h3>입시·대회 전략 컨설팅</h3><div class="featured-price">250,000원 <small>/ 90분</small></div><p>현재 수준과 목표에 맞춰 학습 우선순위와 대회 준비 계획을 정하고 싶은 학생에게 권합니다.</p><ul class="featured-list"><li>사전 진단: 학년·경험·목표 확인</li><li>진행: 90분 개인 전략 상담</li><li>내용: 개인 학습 로드맵 설계</li></ul><details class="featured-detail"><summary>상담 전 준비할 내용</summary><p>최근 학습 내용, 풀어 본 문제, 준비 중인 대회와 희망 일정을 알려주세요. 진행 가능 일정과 상담 방식을 먼저 안내합니다.</p></details><a class="btn gold" href="mailto:support@stargateedu.co.kr?subject=90%EB%B6%84%20%EC%A0%84%EB%9E%B5%20%EC%83%81%EB%8B%B4%20%EC%8B%A0%EC%B2%AD">90분 전략 상담 일정 문의</a><small>일정·진행 방식 확인 후 신청을 확정합니다.</small></article>
     </div>
-    <div class="diagnosis-callout"><div><strong>어떤 상품이 맞을지 고민되시나요?</strong><p>학년·코딩 경험·목표 세 가지로 추천 경로를 확인하세요.</p></div><a class="btn navy" href="/start.html">3분 무료 진단</a></div>
+    <div class="diagnosis-callout"><div><strong>KMO를 준비하는데, 어디서 시작할지 고민되시나요?</strong><p>학년·조합 학습 경험·목표 대회에 맞춰 상담 내용을 준비하세요.</p></div><a class="btn navy" href="/consult.html?course=kmo">KMO 학습 상담 준비</a></div>
   </div>
 </section>
 
@@ -289,10 +322,10 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
   <div class="wrap">
     <div class="head"><h2>온라인 강의</h2><p>목표와 선수학습에 따라 선택하는 과정</p></div>
     <div class="grid">
-      <div class="card"><div class="thumb">정보올림피아드 심화</div><div class="body"><div class="lbl">온라인 강의 · 심화</div><h3>정보올림피아드 심화 (자료구조·알고리즘)</h3><div class="price"><span class="dc">22%</span><span class="now">429,000</span><span class="was">550,000</span></div><div class="meta">선수학습 확인 후 수강 권장</div></div></div>
-      <div class="card"><div class="thumb">알고리즘 종합 패키지</div><div class="body"><div class="lbl">온라인 강의 · 패키지</div><h3>알고리즘 종합 패키지 (입문+심화)</h3><div class="price"><span class="dc">27%</span><span class="now">690,600</span><span class="was">946,000</span></div><div class="meta">입문부터 심화까지 단계별 구성</div></div></div>
-      <div class="card kmo-card"><div class="thumb"><span class="badge">조합 집중</span>KMO 대비 정수론·조합</div><div class="body"><div class="lbl">온라인 강의 · 대회대비</div><h3>KMO 대비 정수론·조합</h3><div class="price"><span class="dc">20%</span><span class="now">384,000</span><span class="was">480,000</span></div><div class="meta">정수론·조합 집중 과정</div><a class="kmo-link" href="/kmo-combinatorics.html">조합 12주 커리큘럼 보기 →</a></div></div>
-      <div class="card"><div class="thumb">정보올림피아드 입문</div><div class="body"><div class="lbl">온라인 강의 · 입문</div><h3>정보올림피아드 입문 (C++ 기초)</h3><div class="price"><span class="dc">25%</span><span class="now">297,000</span><span class="was">396,000</span></div><div class="meta">프로그래밍 입문자용 C++ 기초</div></div></div>
+      <div data-product-id="course-kmo-number-combination" class="card kmo-card"><div class="thumb"><span class="badge">조합 집중</span>KMO 대비 정수론·조합</div><div class="body"><div class="lbl">온라인 강의 · 대회대비</div><h3>KMO 대비 정수론·조합</h3><div class="price"><span class="dc">20%</span><span class="now">384,000</span><span class="was">480,000</span></div><div class="meta">정수론·조합 집중 과정</div><a class="kmo-link" href="/kmo-combinatorics.html">조합 12주 커리큘럼 보기 →</a></div></div>
+      <div data-product-id="course-koi-advanced" class="card"><div class="thumb">정보올림피아드 심화</div><div class="body"><div class="lbl">온라인 강의 · 심화</div><h3>정보올림피아드 심화 (자료구조·알고리즘)</h3><div class="price"><span class="dc">22%</span><span class="now">429,000</span><span class="was">550,000</span></div><div class="meta">선수학습 확인 후 수강 권장</div></div></div>
+      <div data-product-id="course-algorithm-bundle" class="card"><div class="thumb">알고리즘 종합 패키지</div><div class="body"><div class="lbl">온라인 강의 · 패키지</div><h3>알고리즘 종합 패키지 (입문+심화)</h3><div class="price"><span class="dc">27%</span><span class="now">690,600</span><span class="was">946,000</span></div><div class="meta">입문부터 심화까지 단계별 구성</div></div></div>
+      <div data-product-id="course-koi-intro" class="card"><div class="thumb">정보올림피아드 입문</div><div class="body"><div class="lbl">온라인 강의 · 입문</div><h3>정보올림피아드 입문 (C++ 기초)</h3><div class="price"><span class="dc">25%</span><span class="now">297,000</span><span class="was">396,000</span></div><div class="meta">프로그래밍 입문자용 C++ 기초</div></div></div>
     </div>
   </div>
 </section>
@@ -334,17 +367,20 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
 
 <section class="block">
   <div class="cta-band">
-    <h2>어떤 상품이 맞는지 3분 안에 확인하세요</h2>
-    <p>결과에 따라 전자책·입문 강의·전략 상담 중 하나를 추천합니다.</p>
-    <a href="/start.html" class="btn gold">무료 진단 시작</a>
+    <h2>KMO 조합, 첫 문제부터 함께 풀어보세요</h2>
+    <p>맛보기 문제로 접근법을 확인하고, 나에게 맞는 12주 학습을 시작하세요.</p>
+    <a href="/kmo-combinatorics.html#sample" class="btn gold">KMO 맛보기 문제 풀기</a>
   </div>
 </section>
 
 <section class="block alt" id="purchase-faq" aria-labelledby="purchase-faq-title"><div class="wrap"><div class="head"><h2 id="purchase-faq-title">신청 전에 확인하세요</h2></div><div class="purchase-faq">
+<details><summary>KMO 조합 집중반은 어떤 학생에게 맞나요?</summary><p>경우의 수부터 체계적으로 배우거나, 조합 문제 풀이와 서술형 증명을 보완하고 싶은 학생에게 권합니다. <a href="/kmo-combinatorics.html#tracks">추천 대상</a>과 <a href="/kmo-combinatorics.html#curriculum">12주 커리큘럼</a>을 살펴보세요.</p></details>
+<details><summary>KMO 조합 집중반의 수강료는 얼마인가요?</summary><p>반 편성·시간표·정원·수강료는 상담에서 안내합니다. 상품 목록의 384,000원은 별도의 KMO 정수론·조합 정규 과정 가격입니다. <a href="/consult.html?course=kmo">조합 집중반 상담 준비</a>에서 목표와 학습 경험을 정리해 주세요.</p></details>
 <details><summary>전자책 주문 신청을 하면 바로 결제되나요?</summary><p>아니요. 현재는 이메일 주문 신청을 받습니다. 제공 가능 여부와 결제·전달 방법을 확인한 뒤 구매를 결정하세요.</p></details>
-<details><summary>ZOOM 수업 시간과 수강료는 어떻게 확인하나요?</summary><p>개강일은 2026년 11월 8일입니다. 반별 시간표·총 회차·수강료·정원·보강 방식은 수강 상담에서 확인해 주세요.</p></details>
+<details><summary>ZOOM 수업 시간과 수강료는 어떻게 확인하나요?</summary><p>반별 개강 일정·시간표·총 회차·수강료·정원·보강 방식은 수강 상담에서 확인해 주세요.</p></details>
 <details><summary>C++를 처음 배우는데 수강할 수 있나요?</summary><p>학년과 코딩 경험을 알려주시면 적합한 입문 경로와 수강 가능 여부를 안내합니다. 무료 진단으로 먼저 추천 경로를 확인할 수도 있습니다.</p></details>
 <details><summary>변경·취소·환불은 어디로 문의하나요?</summary><p><a href="/refund.html">환불정책</a>을 확인하시고 <a href="mailto:support@stargateedu.co.kr">support@stargateedu.co.kr</a>로 상품명과 신청 내용을 보내주세요.</p></details></div></div></section>
+</main>
 <section class="sg-app-install" aria-label="스타게이트 공식 앱 설치">
 <style>.sg-app-install{max-width:1120px;margin:32px auto;padding:0 16px;box-sizing:border-box}.sg-app-install .sg-ai-card{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:20px 22px;border:1px solid rgba(127,127,127,.3);border-radius:16px;background:rgba(127,127,127,.06)}.sg-app-install .sg-ai-kicker{font-size:11px;letter-spacing:.12em;opacity:.7;font-weight:700}.sg-app-install h2{margin:4px 0 6px;font-size:20px}.sg-app-install p{margin:0;font-size:14px;opacity:.8;line-height:1.6}.sg-app-install .sg-ai-btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:10px 20px;border-radius:12px;background:#000;color:#fff!important;border:1px solid #3c3c3c;text-decoration:none!important;white-space:nowrap}.sg-app-install .sg-ai-btn:hover{background:#1f1f1f}.sg-app-install .sg-ai-btn small{display:block;font-size:11px;line-height:1.1;opacity:.85}.sg-app-install .sg-ai-btn b{display:block;font-size:17px;line-height:1.2}@media(max-width:560px){.sg-app-install .sg-ai-card{flex-direction:column;align-items:stretch;text-align:center}.sg-app-install .sg-ai-btn{justify-content:center}}</style>
 <div class="sg-ai-card"><div><div class="sg-ai-kicker">STARGATE · ANDROID APP</div><h2>스타게이트 공식 앱 설치</h2><p>KOI 기출 아카이브, AI 수학 채점, 1:1 상담 신청을 앱에서 바로 이용하세요. 회원가입 없이 사용할 수 있습니다.</p></div>
@@ -362,7 +398,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
   </div>
   <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr<div class="business-info">상호: 주식회사 별의문 · 대표자: 정동수 · 사업자등록번호: 848-86-03835 · 통신판매업신고번호: 2025-서울강남-05246호<br>사업장 주소: 서울 강남구 강남대로112길 47 · 대표 전화: <a href="tel:+827080278225">070-8027-8225</a> · 결제 전화: <a href="tel:+821052468224">010-5246-8224</a> · 이메일: support@stargateedu.co.kr · 개인정보 보호책임자: 정동수 · 호스팅 제공자: GitHub Pages</div></div>
 </footer>
-<script src="/kmo-countdown.js?v=20261112"></script><script src="/catalog.js?v=20261026"></script><script src="/payment-links.js?v=20261026"></script><script src="/store.js?v=20261026"></script>
+<script src="/kmo-countdown.js?v=20261112"></script><script src="/catalog.js?v=20261026"></script><script src="/payment-links.js?v=20261026"></script><script src="/store.js?v=20261112-kmo"></script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));

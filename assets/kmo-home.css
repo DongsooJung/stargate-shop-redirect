@@ -1,0 +1,73 @@
+/* KMO-focused home, 2026-11-12. Brand: STARGATE navy and gold. */
+.kmo-hero{background:#0b2944}
+.kmo-hero:after{width:700px;height:700px;right:-280px;top:-300px;background:radial-gradient(circle,rgba(201,162,39,.12),transparent 70%)}
+.kmo-hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:62px;padding:62px 20px 58px}
+.kmo-hero .eyebrow{display:flex;align-items:center;gap:9px;font-size:12px;color:#f1d481;letter-spacing:.04em}
+.kmo-hero .eyebrow>span{width:6px;height:6px;background:#f1d481;border-radius:50%}
+.kmo-hero h1{font-size:clamp(38px,4.5vw,57px);line-height:1.19;letter-spacing:-.045em;margin:20px 0 22px;font-weight:800}
+.kmo-hero h1 em{color:#f3cf68;font-style:normal}
+.kmo-hero p{font-size:15px;line-height:1.85;color:#c9d8e8}
+.kmo-hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.kmo-hero-tags span{font-size:12px;color:#d1deeb;border:1px solid #476079;border-radius:5px;padding:4px 9px}
+.kmo-hero .cta{gap:10px;margin-top:26px}
+.kmo-hero .btn{padding:13px 21px;min-height:49px;font-size:14px}
+.kmo-hero .btn.gold{background:#f3cf68;color:#192b3b}
+.kmo-hero .btn.gold span{margin-left:10px}
+.kmo-hero .btn.ghost{border:1px solid #6a849c}
+.kmo-hero-foot{display:flex;align-items:center;flex-wrap:wrap;gap:10px 20px;margin-top:23px;font-size:11px;color:#afc3d6}
+.kmo-hero-foot a{color:#f3cf68;font-size:12px;font-weight:700}
+.kmo-hero-foot a:hover,.kmo-example-more:hover{text-decoration:underline}
+.kmo-hero-example{border:1px solid #4b647b;border-radius:12px;background:#133651;padding:25px 27px 20px;position:relative;min-width:0}
+.kmo-example-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:20px;border-bottom:1px solid #3b566e}
+.kmo-example-top span{font:10px/1.5 ui-monospace,monospace;color:#b6c9da;letter-spacing:.1em}
+.kmo-example-top b{font-size:10px;color:#f3cf68;white-space:nowrap}
+.kmo-hero-example h2{font-size:24px;line-height:1.4;color:#fff;letter-spacing:-.03em;font-weight:600;margin-top:21px}
+.kmo-hero-example figure{margin:4px 0 18px}
+.kmo-hero-example svg{display:block;width:100%;height:auto;max-height:240px}
+.kmo-hero-example figcaption{font-size:13px;color:#e4edf5;line-height:1.6}
+.kmo-example-solution{border-top:1px solid #3b566e;padding-top:13px}
+.kmo-example-solution summary{display:flex;justify-content:space-between;gap:10px;align-items:center;cursor:pointer;color:#f3cf68;font-size:13px;font-weight:700;list-style:none;min-height:27px}
+.kmo-example-solution summary::-webkit-details-marker{display:none}
+.kmo-example-solution[open] summary span{transform:rotate(45deg)}
+.kmo-example-solution p{font-size:13px;margin:9px 0 6px;line-height:1.8}
+.kmo-example-solution strong{color:#fff;white-space:nowrap}
+.kmo-example-more{display:flex;justify-content:space-between;font-size:11px;color:#c3d4e3;margin-top:16px}
+.kmo-facts{background:#f5f3ec;color:var(--navy);border-bottom:1px solid #e7e4d9}
+.kmo-facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:25px 20px}
+.kmo-facts .wrap>div{padding:0 10px;border-left:1px solid #dddccc}
+.kmo-facts .wrap>div:first-child{border-left:0}
+.kmo-facts b{font-size:22px;color:#0b2a4a;letter-spacing:-.02em}
+.kmo-facts span{font-size:11px;color:#5a6670}
+.kmo-program{padding:76px 0!important}
+.kmo-program-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:85px}
+.kmo-kicker{color:#81620a;font-size:11px;font-weight:800;letter-spacing:.09em}
+.kmo-program-intro h2{font-size:36px;line-height:1.3;color:var(--navy);margin:17px 0 20px;letter-spacing:-.035em}
+.kmo-program-intro>p{font-size:15px;color:#526072;line-height:1.85;max-width:390px}
+.kmo-text-link{display:inline-flex;gap:20px;align-items:center;margin-top:25px;padding-bottom:7px;border-bottom:1px solid var(--navy);font-size:14px;font-weight:700;color:var(--navy)}
+.kmo-program-note{font-size:12px;color:#667085;line-height:1.7;border-left:2px solid #c9a227;padding-left:13px;margin-top:28px;max-width:360px}
+.kmo-roadmap{list-style:none;display:grid;gap:0;border-top:1px solid #cbd3dc}
+.kmo-roadmap li{display:flex;align-items:flex-start;gap:23px;padding:20px 0;border-bottom:1px solid #e2e6eb}
+.kmo-roadmap-num{font-size:29px;font-weight:400;line-height:1.4;color:#9b791a;font-family:Georgia,serif;font-variant-numeric:tabular-nums}
+.kmo-roadmap small{font-size:11px;color:#667085;letter-spacing:.02em}
+.kmo-roadmap h3{font-size:18px;color:var(--navy);margin:3px 0 5px;font-weight:750}
+.kmo-roadmap p{font-size:12px;color:#667085;line-height:1.6}
+.kmo-audience{display:flex;align-items:center;flex-wrap:wrap;gap:15px 26px;border-top:1px solid #e4e7ec;margin-top:38px;padding-top:24px;font-size:12px}
+.kmo-audience strong{color:var(--navy);font-size:13px}
+.kmo-audience ul{display:flex;flex-wrap:wrap;gap:10px 20px;list-style:none;color:#526072}
+.kmo-audience li:before{content:"✓";margin-right:6px;color:#927018;font-weight:800}
+.kmo-audience>a{color:var(--navy);font-weight:750;text-decoration:underline}
+#zoom-live{padding-top:0}
+#quick-start .head{text-align:left;margin-bottom:30px}
+#quick-start .head h2{font-size:30px}
+.kmo-featured{position:relative;background:#fffef9}
+.kmo-featured .step{color:#7c5f0d}
+.kmo-featured h3{font-size:23px}
+.kmo-featured .featured-price{font-size:22px}
+.kmo-featured .featured-price small{display:block;font-size:12px;margin-top:3px}
+.nav-kmo:after{display:none}
+nav .nav-kmo{background:#f7efd4;border-radius:5px;padding:5px 9px;margin:-5px 0}
+header .mini{white-space:nowrap}
+@media(min-width:1081px){.gnb{gap:19px}nav{gap:15px;font-size:12px}.hbtns{gap:8px}.mini{padding:8px 12px}}
+@media(max-width:1000px){.kmo-hero .wrap{gap:30px;grid-template-columns:1fr 1fr}.kmo-hero h1{font-size:44px}.desktop-break{display:none}.kmo-program-layout{gap:45px}.kmo-hero-example{padding:22px}.kmo-hero .btn{padding:12px 15px}}
+@media(max-width:760px){.kmo-hero .wrap{grid-template-columns:1fr;gap:34px;padding:42px 20px}.kmo-hero h1{font-size:clamp(38px,7.5vw,49px);margin:18px 0}.kmo-hero p{font-size:14px}.kmo-hero-example{max-width:540px;width:100%;justify-self:center}.kmo-hero-example h2{font-size:22px}.kmo-facts .wrap{grid-template-columns:repeat(2,1fr);gap:20px 0;padding:24px 15px}.kmo-facts .wrap>div:nth-child(3){border-left:0}.kmo-facts b{font-size:21px}.kmo-facts span{font-size:10px}.kmo-program{padding:50px 0!important}.kmo-program-layout{grid-template-columns:1fr;gap:32px}.kmo-program-intro h2{font-size:31px}.kmo-program-intro>p{max-width:none}.kmo-program-note{max-width:none}.kmo-roadmap li{gap:20px}.kmo-audience{align-items:flex-start;gap:12px;margin-top:27px}.kmo-audience ul{flex-direction:column;gap:8px;width:100%}#quick-start .head h2{font-size:26px}.zoom-live-band li b{white-space:normal;text-align:right}}
+@media(max-width:560px){.gnb .logo{font-size:17px}.gnb{gap:8px}.gnb .mini{font-size:11px;padding:8px 10px}.mobile-menu summary{font-size:12px;padding:7px 9px}.kmo-hero .cta .btn{width:auto;flex:1;padding:13px 10px;font-size:13px;white-space:nowrap}.kmo-hero .eyebrow{font-size:11px;letter-spacing:0}.kmo-hero-foot{font-size:10px;gap:10px}.kmo-hero-foot a{font-size:11px}.kmo-hero-example{padding:21px}.kmo-example-top span{font-size:9px;letter-spacing:.04em}.kmo-roadmap h3{font-size:17px}}

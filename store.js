@@ -90,7 +90,7 @@
   Object.entries(bindings).forEach(([sectionId, ids]) => {
     const cards = document.querySelectorAll(`#${sectionId} .card, #${sectionId} .plan`);
     cards.forEach((card, index) => {
-      const id = ids[index];
+      const id = card.dataset.productId || ids[index];
       const item = localize(id);
       if (!item) return;
       card.id = id;
