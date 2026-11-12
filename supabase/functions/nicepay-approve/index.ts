@@ -134,7 +134,11 @@ async function approve(tid: string, amount: number, clientKey: string, secretKey
     body: JSON.stringify({ amount }),
     signal: AbortSignal.timeout(30_000),
   });
-  const body = (await res.json().catch(() => ({}))) as NicePayment;
+  const body = (await res.json().catch(() => null)) as NicePayment | null;
+  // 5xx·본문 파싱 실패·resultCode 없음 = 승인 여부를 알 수 없는 응답. 호출부에서 망취소로 처리한다.
+  if (res.status >= 500 || !body || typeof body.resultCode !== "string" || !body.resultCode) {
+    throw new Error(`NICEPAY approve indeterminate response (HTTP ${res.status})`);
+  }
   return { status: res.status, body };
 }
 
