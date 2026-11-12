@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KMO 조합 집중 강의 · STARGATE EDU</title>
+<meta name="description" content="KMO 수학올림피아드 조합 영역 집중 강의. 경우의 수에서 비둘기집·포함배제·불변량·그래프까지 12주 커리큘럼, 1차 단답형과 2차 서술형 증명 첨삭을 함께 준비합니다.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://shop.stargateedu.co.kr/kmo-combinatorics.html">
+<meta property="og:title" content="KMO 조합 집중 강의 · STARGATE EDU">
+<meta property="og:description" content="세는 법에서 증명하는 법까지. KMO 조합 12주 커리큘럼과 서술형 첨삭.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shop.stargateedu.co.kr/kmo-combinatorics.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://shop.stargateedu.co.kr/og-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B2A4A">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "KMO 조합 집중 강의",
+  "description": "한국수학올림피아드(KMO) 조합 영역을 12주 동안 개념·논증·서술형 첨삭으로 준비하는 과정",
+  "inLanguage": "ko",
+  "educationalLevel": "초등 고학년~고등",
+  "provider": {
+    "@type": "Organization",
+    "name": "STARGATE EDU (주식회사 별의문)",
+    "url": "https://shop.stargateedu.co.kr/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "KMO 정수론·조합 정규 과정",
+    "price": "384000",
+    "priceCurrency": "KRW",
+    "url": "https://shop.stargateedu.co.kr/kmo-combinatorics.html#enroll"
+  }
+}
+</script>
+<style>
+  :root{--navy:#0B2A4A;--navy2:#123A63;--gold:#C9A227;--gold-ink:#3a2e00;--ink:#1A2233;--gray:#667085;--line:#E4E7EC;--bg:#F7F9FC;--soft:#EEF3F8;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard','Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:var(--ink);background:#fff;line-height:1.65;word-break:keep-all}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  section[id]{scroll-margin-top:80px}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .gnb{display:flex;align-items:center;gap:20px;height:62px}
+  .logo{font-weight:800;color:var(--navy);font-size:20px;letter-spacing:-.5px}.logo b{color:var(--gold)}
+  .gnb nav{display:flex;gap:16px;font-size:13.5px;flex:1;white-space:nowrap}
+  .gnb nav a{color:#344054}.gnb nav a:hover{color:var(--navy)}
+  .mini{padding:8px 15px;border-radius:8px;background:var(--gold);color:var(--gold-ink);font-weight:800;font-size:13px;white-space:nowrap}
+
+  .btn{display:inline-block;padding:14px 26px;border-radius:9px;font-size:15px;font-weight:800;border:0;cursor:pointer;text-align:center}
+  .btn.gold{background:var(--gold);color:var(--gold-ink)}
+  .btn.ghost{color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+  .btn.navy{background:var(--navy);color:#fff}
+  .btn.line{background:#fff;color:var(--navy);border:1px solid var(--line)}
+  .btn.kakao{background:#fee500;color:#191600}
+
+  /* Hero */
+  .hero{background:linear-gradient(125deg,var(--navy) 0%,var(--navy2) 55%,#1c4d80 100%);color:#fff;overflow:hidden;position:relative}
+  .hero:after{content:"";position:absolute;right:-80px;top:-80px;width:380px;height:380px;background:radial-gradient(circle,rgba(201,162,39,.30),transparent 70%)}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:72px 20px 68px;position:relative;z-index:2}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 13px;border:1px solid var(--gold);border-radius:999px;color:#F3D98E;font-size:12.5px;font-weight:800;letter-spacing:.3px}
+  .hero h1{font-size:clamp(30px,5vw,48px);line-height:1.2;letter-spacing:-1.3px;margin:16px 0 14px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p.lead{color:#C9D8E8;font-size:clamp(15px,2vw,18px);max-width:560px}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .hero-fig{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px}
+  .hero-fig svg{width:100%;height:auto;display:block}
+  .hero-fig figcaption{color:#AFC6DD;font-size:12.5px;margin-top:10px;text-align:center}
+
+  .facts{background:#0e3357;color:#fff}
+  .facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:24px 20px;text-align:center}
+  .facts b{display:block;font-size:24px;color:var(--gold);letter-spacing:-.5px}
+  .facts span{font-size:13px;color:#AFC6DD}
+
+  section.block{padding:68px 0}
+  section.block.alt{background:var(--bg)}
+  .head{text-align:center;margin-bottom:36px}
+  .head .kicker{color:#8a6a07;font-size:12.5px;font-weight:900;letter-spacing:1px}
+  .head h2{font-size:clamp(24px,3.4vw,30px);color:var(--navy);letter-spacing:-.6px;margin-top:6px}
+  .head p{color:var(--gray);font-size:15px;margin-top:8px}
+
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .why article{border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff}
+  .why .num{font-size:13px;font-weight:900;color:var(--gold)}
+  .why h3{color:var(--navy);font-size:19px;margin:6px 0 8px;letter-spacing:-.3px}
+  .why p{color:#475467;font-size:14.5px}
+
+  /* Curriculum */
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .stage{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column}
+  .stage.final{border:2px solid var(--gold);box-shadow:0 12px 28px rgba(201,162,39,.14)}
+  .stage .tag{font-size:12px;font-weight:900;color:var(--gold);letter-spacing:.4px}
+  .stage h3{color:var(--navy);font-size:18px;margin:4px 0 12px}
+  .stage ol{list-style:none;display:grid;gap:8px}
+  .stage li{display:grid;grid-template-columns:44px 1fr;gap:8px;font-size:14px;color:#344054;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+  .stage li:last-child{border-bottom:0}
+  .stage li b{color:var(--navy);font-size:12.5px;padding-top:1px}
+  .stage li small{display:block;color:var(--gray);font-size:12.5px}
+  .note{color:var(--gray);font-size:13px;text-align:center;margin-top:18px}
+
+  /* Method */
+  .method{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+  .method div{padding:24px 22px;border-right:1px solid var(--line);position:relative}
+  .method div:last-child{border-right:0}
+  .method .step{display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:14px;align-items:center;justify-content:center}
+  .method h3{color:var(--navy);font-size:17px;margin:12px 0 6px}
+  .method p{color:#475467;font-size:14px}
+
+  /* Tracks */
+  .tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .track{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff}
+  .track .who{display:inline-block;background:var(--soft);color:var(--navy);font-size:12px;font-weight:800;padding:4px 11px;border-radius:999px}
+  .track h3{color:var(--navy);font-size:18px;margin:10px 0 8px}
+  .track ul{padding-left:18px;color:#475467;font-size:14px}
+  .track li{margin:5px 0}
+
+  /* Sample problems */
+  .probs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .prob{border:1px solid var(--line);border-radius:16px;background:#fff;padding:26px;display:flex;flex-direction:column}
+  .prob .type{font-size:12px;font-weight:900;color:#8a6a07;letter-spacing:.4px}
+  .prob h3{color:var(--navy);font-size:17px;margin:6px 0 10px}
+  .prob .q{background:var(--soft);border-radius:12px;padding:16px 18px;font-size:15px;color:var(--ink)}
+  .prob details{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+  .prob summary{cursor:pointer;font-weight:800;color:var(--navy);font-size:14px}
+  .prob details p,.prob details li{font-size:14px;color:#475467;margin-top:8px}
+  .prob details ol{padding-left:20px}
+  .prob .ans{display:inline-block;margin-top:8px;background:var(--navy);color:#fff;border-radius:8px;padding:4px 12px;font-weight:800;font-size:14px}
+  .math{font-family:'Times New Roman',serif;font-style:italic}
+
+  /* Instructor */
+  .teacher{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;background:linear-gradient(120deg,var(--navy),#1c4d80);color:#fff;border-radius:20px;padding:36px 32px}
+  .teacher .kicker{color:var(--gold);font-weight:900;font-size:12.5px;letter-spacing:1px}
+  .teacher h2{font-size:26px;letter-spacing:-.5px;margin:6px 0 10px}
+  .teacher p{color:#C9D8E8;font-size:15px}
+  .teacher ul{list-style:none;display:grid;gap:8px}
+  .teacher li{display:flex;gap:12px;align-items:baseline;padding:11px 14px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:rgba(255,255,255,.06);font-size:14px}
+  .teacher li b{color:#F3D98E;white-space:nowrap;min-width:64px}
+
+  /* Enroll */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:28px 24px;background:#fff;display:flex;flex-direction:column}
+  .plan.hot{border:2px solid var(--gold);box-shadow:0 14px 32px rgba(201,162,39,.16);position:relative}
+  .plan .ribbon{position:absolute;top:-13px;left:24px;background:var(--gold);color:var(--gold-ink);font-size:12px;font-weight:900;padding:4px 12px;border-radius:999px}
+  .plan .lbl{font-size:12px;color:#8a6a07;font-weight:900}
+  .plan h3{color:var(--navy);font-size:19px;margin:6px 0 10px}
+  .plan .price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .plan .dc{color:#E04F5F;font-weight:800;font-size:14px}
+  .plan .now{font-size:28px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+  .plan .now small{font-size:14px;color:var(--gray);font-weight:600}
+  .plan .was{font-size:13px;color:#98A2B3;text-decoration:line-through}
+  .plan .consult{font-size:20px;font-weight:800;color:var(--navy)}
+  .plan ul{list-style:none;margin:16px 0 20px;color:#475467;font-size:14px}
+  .plan li{padding:7px 0;border-bottom:1px dashed var(--line)}
+  .plan .actions{margin-top:auto;display:grid;gap:8px}
+  .plan .actions .btn{padding:12px 14px;font-size:14px}
+  .plan small.st{display:block;text-align:center;color:var(--gray);font-size:12px}
+
+  .faq{max-width:820px;margin:0 auto}
+  .faq details{padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+  .faq summary{cursor:pointer;font-weight:800;color:var(--navy)}
+  .faq p{font-size:14.5px;color:#475467;margin-top:10px}
+  .faq a{text-decoration:underline}
+
+  .cta-band{background:linear-gradient(120deg,var(--navy),#1c4d80);color:#fff;text-align:center;border-radius:20px;padding:46px 24px}
+  .cta-band h2{font-size:clamp(22px,3vw,28px);letter-spacing:-.5px}
+  .cta-band p{color:#C9D8E8;margin:10px 0 22px}
+  .cta-band .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  footer{background:#0e2338;color:#9fb3c8;font-size:13px;margin-top:64px}
+  footer .wrap{padding:34px 20px 26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+  footer .logo{color:#fff;margin-bottom:8px}
+  footer a{color:#9fb3c8}footer a:hover{color:#fff}
+  footer .links{display:flex;gap:14px;flex-wrap:wrap}
+  .copy{border-top:1px solid #1c3550;text-align:center;padding:16px 20px;color:#6f8298;font-size:12px}
+
+  .floating{position:fixed;right:18px;bottom:18px;z-index:60;display:none;box-shadow:0 10px 28px rgba(0,0,0,.22)}
+
+  @media(max-width:980px){
+    .gnb nav{display:none}.gnb{justify-content:space-between}
+    .hero .wrap{grid-template-columns:1fr;padding:52px 20px}
+    .stages{grid-template-columns:1fr 1fr}
+    .method{grid-template-columns:1fr 1fr}.method div:nth-child(2){border-right:0}.method div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .why,.tracks,.plans{grid-template-columns:1fr}
+    .teacher{grid-template-columns:1fr;padding:28px 22px}
+    .facts .wrap{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .stages,.probs,.method{grid-template-columns:1fr}
+    .method div{border-right:0;border-bottom:1px solid var(--line)}.method div:last-child{border-bottom:0}
+    .hero .cta .btn{width:100%}
+    .floating{display:inline-block}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<link rel="stylesheet" href="/assets/stargate-tokens.css?v=20261017">
+</head>
+<body>
+<header>
+  <div class="wrap gnb">
+    <a class="logo" href="/">STARGATE<b>EDU</b></a>
+    <nav aria-label="페이지 내 이동">
+      <a href="#why">왜 조합인가</a><a href="#curriculum">12주 커리큘럼</a><a href="#sample">맛보기 문제</a><a href="#teacher">강사</a><a href="#enroll">수강 안내</a><a href="#faq">FAQ</a><a href="/">전체 상품</a>
+    </nav>
+    <a class="mini" href="#enroll">수강 상담</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">KMO 조합 집중 강의 · 겨울방학 대비 상담 접수</span>
+      <h1 id="hero-title">세는 법에서<br><em>증명하는 법</em>까지,<br>KMO 조합을 완성합니다.</h1>
+      <p class="lead">공식을 외워서는 풀리지 않는 영역이 조합입니다. 경우의 수의 기본 원리부터 비둘기집·포함배제·불변량·그래프까지, 문제의 구조를 보는 눈과 답안을 쓰는 손을 함께 훈련합니다.</p>
+      <div class="cta">
+        <a class="btn gold" href="#enroll">수강 옵션 보기</a>
+        <a class="btn ghost" href="#sample">맛보기 문제 풀어보기</a>
+      </div>
+    </div>
+    <figure class="hero-fig">
+      <svg viewBox="0 0 320 240" role="img" aria-labelledby="fig-title">
+        <title id="fig-title">격자 경로: 왼쪽 아래에서 오른쪽 위로 가는 최단 경로 한 가지를 표시한 6×4 격자</title>
+        <g stroke="rgba(255,255,255,.22)" stroke-width="1.2">
+          <line x1="40" y1="30" x2="40" y2="210"/><line x1="80" y1="30" x2="80" y2="210"/><line x1="120" y1="30" x2="120" y2="210"/><line x1="160" y1="30" x2="160" y2="210"/><line x1="200" y1="30" x2="200" y2="210"/><line x1="240" y1="30" x2="240" y2="210"/><line x1="280" y1="30" x2="280" y2="210"/>
+          <line x1="40" y1="30" x2="280" y2="30"/><line x1="40" y1="75" x2="280" y2="75"/><line x1="40" y1="120" x2="280" y2="120"/><line x1="40" y1="165" x2="280" y2="165"/><line x1="40" y1="210" x2="280" y2="210"/>
+        </g>
+        <polyline points="40,210 80,210 80,165 160,165 160,120 200,120 200,75 240,75 240,30 280,30" fill="none" stroke="#C9A227" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="40" cy="210" r="7" fill="#C9A227"/><circle cx="280" cy="30" r="7" fill="#C9A227"/>
+        <text x="30" y="232" fill="#C9D8E8" font-size="13" font-family="sans-serif">A</text>
+        <text x="284" y="22" fill="#C9D8E8" font-size="13" font-family="sans-serif">B</text>
+      </svg>
+      <figcaption>A에서 B로 가는 최단 경로는 몇 가지일까요? 오른쪽 6번·위쪽 4번의 배열 수, 곧 ₁₀C₄ = 210가지입니다.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="facts" aria-label="강의 요약">
+  <div class="wrap">
+    <div><b>12주</b><span>단계별 조합 커리큘럼</span></div>
+    <div><b>1차 + 2차</b><span>단답형 속도 · 서술형 증명</span></div>
+    <div><b>답안 첨삭</b><span>서술형 논증을 직접 교정</span></div>
+    <div><b>ZOOM</b><span>실시간 쌍방향 수업</span></div>
+  </div>
+</div>
+
+<section class="block" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">WHY COMBINATORICS</div><h2 id="why-title">왜 조합을 따로 준비해야 할까요?</h2><p>KMO는 대수·정수론·조합·기하 네 영역에서 고르게 출제됩니다. 그중 조합은 학교 진도로 채워지지 않는 영역입니다.</p></div>
+    <div class="why">
+      <article><div class="num">01</div><h3>공식보다 구조가 먼저입니다</h3><p>같은 "경우의 수" 문제라도 대응·대칭·점화 중 무엇으로 볼지에 따라 풀이 길이가 달라집니다. 문제의 구조를 먼저 읽는 훈련이 필요합니다.</p></article>
+      <article><div class="num">02</div><h3>교과 과정과 연결이 약합니다</h3><p>비둘기집 원리, 불변량, 극단 원리, 그래프 논증은 학교 수학에서 거의 다루지 않습니다. 선행만으로는 채워지지 않아 별도 학습이 필요합니다.</p></article>
+      <article><div class="num">03</div><h3>2차는 "쓰는 힘"을 봅니다</h3><p>아이디어를 찾아도 논리의 빈틈이 있으면 점수가 깎입니다. 서술형 답안을 직접 쓰고 첨삭받으며 증명의 완결성을 기릅니다.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="curriculum" aria-labelledby="cur-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">12-WEEK CURRICULUM</div><h2 id="cur-title">12주, 네 단계로 쌓는 조합</h2><p>셈 → 논증 도구 → 구조 → 실전 순서로 개념과 기출 유형을 연결합니다.</p></div>
+    <div class="stages">
+      <div class="stage">
+        <span class="tag">STAGE 1 · 셈의 원리</span><h3>정확하게 세기</h3>
+        <ol>
+          <li><b>1주</b><span>합·곱의 법칙, 순열·조합<small>중복조합(별과 막대)</small></span></li>
+          <li><b>2주</b><span>전단사와 이중 세기<small>같은 대상을 두 방법으로 세기</small></span></li>
+          <li><b>3주</b><span>포함배제의 원리<small>교란순열·조건부 셈</small></span></li>
+        </ol>
+      </div>
+      <div class="stage">
+        <span class="tag">STAGE 2 · 논증 도구</span><h3>존재를 증명하기</h3>
+        <ol>
+          <li><b>4주</b><span>비둘기집 원리<small>상자 설계가 핵심</small></span></li>
+          <li><b>5주</b><span>점화식 세우기<small>타일링·경로·분할</small></span></li>
+          <li><b>6주</b><span>생성함수 입문<small>카탈랑 수와 응용</small></span></li>
+          <li><b>7주</b><span>불변량·단조변량<small>과정형 문제의 종착점</small></span></li>
+        </ol>
+      </div>
+      <div class="stage">
+        <span class="tag">STAGE 3 · 구조</span><h3>대상을 모델링하기</h3>
+        <ol>
+          <li><b>8주</b><span>극단 원리<small>가장 큰 것·작은 것부터</small></span></li>
+          <li><b>9주</b><span>그래프 이론 기초<small>차수 합·오일러·트리</small></span></li>
+          <li><b>10주</b><span>조합 게임과 전략<small>대칭 전략·필승 위치</small></span></li>
+          <li><b>11주</b><span>조합 기하·색칠 논증<small>격자·타일링 불가능성</small></span></li>
+        </ol>
+      </div>
+      <div class="stage final">
+        <span class="tag">STAGE 4 · 실전</span><h3>점수로 바꾸기</h3>
+        <ol>
+          <li><b>12주</b><span>실전 모의 세트<small>1차 단답형 시간 운영</small></span></li>
+          <li><b>상시</b><span>서술형 답안 첨삭<small>논리 빈틈·표현 교정</small></span></li>
+          <li><b>상시</b><span>오답 유형 리포트<small>약한 주제 재배치</small></span></li>
+        </ol>
+      </div>
+    </div>
+    <p class="note">기본 커리큘럼입니다. 진단 결과와 목표 대회(중등부·고등부, 1차·2차)에 따라 주차 구성과 속도를 조정합니다.</p>
+  </div>
+</section>
+
+<section class="block" id="method" aria-labelledby="method-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">HOW WE TEACH</div><h2 id="method-title">한 주는 이렇게 진행됩니다</h2></div>
+    <div class="method">
+      <div><span class="step">1</span><h3>개념과 원리</h3><p>원리가 왜 성립하는지부터 설명하고, 대표 예제로 적용 방식을 보여줍니다.</p></div>
+      <div><span class="step">2</span><h3>함께 풀기</h3><p>ZOOM 화면 공유로 풀이를 함께 세우며 막히는 지점에서 바로 질문을 받습니다.</p></div>
+      <div><span class="step">3</span><h3>유형 적용</h3><p>같은 원리가 쓰이는 기출형 문제로 적용 범위를 넓히고 과제로 연결합니다.</p></div>
+      <div><span class="step">4</span><h3>답안 첨삭</h3><p>서술형 과제를 제출하면 논리의 빈틈과 표현을 교정해 돌려드립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="tracks" aria-labelledby="tracks-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">WHO IS IT FOR</div><h2 id="tracks-title">이런 학생에게 맞습니다</h2></div>
+    <div class="tracks">
+      <article class="track"><span class="who">입문 · 초등 고학년~중1</span><h3>조합을 처음 체계적으로 배우는 학생</h3><ul><li>경우의 수를 감으로만 풀어 온 경우</li><li>KMO 중등부 1차를 처음 준비하는 경우</li><li>셈의 원리를 빠짐·중복 없이 다지고 싶은 경우</li></ul></article>
+      <article class="track"><span class="who">실전 · 중등부</span><h3>1차 점수를 끌어올리려는 학생</h3><ul><li>조합 문항에서 시간을 많이 쓰는 경우</li><li>비둘기집·포함배제 유형이 불안한 경우</li><li>2차 서술형을 함께 준비하려는 경우</li></ul></article>
+      <article class="track"><span class="who">심화 · 고등부·2차</span><h3>증명을 완성도 있게 쓰려는 학생</h3><ul><li>아이디어는 나오는데 답안이 감점되는 경우</li><li>불변량·극단 원리·그래프 논증을 강화할 경우</li><li>답안 첨삭을 정기적으로 받고 싶은 경우</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="sample" aria-labelledby="sample-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">TRY IT</div><h2 id="sample-title">맛보기 문제 두 개</h2><p>단답형 한 문제, 서술형 한 문제입니다. 먼저 풀어 본 뒤 해설을 열어 보세요.</p></div>
+    <div class="probs">
+      <article class="prob">
+        <span class="type">1차 단답형 스타일 · 1주차 주제</span>
+        <h3>별과 막대</h3>
+        <div class="q"><span class="math">x</span> + <span class="math">y</span> + <span class="math">z</span> = 10 을 만족하는 음이 아닌 정수 순서쌍 (<span class="math">x</span>, <span class="math">y</span>, <span class="math">z</span>)의 개수를 구하시오.</div>
+        <details>
+          <summary>힌트 보기</summary>
+          <p>별 10개를 한 줄로 놓고, 막대 2개로 세 묶음을 나눈다고 생각해 보세요.</p>
+        </details>
+        <details>
+          <summary>해설 보기</summary>
+          <p>별 10개와 막대 2개, 모두 12개 자리 중 막대가 들어갈 2자리를 고르면 순서쌍 하나가 정해지고, 거꾸로도 하나씩 대응합니다(전단사). 따라서 개수는 ₁₂C₂ 입니다.</p>
+          <span class="ans">정답 66</span>
+        </details>
+      </article>
+      <article class="prob">
+        <span class="type">2차 서술형 스타일 · 4주차 주제</span>
+        <h3>비둘기집 원리</h3>
+        <div class="q">1부터 20까지의 자연수 중에서 서로 다른 11개를 고르면, 그중 한 수가 다른 한 수의 배수인 두 수가 반드시 있음을 증명하시오.</div>
+        <details>
+          <summary>힌트 보기</summary>
+          <p>모든 자연수는 (2의 거듭제곱) × (홀수) 꼴로 단 한 가지 방법으로 쓸 수 있습니다. 상자를 "홀수 부분"으로 정해 보세요.</p>
+        </details>
+        <details>
+          <summary>해설 보기</summary>
+          <ol>
+            <li>각 수를 2<sup><span class="math">k</span></sup> × <span class="math">m</span> (<span class="math">m</span>은 홀수) 꼴로 씁니다. 1~20에서 <span class="math">m</span>이 될 수 있는 값은 1, 3, 5, …, 19의 10가지입니다.</li>
+            <li>11개를 고르면 비둘기집 원리에 의해 홀수 부분 <span class="math">m</span>이 같은 두 수 2<sup><span class="math">a</span></sup><span class="math">m</span>, 2<sup><span class="math">b</span></sup><span class="math">m</span> (<span class="math">a</span> &lt; <span class="math">b</span>)이 있습니다.</li>
+            <li>이때 2<sup><span class="math">b</span></sup><span class="math">m</span> = 2<sup><span class="math">b−a</span></sup> × 2<sup><span class="math">a</span></sup><span class="math">m</span> 이므로 큰 수는 작은 수의 배수입니다. ∎</li>
+          </ol>
+          <p><b>한 걸음 더:</b> 10개만 고르면 성립하지 않습니다. 11, 12, …, 20을 고르면 어느 수도 다른 수의 배수가 아닙니다. 이렇게 "11이 최소"임을 함께 보이는 습관이 2차 답안의 완성도를 높입니다.</p>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="teacher" aria-labelledby="teacher-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="teacher">
+      <div>
+        <div class="kicker">INSTRUCTOR</div>
+        <h2 id="teacher-title">정동수 대표 강사</h2>
+        <p>올림피아드를 직접 치러 본 경험과 공학 연구로 다진 논리적 글쓰기를 바탕으로, 문제를 "왜 그렇게 보는지"까지 설명합니다. 대치동에서 KMO·KOI 준비생을 지도하고 있습니다.</p>
+      </div>
+      <ul aria-label="강사 이력">
+        <li><b>학력</b><span>대구과학고 · 서울대 공대 학부 졸업</span></li>
+        <li><b>연구</b><span>서울대 스마트도시공학 박사과정 수료</span></li>
+        <li><b>수상</b><span>시도 정보올림피아드 대상</span></li>
+        <li><b>지도</b><span>대치동 수학·KMO·KOI 수업, 올림피아드 교재 집필</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="enroll" aria-labelledby="enroll-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">ENROLL</div><h2 id="enroll-title">수강 옵션</h2><p>상담에서 학년·현재 수준·목표 대회를 확인한 뒤 반과 일정을 안내합니다.</p></div>
+    <div class="plans">
+      <article class="plan hot">
+        <span class="ribbon">추천 · 조합 집중</span>
+        <span class="lbl">ZOOM 실시간 · 12주</span>
+        <h3>KMO 조합 집중반</h3>
+        <div class="consult">수강료 상담 시 안내</div>
+        <ul>
+          <li>위 12주 조합 커리큘럼 전 과정</li>
+          <li>주간 과제와 서술형 답안 첨삭</li>
+          <li>실전 모의 세트·오답 유형 리포트</li>
+          <li>반 편성: 진단 후 수준별 배정</li>
+        </ul>
+        <div class="actions">
+          <a class="btn kakao" href="https://open.kakao.com/o/suuKwjTi" target="_blank" rel="noopener noreferrer">카카오톡 수강 상담 ↗</a>
+          <a class="btn line" href="mailto:support@stargateedu.co.kr?subject=%5BKMO%20%EC%A1%B0%ED%95%A9%20%EC%A7%91%EC%A4%91%EB%B0%98%5D%20%EC%88%98%EA%B0%95%20%EC%83%81%EB%8B%B4&amp;body=%ED%95%99%EB%85%84%3A%0A%EB%AA%A9%ED%91%9C%20%EB%8C%80%ED%9A%8C(%EC%A4%91%EB%93%B1%EB%B6%80%2F%EA%B3%A0%EB%93%B1%EB%B6%80%2C%201%EC%B0%A8%2F2%EC%B0%A8)%3A%0A%ED%98%84%EC%9E%AC%20%ED%95%99%EC%8A%B5%20%EC%88%98%EC%A4%80%3A%0A%ED%9D%AC%EB%A7%9D%20%EC%9A%94%EC%9D%BC%C2%B7%EC%8B%9C%EA%B0%84%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A">이메일로 상담 신청</a>
+          <small class="st">시간표·정원·수강료를 상담에서 확인한 뒤 결정합니다.</small>
+        </div>
+      </article>
+      <article class="plan">
+        <span class="lbl">온라인 강의 · 정규 과정</span>
+        <h3>KMO 대비 정수론·조합</h3>
+        <div class="price"><span class="dc">20%</span><span class="now">384,000<small>원</small></span><span class="was">480,000원</span></div>
+        <ul>
+          <li>정수론 핵심 + 조합적 사고</li>
+          <li>개념·증명·기출 적용</li>
+          <li>KMO 유형별 풀이 전략</li>
+          <li>연계 교재: 정수론·조합 워크북(출시 예정)</li>
+        </ul>
+        <div class="actions">
+          <a class="btn gold" href="mailto:support@stargateedu.co.kr?subject=%5BSGE-COURSE-KMO-NC%5D%20KMO%20%EB%8C%80%EB%B9%84%20%EC%A0%95%EC%88%98%EB%A1%A0%C2%B7%EC%A1%B0%ED%95%A9%20%C2%B7%20%EC%9D%BC%EC%A0%95%C2%B7%EC%88%98%EA%B0%95%20%EB%AC%B8%EC%9D%98&amp;body=%EC%83%81%ED%92%88%EB%AA%85%3A%20KMO%20%EB%8C%80%EB%B9%84%20%EC%A0%95%EC%88%98%EB%A1%A0%C2%B7%EC%A1%B0%ED%95%A9%0ASKU%3A%20SGE-COURSE-KMO-NC%0A%EC%8B%A0%EC%B2%AD%EC%9E%90%20%EC%9D%B4%EB%A6%84%3A%0A%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EB%AC%B8%EC%9D%98%EC%82%AC%ED%95%AD%3A">일정·수강 문의</a>
+          <small class="st">일정·제공 가능 여부 확인 후 안내</small>
+        </div>
+      </article>
+      <article class="plan">
+        <span class="lbl">1:1 · 90분</span>
+        <h3>KMO 학습 전략 컨설팅</h3>
+        <div class="price"><span class="now">250,000<small>원</small></span></div>
+        <ul>
+          <li>사전 진단: 학년·풀이 경험·목표</li>
+          <li>영역별(대수·정수·조합·기하) 약점 확인</li>
+          <li>대회까지의 개인 학습 로드맵</li>
+          <li>조합 집중반 적합 여부 안내</li>
+        </ul>
+        <div class="actions">
+          <a class="btn navy" href="mailto:support@stargateedu.co.kr?subject=%5BSGE-CONSULT-STRATEGY-90%5D%20KMO%20%ED%95%99%EC%8A%B5%20%EC%A0%84%EB%9E%B5%20%EC%BB%A8%EC%84%A4%ED%8C%85%20%EC%9D%BC%EC%A0%95%20%EB%AC%B8%EC%9D%98">90분 컨설팅 일정 문의</a>
+          <small class="st">일정·진행 방식 확인 후 신청을 확정합니다.</small>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="head"><div class="kicker">FAQ</div><h2 id="faq-title">자주 묻는 질문</h2></div>
+    <div class="faq">
+      <details><summary>선수학습이 필요한가요?</summary><p>중학교 수준의 기본 연산과 문자식에 익숙하면 1주차부터 따라올 수 있습니다. 순열·조합을 이미 배운 학생은 진단 후 2단계부터 시작하도록 조정합니다.</p></details>
+      <details><summary>초등학생도 수강할 수 있나요?</summary><p>초등 고학년은 입문 트랙으로 셈의 원리부터 천천히 진행합니다. 현재 수준을 알려주시면 반 배정과 진도를 함께 안내합니다.</p></details>
+      <details><summary>정수론·조합 정규 과정과 조합 집중반은 무엇이 다른가요?</summary><p>정규 과정은 정수론과 조합을 함께 다루고, 조합 집중반은 12주 전체를 조합에 배정해 논증 도구와 서술형 첨삭을 더 깊게 다룹니다. 1차 대비가 우선이면 정규 과정, 조합이 약점이거나 2차를 준비하면 집중반을 권합니다.</p></details>
+      <details><summary>대면 수업도 가능한가요?</summary><p>기본은 ZOOM 실시간 수업입니다. 대치동 대면 또는 혼합 진행 가능 여부는 상담에서 일정과 함께 안내합니다.</p></details>
+      <details><summary>변경·취소·환불은 어떻게 하나요?</summary><p><a href="/refund.html">환불정책</a>을 확인하시고 <a href="mailto:support@stargateedu.co.kr">support@stargateedu.co.kr</a>로 상품명과 신청 내용을 보내주세요.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>조합이 약점이라면, 지금이 바로잡을 때입니다</h2>
+      <p>학년·현재 수준·목표 대회만 알려주시면 맞는 반과 일정을 안내해 드립니다.</p>
+      <div class="row">
+        <a class="btn kakao" href="https://open.kakao.com/o/suuKwjTi" target="_blank" rel="noopener noreferrer">카카오톡 수강 상담 ↗</a>
+        <a class="btn gold" href="/start.html">3분 무료 진단</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<a class="btn gold floating" href="#enroll">KMO 조합 수강 상담</a>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo">STARGATE<b>EDU</b></div>
+      <div>정보·수학 올림피아드 전문 온라인 스쿨</div>
+    </div>
+    <div class="links"><a href="/">전체 상품</a><a href="/faq.html">FAQ</a><a href="/terms.html">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/refund.html">환불정책</a></div>
+  </div>
+  <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr<br>상호: 주식회사 별의문 · 대표자: 정동수 · 사업자등록번호: 848-86-03835 · 통신판매업신고번호: 2025-서울강남-05246호 · 사업장 주소: 서울 강남구 강남대로112길 47 · 대표 전화: <a href="tel:+827080278225">070-8027-8225</a> · 이메일: support@stargateedu.co.kr</div>
+</footer>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+}
+</script>
+</body>
+</html>

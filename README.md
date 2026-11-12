@@ -8,6 +8,7 @@
 
 ## 구조
 - `index.html` — 메인 랜딩(히어로·베스트셀러·구독·교재·라이브·컨설팅)
+- `kmo-combinatorics.html` — KMO 조합 집중 강의 랜딩(12주 커리큘럼·맛보기 문제·수강 옵션)
 - `catalog.js` — 상품 SKU·가격·포함 콘텐츠·강의↔교재 관계
 - `payment-links.js` — 기존 PayPal 상품별 결제 링크 중앙 설정
 - `payment-config.js` — Toss 공개 설정과 운영 SKU→서버 상품 ID 매핑

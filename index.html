@@ -66,7 +66,7 @@
   .head{text-align:center;margin-bottom:38px;}
   .head h2{font-size:28px;color:var(--navy);letter-spacing:-.6px;}
   .head p{color:var(--gray);font-size:15px;margin-top:8px;}
-  .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .cats{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;}
   .cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 10px;text-align:center;font-size:14px;color:#344054;font-weight:600;transition:.15s;}
   .cat:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 24px rgba(11,42,74,.08);}
   .cat .ico{display:block;font-size:26px;margin-bottom:10px;}
@@ -166,6 +166,22 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
 @media(max-width:1080px){nav{display:none}.mobile-menu{display:block}.gnb{justify-content:space-between}.hbtns{margin-left:auto}}
 @media(max-width:560px){.hero .wrap{padding:48px 20px}.hero .cta .btn{width:100%;text-align:center}.diagnosis-callout{flex-direction:column;align-items:stretch}.diagnosis-callout .btn{text-align:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.nav-kmo{color:var(--navy)!important;font-weight:800;position:relative}
+.nav-kmo:after{content:"NEW";margin-left:4px;font-size:9px;font-weight:900;color:#E04F5F;vertical-align:top}
+.kmo-band{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;align-items:center;border:2px solid var(--gold);border-radius:20px;padding:32px 30px;background:linear-gradient(120deg,#FFFBEE,#fff 60%);box-shadow:0 14px 34px rgba(201,162,39,.14)}
+.kmo-band .kb-tag{display:inline-block;background:var(--gold);color:#3a2e00;font-size:12px;font-weight:900;padding:4px 12px;border-radius:999px}
+.kmo-band h2{color:var(--navy);font-size:26px;letter-spacing:-.5px;line-height:1.3;margin:12px 0 8px}
+.kmo-band h2 em{font-style:normal;color:#8a6a07}
+.kmo-band p{color:#475467;font-size:14.5px}
+.kmo-band .kb-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.kmo-band ol{list-style:none;display:grid;gap:8px;counter-reset:kb}
+.kmo-band li{counter-increment:kb;display:flex;gap:12px;align-items:center;padding:11px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:14px;color:#344054}
+.kmo-band li:before{content:counter(kb);flex:0 0 26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.kmo-band li b{color:var(--navy)}
+.kmo-card{border:2px solid var(--gold)!important;box-shadow:0 12px 28px rgba(201,162,39,.14)}
+.kmo-card .thumb{background:linear-gradient(135deg,#0B2A4A,#1c4d80);color:#F3D98E;font-weight:800}
+.kmo-card .kmo-link{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:800;color:var(--navy);text-decoration:underline}
+@media(max-width:760px){.kmo-band{grid-template-columns:1fr;padding:26px 20px}.kmo-band h2{font-size:22px}.kmo-band .kb-cta .btn{width:100%;text-align:center}}
 </style>
 </head>
 <body>
@@ -173,9 +189,9 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
   <div class="wrap gnb">
     <div class="logo">STARGATE<b>EDU</b></div>
     <nav>
-      <a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
+      <a href="/kmo-combinatorics.html" class="nav-kmo">KMO 조합</a><a href="#courses">온라인 강의</a><a href="#books">교재·문제집</a><a href="#sub">문제은행·모의고사</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">라이브·특강</a><a href="#consult">1:1 컨설팅</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/" rel="noopener">회사 소개</a>
     </nav>
-    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
+    <details class="mobile-menu"><summary>메뉴</summary><div class="mobile-menu__links"><a href="/kmo-combinatorics.html"><b>KMO 조합 집중</b></a><a href="#courses">과정 찾기</a><a href="#books">교재</a><a href="#sub">문제은행</a><a href="#zoom-live">ZOOM 실시간</a><a href="#live">특강·상담</a><a href="/faq.html">FAQ</a><a href="https://www.stargateedu.co.kr/">회사 소개</a></div></details>
     <div class="hbtns"><a class="lang-switch" href="/en.html" lang="en" hreflang="en" aria-label="View this shop in English">EN</a><a href="/start.html" class="mini">무료 진단</a></div>
   </div>
 </header>
@@ -220,6 +236,28 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
   </div>
 </section>
 
+<section class="block" id="kmo-combinatorics" aria-labelledby="kmo-band-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="kmo-band">
+      <div>
+        <span class="kb-tag">NEW · KMO 조합 집중 강의</span>
+        <h2 id="kmo-band-title">세는 법에서 <em>증명하는 법</em>까지,<br>KMO 조합 12주 집중</h2>
+        <p>학교 진도로 채워지지 않는 조합 영역을 비둘기집·포함배제·불변량·그래프까지 단계별로 다지고, 2차 서술형 답안은 직접 첨삭합니다.</p>
+        <div class="kb-cta">
+          <a class="btn navy" href="/kmo-combinatorics.html">조합 강의 자세히 보기</a>
+          <a class="btn gold" href="/kmo-combinatorics.html#sample">맛보기 문제 풀기</a>
+        </div>
+      </div>
+      <ol aria-label="KMO 조합 12주 단계">
+        <li><span><b>셈의 원리</b> · 순열·조합, 이중 세기, 포함배제</span></li>
+        <li><span><b>논증 도구</b> · 비둘기집, 점화식, 생성함수, 불변량</span></li>
+        <li><span><b>구조</b> · 극단 원리, 그래프, 조합 게임, 색칠 논증</span></li>
+        <li><span><b>실전</b> · 1차 단답형 모의 세트, 2차 서술형 첨삭</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
 <section class="block alt" id="quick-start" aria-labelledby="featured-title">
   <div class="wrap">
     <div class="head"><h2 id="featured-title">지금 시작할 수 있는 대표 상품 3개</h2><p>혼자 학습하기 · 함께 배우기 · 개인 전략 세우기</p></div>
@@ -236,6 +274,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
   <div class="wrap">
     <div class="head"><h2>카테고리</h2><p>원하는 과정으로 바로 이동하세요</p></div>
     <div class="cats">
+      <a href="/kmo-combinatorics.html" class="cat" style="border-color:var(--gold)"><span class="ico">🧮</span>KMO 조합</a>
       <a href="#courses" class="cat"><span class="ico">💻</span>온라인 강의</a>
       <a href="#books" class="cat"><span class="ico">📘</span>교재·문제집</a>
       <a href="#sub" class="cat"><span class="ico">🗂️</span>문제은행</a>
@@ -252,7 +291,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
     <div class="grid">
       <div class="card"><div class="thumb">정보올림피아드 심화</div><div class="body"><div class="lbl">온라인 강의 · 심화</div><h3>정보올림피아드 심화 (자료구조·알고리즘)</h3><div class="price"><span class="dc">22%</span><span class="now">429,000</span><span class="was">550,000</span></div><div class="meta">선수학습 확인 후 수강 권장</div></div></div>
       <div class="card"><div class="thumb">알고리즘 종합 패키지</div><div class="body"><div class="lbl">온라인 강의 · 패키지</div><h3>알고리즘 종합 패키지 (입문+심화)</h3><div class="price"><span class="dc">27%</span><span class="now">690,600</span><span class="was">946,000</span></div><div class="meta">입문부터 심화까지 단계별 구성</div></div></div>
-      <div class="card"><div class="thumb">KMO 대비 정수론·조합</div><div class="body"><div class="lbl">온라인 강의 · 대회대비</div><h3>KMO 대비 정수론·조합</h3><div class="price"><span class="dc">20%</span><span class="now">384,000</span><span class="was">480,000</span></div><div class="meta">정수론·조합 집중 과정</div></div></div>
+      <div class="card kmo-card"><div class="thumb"><span class="badge">조합 집중</span>KMO 대비 정수론·조합</div><div class="body"><div class="lbl">온라인 강의 · 대회대비</div><h3>KMO 대비 정수론·조합</h3><div class="price"><span class="dc">20%</span><span class="now">384,000</span><span class="was">480,000</span></div><div class="meta">정수론·조합 집중 과정</div><a class="kmo-link" href="/kmo-combinatorics.html">조합 12주 커리큘럼 보기 →</a></div></div>
       <div class="card"><div class="thumb">정보올림피아드 입문</div><div class="body"><div class="lbl">온라인 강의 · 입문</div><h3>정보올림피아드 입문 (C++ 기초)</h3><div class="price"><span class="dc">25%</span><span class="now">297,000</span><span class="was">396,000</span></div><div class="meta">프로그래밍 입문자용 C++ 기초</div></div></div>
     </div>
   </div>
@@ -318,7 +357,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid #C9
       <div>정보·수학 올림피아드 전문 온라인 스쿨</div>
     </div>
     <div class="fcol"><h4>고객센터</h4><div>평일 10:00–18:00</div><div><a href="/faq.html">자주 묻는 질문</a></div><div><a href="mailto:support@stargateedu.co.kr?subject=STARGATE%20EDU%20상담%20문의">1:1 이메일 문의</a></div></div>
-    <div class="fcol"><h4>바로가기</h4><div><a href="https://www.stargateedu.co.kr/" rel="noopener">메인 포털 (stargateedu.co.kr)</a></div><div><a href="#courses">온라인 강의</a></div><div><a href="#sub">문제은행·모의고사</a></div><div><a href="#consult">1:1 컨설팅</a></div><div><a href="/faq.html">FAQ</a></div></div>
+    <div class="fcol"><h4>바로가기</h4><div><a href="https://www.stargateedu.co.kr/" rel="noopener">메인 포털 (stargateedu.co.kr)</a></div><div><a href="/kmo-combinatorics.html">KMO 조합 집중 강의</a></div><div><a href="#courses">온라인 강의</a></div><div><a href="#sub">문제은행·모의고사</a></div><div><a href="#consult">1:1 컨설팅</a></div><div><a href="/faq.html">FAQ</a></div></div>
     <div class="fcol"><h4>정책</h4><div><a href="/terms.html">이용약관</a></div><div><a href="/privacy.html">개인정보처리방침</a></div><div><a href="/refund.html">환불정책</a></div></div>
   </div>
   <div class="copy">ⓒ 2026 Stargate Edu. All rights reserved. · shop.stargateedu.co.kr<div class="business-info">상호: 주식회사 별의문 · 대표자: 정동수 · 사업자등록번호: 848-86-03835 · 통신판매업신고번호: 2025-서울강남-05246호<br>사업장 주소: 서울 강남구 강남대로112길 47 · 대표 전화: <a href="tel:+827080278225">070-8027-8225</a> · 결제 전화: <a href="tel:+821052468224">010-5246-8224</a> · 이메일: support@stargateedu.co.kr · 개인정보 보호책임자: 정동수 · 호스팅 제공자: GitHub Pages</div></div>
