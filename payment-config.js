@@ -48,6 +48,17 @@ window.STARGATE_PORTONE = Object.freeze({
   redirectUrl: "https://shop.stargateedu.co.kr/success.html"
 });
 
+/**
+ * NICEPAY(나이스페이 포스타트) Server 승인 — 브라우저 공개값만 둔다.
+ * clientId(클라이언트 키)는 공개 식별자다. 시크릿 키는 Supabase Edge Function Secret
+ * (NICEPAY_SECRET_KEY)에만 둔다. R1_/R2_ = 운영(실결제), S1_/S2_ = 샌드박스.
+ * clientId 가 비어 있으면 나이스페이 버튼은 열리지 않고 다음 결제 경로(PortOne → Toss → 이메일)로 넘어간다.
+ */
+window.STARGATE_NICEPAY = Object.freeze({
+  clientId: "R2_92ee7f9929f24589b5808f7f94a393c8",
+  approveEndpoint: "https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/nicepay-approve"
+});
+
 window.STARGATE_BUSINESS = Object.freeze({
   companyName: "주식회사 별의문",
   representative: "정동수",
