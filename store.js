@@ -45,11 +45,14 @@
     const mode = salesMode(id);
     const labels = { request: [copy.request, copy.statusRequest], consultation: [copy.inquire, copy.statusInquiry], external: [copy.external, copy.statusExternal], planned: [copy.plannedAction, copy.statusPlanned] };
     const [label, status] = labels[mode] || labels.consultation;
-    const direct = mode === "external" && Object.values(catalog.marketplaces || {}).map(m => m.links?.[item.sku]).find(Boolean);
+    const cafe24Direct = (mode === "request" || mode === "external") && window.STARGATE_CAFE24?.productUrl?.(item.sku);
+    const direct = cafe24Direct || (mode === "external" && Object.values(catalog.marketplaces || {}).map(m => m.links?.[item.sku]).find(Boolean));
     const href = direct || (mode === "request" ? `/checkout.html?sku=${encodeURIComponent(item.sku)}${checkoutSuffix}` : contactLink(item, label));
     const extra = direct ? ' target="_blank" rel="noopener noreferrer nofollow sponsored"' : "";
     const cls = modal ? "btn gold modal-checkout" : "product-buy";
-    return `<div class="sale-status">${status}</div><a class="${cls}" href="${href}"${extra}>${label}</a>`;
+    const actionLabel = cafe24Direct ? (lang === "en" ? "Buy on Cafe24" : "카페24 쇼핑몰에서 구매") : label;
+    const actionStatus = cafe24Direct ? (lang === "en" ? "Checkout on the official Cafe24 store" : "카페24 공식 쇼핑몰에서 상품·결제 조건 확인") : status;
+    return `<div class="sale-status">${actionStatus}</div><a class="${cls}" href="${href}"${extra}>${actionLabel}</a>`;
   };
 
   const label = (id) => {
