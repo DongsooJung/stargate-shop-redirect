@@ -4,7 +4,7 @@
   });
 
   window.STARGATE_CATALOG = {
-    version: "2026-09-27",
+    version: "2026-11-14",
     currency: "KRW",
     marketplaces: {
       coupang: {
@@ -23,7 +23,7 @@
     availability: {
         "ebook-koi-25": "request",
         "course-koi-advanced": "consultation",
-        "course-algorithm-bundle": "request",
+        "course-algorithm-bundle": "consultation",
         "course-kmo-number-combination": "consultation",
         "course-koi-intro": "consultation",
         "subscription-bank-monthly": "consultation",
@@ -31,7 +31,7 @@
         "book-koi-intro": "external",
         "book-algorithm-vol1": "external",
         "book-koi-past": "external",
-        "ebook-algorithm-set": "request",
+        "ebook-algorithm-set": "consultation",
         "book-kmo-number-combination": "planned",
         "live-vacation": "consultation",
         "live-koi-final": "consultation",
