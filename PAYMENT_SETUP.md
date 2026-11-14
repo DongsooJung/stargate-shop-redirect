@@ -1,98 +1,30 @@
-# 결제 연동 운영 문서
+# 결제 및 PG 심사 준비 상태
 
-## 대표 결제 번호
+기준일: 2026-11-14. 이 문서는 현재 코드의 운영 게이트와 심사 전 확인 항목을 기록한다. PG 또는 카드사의 승인 여부를 뜻하지 않는다.
 
-- 대표 전화: 070-8027-8225
-- 결제 전화: 010-5246-8224
-- 표기 위치: `payment-config.js`의 `STARGATE_BUSINESS.phone`, `mobile`. 푸터와 체크아웃이 이 값을 읽는다.
+## 현재 공개 화면
 
-## 결제 경로
+- 결제 검토 대상 SKU는 `SGE-EBOOK-KOI-25` 한 종이다. PDF 전자책, 표시 가격 30,000원, ISBN 979-11-993413-0-2를 주문 화면에 명시한다.
+- 이 상품은 이메일 주문 신청과 PortOne **테스트** 카드 결제창만 제공한다. 테스트 결제에는 실제 청구, 판매용 파일 전달이 없다. 테스트에는 예시 연락처를 사용한다.
+- 강의, 라이브, 멘토링, 구독 및 제공이 확인되지 않은 전자책은 일정·조건 상담으로 보낸다. 실물 교재는 외부 판매처의 정확한 상품 링크가 확인될 때만 해당 채널로 보낸다. 출시 예정 상품에는 결제 버튼이 없다.
+- 화면의 할인율과 취소선 기준가격은 검증 자료가 없어 제거했다. 상담 상품의 `catalog.js` 내부 가격은 결제 금액이 아니며, 공개 구매 화면에는 표시하지 않는다.
+- 사업자 표시는 `payment-config.js`의 `STARGATE_BUSINESS`와 약관·개인정보처리방침·환불정책에 있다. PG 신청 사업자와 완전히 일치하는지 사업자등록증·통신판매업 신고증으로 대조해야 한다.
 
-- 스토어의 기존 `?sku=` 링크, PayPal Payment Link, 실물 교재 마켓플레이스 링크는 유지한다.
-- 실제 PayPal URL이 등록된 SKU는 PayPal Payment Link를 우선한다.
-- 결제 목록 1번 `SGE-EBOOK-KOI-25`, 3번 `SGE-COURSE-ALGO-BUNDLE`은 토스페이먼츠 경유 PayPal(`FOREIGN_EASY_PAY`, USD) 버튼을 연다.
-- PayPal은 별도 USD MID다. `paypalClientKey`와 `paypalUsd`의 양수 금액이 없으면 버튼은 결제창을 열지 않고 대표 번호만 안내한다. 임의 환율로 청구하지 않는다.
-- PayPal URL이 없고 `products`에 등록된 다른 단건 상품은 TossPayments 카드(KRW) 결제창을 사용한다.
-- 실물 상품은 배송주소 수집 구현 전, 구독 상품은 빌링키 구현 전까지 이메일 주문을 사용한다. 해외카드·PayPal은 정기결제를 지원하지 않는다.
-- Toss 클라이언트 키가 비어 있거나 SDK가 준비되지 않으면 이메일 주문으로 닫힌다. 이메일 신청만으로 청구되지 않는다.
+## 기술 게이트
 
-## Toss 승인 구조
+- `payment-config.js`: `STARGATE_PORTONE.mode="test"`, `liveReady=false`, `reviewSkus=["SGE-EBOOK-KOI-25"]`. `STARGATE_TOSS.liveReady=false`, 빈 `clientKey` 상태다. PayPal 결제 링크와 USD 금액도 미등록이다.
+- `checkout.html`은 판매 상태가 `request`인 SKU만 주문 화면을 표시한다. PortOne 테스트 채널은 지정한 1종에만 열리고, Toss·PayPal 유료 결제 버튼은 `liveReady`와 공개 키가 준비되기 전까지 열리지 않는다.
+- `portone-verify`는 서버 카탈로그의 상품·금액, 결제 상태·통화·채널을 검증한다. LIVE 결제는 서버 환경변수 `PORTONE_ALLOW_LIVE=true`가 없으면 거절·취소하도록 작성됐다. 실제 배포 버전과 설정은 별도로 확인해야 한다.
+- 비밀 키(`PORTONE_API_SECRET`, `PORTONE_WEBHOOK_SECRET`, `TOSS_SECRET_KEY`)와 Supabase service-role 키는 브라우저 코드 또는 저장소에 넣지 않는다.
 
-`checkout.html` → TossPayments V2 → `success.html` → Supabase Edge Function `toss-confirm`
+## 유료 판매 전 필수 확인
 
-- 승인 엔드포인트: `https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/toss-confirm`
-- 카드는 `KRW`, PayPal은 `USD`다. 승인 함수가 `currency: "USD"`와 `paypalUsd` 금액을 검증하기 전에는 PayPal 승인이 거절된다. 승인 전 결제창만 열린 금액은 확정 청구가 아니다.
-- 브라우저는 구매자 이름·이메일·휴대폰 번호와 필수 동의를 확인한다. 국제번호는 `+`로 시작한다.
-- Edge Function은 서버 카탈로그 금액 검증, 주문 원장 기록, 주문번호 멈등 처리와 Toss 최종 승인을 담당한다.
-- 카드번호 등 인증정보는 결제사 화면에서만 처리한다.
+1. **판매 주체:** PG 신청 사업자와 사이트의 상호, 대표자, 사업자등록번호, 통신판매업신고번호, 주소, 전화번호, 계좌 명의가 일치하는지 확인한다. 개인사업자 스타게이트로 심사한다면 법인 주식회사 별의문 표시와 계약 주체를 먼저 바로잡는다.
+2. **실제 상품:** 판매할 PDF 파일, 표지·샘플, 저작권 및 ISBN 기재, 제공 경로, 접근 기간을 확인한다. 결제 후 실제 파일 전달과 주문·영수증 안내를 끝까지 시험한다.
+3. **거래 조건:** 유료 주문 화면에 확정 금액, 제공 시점, 이용 기간, 청약철회·환불 조건, 고객센터 연락처를 표시한다. 미리보기 또는 시험 사용 등 디지털 콘텐츠의 법정 청약철회 제한 요건을 점검한다.
+4. **개인정보:** 실제 PG 및 Supabase 계약·리전·국외 이전·보관기간을 확인해 개인정보처리방침을 정확하게 확정한다. 아동 구매와 법정대리인 동의가 필요한 흐름도 검토한다.
+5. **기술 검증:** 테스트 카드 결제 성공·실패·취소·중복 콜백·새로고침·서버 주문 원장·상품 전달을 확인한다. 결제 응답만 믿지 않고 서버에서 SKU와 금액을 재검증한다.
+6. **PG 심사:** 실제 공개 URL과 상품 정보, 사업자 정보, 환불정책, 결제창을 심사에 제출한다. PG 계약과 카드사 심사 승인 후에만 라이브 키·채널로 전환한다.
+7. **라이브 전환:** `PORTONE_ALLOW_LIVE`와 실연동 채널, 프런트의 `liveReady`, 서버 상품 카탈로그, 실제 파일 전달을 함께 설정하고 소액 실결제 및 취소를 검증한다. Toss 또는 PayPal은 별도 계약·키·정산통화·서버 승인 검증을 마친 뒤 활성화한다.
 
-## 상품 ID 매핑
-
-운영몰은 SKU를 URL과 화면의 기준으로 사용하고, 승인 API에는 배포된 서버 카탈로그의 `productId`를 보낸다. 매핑은 `payment-config.js`에만 둔다. 이름과 금액이 모두 대응되는 배송주소 불필요 단건 상품 9종만 등록되어 있다.
-
-가격을 변경할 때는 다음 세 곳을 함께 확인한다.
-
-1. `catalog.js`의 운영 SKU와 금액
-2. `payment-config.js`의 SKU → 서버 `productId` 매핑, PayPal SKU의 `paypalUsd`
-3. Supabase `toss-confirm`의 서버 카탈로그와 금액
-
-## 라이브 전환 차단 항목
-
-1. Supabase Edge Function Secret `TOSS_SECRET_KEY`에 클라이언트 키와 같은 모드의 `test_sk_*` 또는 `live_sk_*`를 등록한다. PayPal USD MID 시크릿은 카드 시크릿과 섞지 않는다.
-2. `payment-config.js`의 빈 `clientKey`에 대응하는 `test_ck_*` 또는 `live_ck_*`를 등록한다.
-3. `paypalClientKey`에 PayPal USD MID 클라이언트 키를 넣고, `paypalUsd`의 1·3번 상품에 확정 USD 금액을 넣는다.
-4. 대표 전화번호 `070-8027-8225`, 결제 전화 `010-5246-8224`는 기재됐다.
-5. 테스트 키로 승인, 새로고침 멈등성, 실패 화면, 매출전표 링크와 Supabase 주문 원장을 확인한다.
-6. 라이브 키 전환 후 소액 결제 1건을 승인하고 토스 관리자에서 취소한다.
-
-## 후속 보안 강화
-
-- 공개 브라우저 키와 CORS는 비브라우저 호출을 인증하지 않는다. 승인 함수에 IP·주문 단위 rate limit을 적용한다.
-- 결제창을 열기 전에 서버가 금액과 SKU를 확인한 짧은 만료시간의 주문 nonce 또는 서명을 발급하고, 승인 함수가 이를 검증하도록 확장한다.
-
-비밀 키와 Supabase service-role 키는 저장소나 브라우저 코드에 넣지 않는다.
-
-## 8. PortOne(포트원) V2 — 테스트 연동 (2026-10-26)
-
-```
-checkout.html ── PortOne.requestPayment (storeId + channelKey, 테스트 채널)
-      ▼
-success.html?provider=portone&paymentId=…
-      │  POST {paymentId, productId, customer}
-      ▼
-Supabase Edge Function  portone-verify
-      │  ① GET https://api.portone.io/payments/{paymentId}  (PortOne V2 API Secret)
-      │  ② status=PAID · currency=KRW · amount.total=SERVER_CATALOG 확인
-      │  ③ 불일치·실결제(LIVE) 채널이면 즉시 자동 취소 → FAILED/CANCELED 기록
-      ▼
-public.shop_orders  (raw_response.provider = "portone", channelType = TEST/LIVE)
-
-PortOne 웹훅 → 같은 함수(webhook-id 헤더) → Standard Webhooks 서명 검증 → 같은 검증 로직
-```
-
-| 값 | 위치 | 공개 여부 |
-|---|---|---|
-| storeId (`store-…`) | `payment-config.js` `STARGATE_PORTONE.storeId` | 공개 가능 |
-| channelKey (`channel-key-…`) | `payment-config.js` | 공개 가능 |
-| V2 API Secret | Edge Function Secret `PORTONE_API_SECRET` | **저장소·브라우저 금지** |
-| 웹훅 시크릿 (`whsec_…`) | Edge Function Secret `PORTONE_WEBHOOK_SECRET` | **저장소·브라우저 금지** |
-| 상점 ID 서버 확인용 | Edge Function Secret `PORTONE_STORE_ID` | 비밀 아님(권장) |
-| 실결제 허용 스위치 | Edge Function Secret `PORTONE_ALLOW_LIVE=true` | 실결제 전환 때만 |
-
-### 활성화 순서
-1. `payment-config.js` 의 `STARGATE_PORTONE.storeId` 에 콘솔의 상점 ID 입력 → 커밋. 비어 있으면 PortOne 버튼은 열리지 않고 기존 이메일 안내가 유지된다.
-2. Edge Function `portone-verify` 배포 (`supabase/functions/portone-verify/index.ts`, verify_jwt=false — 함수 내부에서 출처·서명·금액을 검증).
-3. Supabase Secrets: `PORTONE_API_SECRET`, `PORTONE_STORE_ID`.
-4. (권장) PortOne 콘솔 웹훅 URL: `https://inftexpcnfinglwlrvsj.supabase.co/functions/v1/portone-verify`, 버전 V2 → 발급된 시크릿을 `PORTONE_WEBHOOK_SECRET` 에 저장.
-5. 테스트 카드로 결제 → `success.html` 에 "(테스트)" 표시 확인 → `shop_orders` 에서 DONE 확인.
-
-```sql
-select order_id, amount, status, method, raw_response->>'channelType' as channel, approved_at
-from public.shop_orders where raw_response->>'provider' = 'portone'
-order by created_at desc limit 10;
-```
-
-### 실결제 전환
-- PG 심사 승인 후 실연동 채널키로 `channelKey` 교체, `mode: "live"` 로 변경.
-- Secret `PORTONE_ALLOW_LIVE=true` 추가. 이 값이 없으면 서버가 LIVE 결제를 자동 취소한다.
-- 가격 변경 시 `catalog.js`, `toss-confirm`, `portone-verify` 의 `SERVER_CATALOG` 를 함께 수정.
+참고: [토스페이먼츠 입점/연동 점검](https://docs.tosspayments.com/guides/v2/get-started/payment-products), [토스페이먼츠 배포 점검](https://docs.tosspayments.com/guides/v2/deploy-checklist), [포트원 심사 준비](https://help.portone.io/content/requirements), [전자상거래법 제17조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1029561577).
