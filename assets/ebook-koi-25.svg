@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800" role="img" aria-labelledby="title desc">
+<title id="title">25개 핵심 알고리즘 PDF 전자책 상품 안내 이미지</title>
+<desc id="desc">스타게이트 에듀의 KOI 알고리즘 학습용 PDF 전자책을 나타내는 안내 이미지입니다.</desc>
+<rect width="600" height="800" rx="24" fill="#0B2A4A"/>
+<path d="M55 58h490M55 742h490" stroke="#C9A227" stroke-width="4"/>
+<text x="55" y="108" fill="#C9A227" font-family="Arial, Noto Sans KR, sans-serif" font-weight="700" font-size="26">STARGATE EDU</text>
+<text x="55" y="230" fill="#FFFFFF" font-family="Arial, Noto Sans KR, sans-serif" font-size="62" font-weight="800">KOI</text>
+<text x="55" y="304" fill="#FFFFFF" font-family="Arial, Noto Sans KR, sans-serif" font-size="49" font-weight="800">핵심 알고리즘</text>
+<text x="55" y="397" fill="#C9A227" font-family="Arial, Noto Sans KR, sans-serif" font-size="120" font-weight="800">25</text>
+<text x="55" y="478" fill="#DCE7F2" font-family="Arial, Noto Sans KR, sans-serif" font-size="27">학습 순서를 잡는 가이드</text>
+<rect x="55" y="590" width="184" height="52" rx="26" fill="#C9A227"/>
+<text x="82" y="625" fill="#0B2A4A" font-family="Arial, Noto Sans KR, sans-serif" font-size="23" font-weight="700">PDF 전자책</text>
+<text x="55" y="700" fill="#B9C9D9" font-family="Arial, Noto Sans KR, sans-serif" font-size="20">ISBN 979-11-993413-0-2</text>
+</svg>
