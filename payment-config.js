@@ -57,7 +57,7 @@ window.STARGATE_BUSINESS = Object.freeze({
   representative: "정동수",
   businessNumber: "848-86-03835",
   mailOrderNumber: "2025-서울강남-05246호",
-  address: "서울 강남구 강남대로112길 47",
+  address: "서울특별시 강남구 강남대로112길 47, 2층 744A호(논현동)",
   phone: "070-8027-8225",
   mobile: "010-5246-8224",
   email: "support@stargateedu.co.kr",
