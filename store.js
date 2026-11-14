@@ -5,7 +5,7 @@
   const lang = document.documentElement.lang.toLowerCase().startsWith("en") ? "en" : "ko";
   const translations = catalog.i18n?.[lang] || {};
   const localize = (id) => products[id] ? { ...products[id], ...(translations[id] || {}) } : null;
-  const copy = lang === "en" ? { planned: "Coming soon", content: "Related content", detail: "Details", included: "What’s included", related: "Related courses & books", marketplaces: "Available from", externalNote: "Price, availability and shipping follow the seller's terms.", close: "Close", month: "month", year: "year", request: "Request an order", inquire: "Ask about availability", external: "Ask for a seller link", plannedAction: "Request launch notice", statusRequest: "Order request · no charge yet", statusInquiry: "Schedule and availability to be confirmed", statusExternal: "Seller link pending", statusPlanned: "Coming soon" } : { planned: "출시 예정", content: "연계 콘텐츠", detail: "상세 보기", included: "포함 콘텐츠", related: "연결된 강의·교재", marketplaces: "외부 판매처", externalNote: "가격·재고·배송은 판매처 기준입니다.", close: "닫기", month: "월", year: "년", request: "주문 신청", inquire: "일정·수강 문의", external: "판매처 문의", plannedAction: "출시 알림 신청", statusRequest: "이메일 주문 신청 · 결제 전 확인", statusInquiry: "일정·제공 가능 여부 확인 후 안내", statusExternal: "판매처 상품 링크 확인 중", statusPlanned: "출시 예정" };
+  const copy = lang === "en" ? { planned: "Coming soon", content: "Related content", detail: "Details", included: "What’s included", related: "Related courses & books", marketplaces: "Available from", externalNote: "Price, availability and shipping follow the seller's terms.", close: "Close", month: "month", year: "year", request: "Request an order", inquire: "Ask about availability", external: "Ask for a seller link", plannedAction: "Request launch notice", statusRequest: "Review product and checkout terms", statusInquiry: "Schedule and availability to be confirmed", statusExternal: "Seller link pending", statusPlanned: "Coming soon" } : { planned: "출시 예정", content: "연계 콘텐츠", detail: "상세 보기", included: "포함 콘텐츠", related: "연결된 강의·교재", marketplaces: "외부 판매처", externalNote: "가격·재고·배송은 판매처 기준입니다.", close: "닫기", month: "월", year: "년", request: "주문 신청", inquire: "일정·수강 문의", external: "판매처 문의", plannedAction: "출시 알림 신청", statusRequest: "상품·제공 조건 확인 후 주문", statusInquiry: "일정·제공 가능 여부 확인 후 안내", statusExternal: "판매처 상품 링크 확인 중", statusPlanned: "출시 예정" };
   const checkoutSuffix = lang === "en" ? "&lang=en" : "";
   const money = new Intl.NumberFormat(lang === "en" ? "en-US" : "ko-KR", { style: "currency", currency: catalog.currency, maximumFractionDigits: 0 });
   const bindings = {
@@ -44,7 +44,8 @@
   const actionFor = (id, item, modal = false) => {
     const mode = salesMode(id);
     const labels = { request: [copy.request, copy.statusRequest], consultation: [copy.inquire, copy.statusInquiry], external: [copy.external, copy.statusExternal], planned: [copy.plannedAction, copy.statusPlanned] };
-    const [label, status] = labels[mode] || labels.consultation;
+    let [label, status] = labels[mode] || labels.consultation;
+    if (mode === "consultation" && item.type === "digital_book") label = lang === "en" ? "Ask about delivery" : "제공 가능 문의";
     const direct = mode === "external" && Object.values(catalog.marketplaces || {}).map(m => m.links?.[item.sku]).find(Boolean);
     const href = direct || (mode === "request" ? `/checkout.html?sku=${encodeURIComponent(item.sku)}${checkoutSuffix}` : contactLink(item, label));
     const extra = direct ? ' target="_blank" rel="noopener noreferrer nofollow sponsored"' : "";
@@ -81,7 +82,7 @@
     if (!item) return;
     const modal = ensureModal();
     const related = (item.related || []).map((relatedId) => `<button type="button" data-detail="${relatedId}">${label(relatedId)}</button>`).join("");
-    document.getElementById("product-modal-content").innerHTML = `<div class="modal-kicker">${item.type.replaceAll("_", " ")} · ${item.sku}</div><h2 id="product-modal-title">${item.name}</h2><p class="modal-summary">${item.summary}</p><div class="modal-price">${money.format(item.amount)}${item.interval ? ` / ${item.interval === "month" ? copy.month : copy.year}` : ""}</div><h3>${copy.included}</h3><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h3>${copy.related}</h3><div class="modal-related">${related}</div>` : ""}${actionFor(id, item, true)}${marketplaceMarkup(id, item)}`;
+    document.getElementById("product-modal-content").innerHTML = `<div class="modal-kicker">${item.type.replaceAll("_", " ")} · ${item.sku}</div><h2 id="product-modal-title">${item.name}</h2><p class="modal-summary">${item.summary}</p><div class="modal-price">${salesMode(id) === "request" ? money.format(item.amount) : (lang === "en" ? "Terms confirmed before ordering" : "거래조건 확인 후 안내")}</div><h3>${copy.included}</h3><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h3>${copy.related}</h3><div class="modal-related">${related}</div>` : ""}${actionFor(id, item, true)}${marketplaceMarkup(id, item)}`;
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
     modal.querySelector(".product-modal__close").focus();
