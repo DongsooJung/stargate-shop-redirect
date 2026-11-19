@@ -15,6 +15,7 @@
 ## 기술 게이트
 
 - `payment-config.js`: `STARGATE_PORTONE.mode="test"`, `liveReady=false`, `reviewSkus=["SGE-EBOOK-KOI-25"]`. `STARGATE_TOSS.liveReady=false`, 빈 `clientKey` 상태다. PayPal 결제 링크와 USD 금액도 미등록이다.
+- `STARGATE_NICEPAY.clientId`(`R2_…`)는 채워져 있고 승인 함수 `nicepay-approve`도 배포되어 있으나, Edge Function Secret `NICEPAY_SECRET_KEY`가 없어 ping 응답이 `ready:false`다(2026-11-19 확인). 그동안 나이스페이 버튼은 그려지지 않고 기존 경로로 동작한다.
 - `checkout.html`은 판매 상태가 `request`인 SKU만 주문 화면을 표시한다. PortOne 테스트 채널은 지정한 1종에만 열리고, Toss·PayPal 유료 결제 버튼은 `liveReady`와 공개 키가 준비되기 전까지 열리지 않는다.
 - `portone-verify`는 서버 카탈로그의 상품·금액, 결제 상태·통화·채널을 검증한다. LIVE 결제는 서버 환경변수 `PORTONE_ALLOW_LIVE=true`가 없으면 거절·취소하도록 작성됐다. 실제 배포 버전과 설정은 별도로 확인해야 한다.
 - 비밀 키(`PORTONE_API_SECRET`, `PORTONE_WEBHOOK_SECRET`, `TOSS_SECRET_KEY`)와 Supabase service-role 키는 브라우저 코드 또는 저장소에 넣지 않는다.
@@ -30,3 +31,50 @@
 7. **라이브 전환:** `PORTONE_ALLOW_LIVE`와 실연동 채널, 프런트의 `liveReady`, 서버 상품 카탈로그, 실제 파일 전달을 함께 설정하고 소액 실결제 및 취소를 검증한다. Toss 또는 PayPal은 별도 계약·키·정산통화·서버 승인 검증을 마친 뒤 활성화한다.
 
 참고: [토스페이먼츠 입점/연동 점검](https://docs.tosspayments.com/guides/v2/get-started/payment-products), [토스페이먼츠 배포 점검](https://docs.tosspayments.com/guides/v2/deploy-checklist), [포트원 심사 준비](https://help.portone.io/content/requirements), [전자상거래법 제17조](https://www.law.go.kr/LSW/lsLinkCommonInfo.do?lsJoLnkSeq=1029561577).
+
+## NICEPAY(나이스페이) Server 승인 연동
+
+`pay.nicepay.co.kr` 결제창 → 카드사 인증 → 폼 POST → Supabase Edge Function `nicepay-approve`가 승인·검증·원장 기록을 모두 처리한다. GitHub Pages는 POST를 받을 수 없으므로 `returnUrl`은 정적 페이지가 아니라 Edge Function이다.
+
+```
+checkout.html ── AUTHNICE.requestPay (clientId, method=card, returnUrl=nicepay-approve?…)
+      ▼  카드사 인증
+nicepay-approve  ① signature = sha256(authToken + clientId + amount + SecretKey) 검증
+                 ② amount = SERVER_CATALOG 확인 (다르면 승인 API 미호출 → 청구 없음)
+                 ③ POST https://api.nicepay.co.kr/v1/payments/{tid} (Basic clientKey:secretKey)
+                 ④ 승인 응답 서명·금액·주문번호 재검증, 불일치 시 전액 취소 / 응답 미수신·5xx면 망취소
+      ▼ 303
+success.html?provider=nicepay&orderId=…  ── POST {orderId, productId} ──▶ nicepay-approve (원장 조회)
+      ▼
+public.shop_orders  (raw_response.provider = "nicepay", channelType = LIVE/TEST)
+```
+
+| 값 | 위치 | 공개 여부 |
+|---|---|---|
+| 클라이언트 키 (`R2_…`) | `payment-config.js` `STARGATE_NICEPAY.clientId`, 함수의 `DEFAULT_CLIENT_KEY` | 공개 가능 |
+| 시크릿 키 | Edge Function Secret `NICEPAY_SECRET_KEY` | **저장소·브라우저 금지** |
+| 클라이언트 키 서버 재정의 | Edge Function Secret `NICEPAY_CLIENT_KEY` (선택) | 비밀 아님 |
+
+### 결제 경로 우선순위
+PayPal → **NICEPAY** → PortOne(테스트, `reviewSkus` 지정 SKU만) → TossPayments → 이메일 주문.
+`STARGATE_NICEPAY.clientId`를 빈 문자열로 바꾸면 즉시 이전 경로로 돌아간다(롤백).
+
+### 활성화 순서
+1. 체크아웃은 결제 버튼을 그리기 전에 `nicepay-approve`에 `{"ping":true}`를 보내 `ready`를 확인한다. 시크릿이 없으면 `ready=false`라 나이스페이 버튼을 그리지 않고 기존 경로를 쓴다. 따라서 병합 시점의 운영 결제창은 깨지지 않는다.
+2. Supabase > Edge Functions > Secrets에 `NICEPAY_SECRET_KEY` 등록. 없으면 함수는 승인 API를 호출하지 않고 `NICEPAY_SECRET_NOT_CONFIGURED`로 닫힌다.
+3. `nicepay-approve` 배포(verify_jwt=false — 함수 내부에서 출처·서명·금액을 검증).
+4. 시크릿 등록 후 `payment-config.js`의 `clientId`가 실제 발급 키와 같은지 확인하고 재배포 없이 반영되는지 ping으로 확인한다.
+5. 가장 싼 상품으로 실결제 1건 → `success.html` 확인 → `shop_orders` DONE 확인 → 나이스페이 관리자에서 취소.
+
+```sql
+select order_id, amount, status, method, raw_response->>'channelType' as channel, approved_at, fail_code
+from public.shop_orders where raw_response->>'provider' = 'nicepay'
+order by created_at desc limit 10;
+```
+
+### 주의
+- 나이스페이 관리자의 **IP보안(REST API 접근제한)** 에 IP를 등록하지 않는다. Supabase Edge Function은 고정 송신 IP가 없어 등록하는 순간 승인 API가 차단된다.
+- 샌드박스 키(`S2_…`)로 시험할 때는 `checkout.html`의 SDK 주소를 `https://sandbox-pay.nicepay.co.kr/v1/js/`로 바꾼다. 서버는 키 접두어로 샌드박스 API를 자동 선택한다.
+- 가격을 바꾸면 `catalog.js`, `toss-confirm`, `portone-verify`, `nicepay-approve`의 `SERVER_CATALOG`를 함께 고친다.
+- 현재 결제수단은 카드(`method:"card"`)만 연다. 간편결제·계좌이체는 나이스페이 계약에 해당 수단이 열린 뒤 추가한다.
+- 심사 통과를 위해서는 실제 구매 가능한 상품이 1~3개 이상 노출되어야 한다. 현재 공개 구매 가능 SKU는 `SGE-EBOOK-KOI-25` 한 종이므로, 심사 제출 전 개시 SKU를 확정한다(`catalog.js`의 `availability`를 `request`로 바꾸는 것과 실제 파일 전달 준비가 한 쌍이다).
