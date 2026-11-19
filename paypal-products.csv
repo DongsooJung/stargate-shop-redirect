@@ -1,0 +1,17 @@
+display_order,sku,product_name,catalog_type,price_krw,paypal_setup_type,billing_interval,shipping_required,fulfillment,related_content,catalog_status,paypal_url,operator_notes
+1,SGE-COURSE-KOI-ADV,정보올림피아드 심화 (자료구조·알고리즘),course,429000,payment_link,one_time,no,LMS 수강권 지급,알고리즘 문제집 상권 | KOI 기출·해설집 (2015-2025),ready,,수량 1 고정 · 배송지 수집 안 함
+2,SGE-COURSE-ALGO-BUNDLE,알고리즘 종합 패키지 (입문+심화),course,690600,payment_link,one_time,no,LMS 패키지 수강권 지급,정보올림피아드 입문 교재 | 알고리즘 문제집 상권 | 알고리즘 문제집 eBook 세트,ready,,수량 1 고정 · 배송지 수집 안 함
+3,SGE-COURSE-KMO-NC,KMO 대비 정수론·조합,course,384000,payment_link,one_time,no,LMS 수강권 지급,KMO 정수론·조합 워크북,ready,,수량 1 고정 · 배송지 수집 안 함
+4,SGE-COURSE-KOI-INTRO,정보올림피아드 입문 (C++ 기초),course,297000,payment_link,one_time,no,LMS 수강권 지급,정보올림피아드 입문 교재 | 알고리즘 문제집 eBook 세트,ready,,수량 1 고정 · 배송지 수집 안 함
+5,SGE-SUB-BANK-M,문제은행 월 구독,subscription,39000,subscription_plan,month,no,문제은행 월간 이용권 활성화,정보올림피아드 입문 (C++ 기초) | 정보올림피아드 심화 (자료구조·알고리즘),ready,,매월 자동 갱신 · 무료 체험 없음
+6,SGE-SUB-BANK-Y,문제은행 연 구독,subscription,390000,subscription_plan,year,no,문제은행 연간 이용권 활성화,알고리즘 종합 패키지 (입문+심화),ready,,매년 자동 갱신 · 무료 체험 없음
+7,SGE-SUB-MOCK-M,월간 모의고사,subscription,49000,subscription_plan,month,no,모의고사 및 성적 리포트 이용권 활성화,KOI 기출·해설집 (2015-2025) | 정보올림피아드 심화 (자료구조·알고리즘),ready,,매월 자동 갱신 · 무료 체험 없음
+8,SGE-BOOK-KOI-INTRO,정보올림피아드 입문 교재,physical_book,28800,payment_link,one_time,yes,택배 배송,정보올림피아드 입문 (C++ 기초) | 알고리즘 종합 패키지 (입문+심화),ready,,배송지 수집 · 배송 가능 국가와 배송비 설정
+9,SGE-BOOK-ALGO-V1,알고리즘 문제집 상권,physical_book,31500,payment_link,one_time,yes,택배 배송,정보올림피아드 심화 (자료구조·알고리즘) | 알고리즘 종합 패키지 (입문+심화),ready,,배송지 수집 · 배송 가능 국가와 배송비 설정
+10,SGE-BOOK-KOI-PAST-2015-2025,KOI 기출·해설집 (2015-2025),physical_book,37800,payment_link,one_time,yes,택배 배송,정보올림피아드 심화 (자료구조·알고리즘) | 월간 모의고사,ready,,배송지 수집 · 배송 가능 국가와 배송비 설정
+11,SGE-EBOOK-ALGO-SET,알고리즘 문제집 eBook 세트,digital_book,47600,payment_link,one_time,no,보안 다운로드 링크 지급,정보올림피아드 입문 (C++ 기초) | 알고리즘 종합 패키지 (입문+심화),ready,,수량 1 고정 · 배송지 수집 안 함
+12,SGE-BOOK-KMO-NC,KMO 정수론·조합 워크북,digital_book,42000,payment_link,one_time,no,보안 다운로드 링크 지급,KMO 대비 정수론·조합,planned,,제작 완료 전 링크를 등록하지 않음
+13,SGE-LIVE-VACATION-4W,방학 집중 라이브특강 (4주),live,281600,payment_link,one_time,no,라이브 수업 등록 및 접속 안내,알고리즘 문제집 상권,ready,,수량 1 고정 · 일정과 취소 기준 명시
+14,SGE-LIVE-KOI-FINAL,KOI 직전 파이널 캠프,offline,405000,payment_link,one_time,no,오프라인 캠프 참가 등록,KOI 기출·해설집 (2015-2025),ready,,수량 1 고정 · 장소와 취소 기준 명시
+15,SGE-CONSULT-STRATEGY-90,입시·대회 전략 컨설팅,consulting,250000,payment_link,one_time,no,90분 상담 예약 안내,알고리즘 종합 패키지 (입문+심화),ready,,수량 1 고정 · 예약 변경과 노쇼 기준 명시
+16,SGE-MENTOR-M4,1:1 정기 멘토링,mentoring,752000,subscription_plan,month,no,월 4회 멘토링 일정 배정,정보올림피아드 심화 (자료구조·알고리즘),ready,,매월 자동 갱신 · 월 4회 제공 범위 명시
