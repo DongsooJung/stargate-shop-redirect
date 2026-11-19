@@ -90,12 +90,22 @@
 
   Object.entries(bindings).forEach(([sectionId, ids]) => {
     const cards = document.querySelectorAll(`#${sectionId} .card, #${sectionId} .plan`);
-    cards.forEach((card, index) => {
-      const id = card.dataset.productId || ids[index];
+    // 카드에 data-product-id 가 있으면 그 값을 쓰고, 없으면 아직 쓰이지 않은 id 를 순서대로 배정한다.
+    // (인덱스로만 짝지으면 data-product-id 가 있는 카드 때문에 뒤 카드들의 상품이 밀린다.)
+    const used = new Set();
+    cards.forEach((card) => {
+      const id = card.dataset.productId || ids.find((candidate) => !used.has(candidate));
+      if (!id) return;
+      used.add(id);
       const item = localize(id);
       if (!item) return;
       card.id = id;
       card.dataset.productId = id;
+      // 판매 개시(request) 상품은 목록 카드에도 실제 표시 가격을 보여 준다.
+      if (salesMode(id) === "request") {
+        const shown = card.querySelector(".price .now");
+        if (shown) shown.textContent = money.format(item.amount);
+      }
       const body = card.querySelector(".body") || card;
       body.querySelectorAll(":scope > .btn").forEach((button) => button.remove());
       const related = (item.related || []).map(label).join(" · ");
