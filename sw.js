@@ -1,4 +1,4 @@
-const CACHE = "stargate-edu-shop-v16-listed-only-20261120";
+const CACHE = "stargate-edu-shop-v17-store-first-20261120";
 const ASSETS = ["/", "/index.html", "/consult.html", "/assets/kmo-home.css?v=20261112-2", "/start.html", "/checkout.html", "/success.html", "/cancel.html", "/catalog.js", "/payment-links.js", "/payment-config.js", "/legal.js", "/store.js", "/manifest.json", "/faq.html", "/kmo-combinatorics.html",
   "/assets/ebook-koi-25.svg", "/refund.html", "/terms.html", "/privacy.html", "/icons/icon-192.png", "/icons/icon-512.png"];
 
