@@ -135,7 +135,11 @@
     if (!cards.length || [...cards].some((card) => !card.hidden)) return;
     section.hidden = true;
     section.style.display = "none";
-    document.querySelectorAll(`a[href="#${sectionId}"]`).forEach((link) => { link.hidden = true; link.style.display = "none"; });
+    // 영역 자신과 영역 안의 모든 id(예: #live 안의 #consult)를 가리키는 링크를 함께 숨긴다.
+    const targets = [sectionId, ...[...section.querySelectorAll("[id]")].map((el) => el.id)];
+    targets.forEach((target) => {
+      document.querySelectorAll(`a[href="#${CSS.escape(target)}"]`).forEach((link) => { link.hidden = true; link.style.display = "none"; });
+    });
   });
 
   document.addEventListener("click", (event) => {
