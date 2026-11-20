@@ -58,6 +58,19 @@
     return item ? `${item.name}${item.status === "planned" ? ` (${copy.planned})` : ""}` : id;
   };
 
+  // 판매 준비가 안 된 상품(출시 예정, 판매처 링크 미확정 외부 판매)은 공개 화면에서 숨긴다.
+  // catalog.js 에 판매처 링크를 넣거나 availability 를 바꾸면 자동으로 다시 노출된다.
+  const directLink = (item) => Object.values(catalog.marketplaces || {}).map((m) => m.links?.[item.sku]).find(Boolean);
+  const isListed = (id) => {
+    const item = products[id];
+    if (!item) return false;
+    const mode = salesMode(id);
+    if (mode === "planned" || item.status === "planned") return false;
+    if (mode === "external" && !directLink(item)) return false;
+    return true;
+  };
+  const relatedIds = (item) => (item.related || []).filter(isListed);
+
   function closeModal() {
     const modal = document.getElementById("product-modal");
     if (modal) modal.setAttribute("aria-hidden", "true");
@@ -81,7 +94,7 @@
     const item = localize(id);
     if (!item) return;
     const modal = ensureModal();
-    const related = (item.related || []).map((relatedId) => `<button type="button" data-detail="${relatedId}">${label(relatedId)}</button>`).join("");
+    const related = relatedIds(item).map((relatedId) => `<button type="button" data-detail="${relatedId}">${label(relatedId)}</button>`).join("");
     document.getElementById("product-modal-content").innerHTML = `<div class="modal-kicker">${item.type.replaceAll("_", " ")} · ${item.sku}</div><h2 id="product-modal-title">${item.name}</h2><p class="modal-summary">${item.summary}</p><div class="modal-price">${salesMode(id) === "request" ? money.format(item.amount) : (lang === "en" ? "Terms confirmed before ordering" : "거래조건 확인 후 안내")}</div><h3>${copy.included}</h3><ul>${item.contents.map((content) => `<li>${content}</li>`).join("")}</ul>${related ? `<h3>${copy.related}</h3><div class="modal-related">${related}</div>` : ""}${actionFor(id, item, true)}${marketplaceMarkup(id, item)}`;
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
@@ -99,6 +112,7 @@
       used.add(id);
       const item = localize(id);
       if (!item) return;
+      if (!isListed(id)) { card.hidden = true; card.style.display = "none"; return; }
       card.id = id;
       card.dataset.productId = id;
       // 판매 개시(request) 상품은 목록 카드에도 실제 표시 가격을 보여 준다.
@@ -108,9 +122,20 @@
       }
       const body = card.querySelector(".body") || card;
       body.querySelectorAll(":scope > .btn").forEach((button) => button.remove());
-      const related = (item.related || []).map(label).join(" · ");
-      body.insertAdjacentHTML("beforeend", `<div class="content-pair"><b>${copy.content}</b><span>${related}</span></div><div class="product-actions"><button type="button" class="product-detail" data-detail="${id}">${copy.detail}</button>${actionFor(id, item)}</div>${marketplaceMarkup(id, item)}`);
+      const related = relatedIds(item).map(label).join(" · ");
+      body.insertAdjacentHTML("beforeend", `${related ? `<div class="content-pair"><b>${copy.content}</b><span>${related}</span></div>` : ""}<div class="product-actions"><button type="button" class="product-detail" data-detail="${id}">${copy.detail}</button>${actionFor(id, item)}</div>${marketplaceMarkup(id, item)}`);
     });
+  });
+
+  // 남은 상품이 하나도 없는 영역은 영역 전체와 그 영역으로 가는 메뉴·카테고리 링크를 숨긴다.
+  Object.keys(bindings).forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const cards = section.querySelectorAll(".card, .plan");
+    if (!cards.length || [...cards].some((card) => !card.hidden)) return;
+    section.hidden = true;
+    section.style.display = "none";
+    document.querySelectorAll(`a[href="#${sectionId}"]`).forEach((link) => { link.hidden = true; link.style.display = "none"; });
   });
 
   document.addEventListener("click", (event) => {
