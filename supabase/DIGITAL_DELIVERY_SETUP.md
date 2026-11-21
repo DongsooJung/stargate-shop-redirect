@@ -36,11 +36,11 @@
   - `resolveDigitalDelivery(...)` — 위 셋을 묶은 Edge Function 진입점. 어떤 실패도 예외 대신 `pending` 사유로 돌려준다
 - `functions/nicepay-approve/index.ts` — 승인 완료 직후 1회(로그용) + 조회 응답의 `delivery`
 - `tests/digital-delivery.test.mjs` — 모의 저장소 단위 검증 18건
-- 30,000 KRW / `SGE-EBOOK-KOI-25` / 환불 없음 / 테스트 결제 제외 / 비공개 버킷만 / 15분 만료
+- 49,000 KRW / `SGE-EBOOK-KOI-25` / 환불 없음 / 테스트 결제 제외 / 비공개 버킷만 / 15분 만료
 
 ## 활성화 전 필요한 작업 (대표님/계정 소유자)
 1. ~~`nicepay-approve` 에 발급 모듈 연결~~ — 이 PR
-2. **`shop-digital-private` 비공개 버킷 생성 + `koi-guide/v1/book.pdf` 업로드** (ISBN 979-11-993413-0-2 판매용 최종 PDF). 공개 버킷이면 발급이 거부된다.
+2. **`shop-digital-private` 비공개 버킷 생성 + `koi-guide/v1/book.pdf` 업로드** (ISBN 979-11-994914-3-4 판매용 최종 PDF — 『KOI 100개 핵심 알고리즘 가이드』 208쪽, 2026-11-21 교체). 새 파일을 v2 경로에 올릴 경우 `NICEPAY_EBOOK_ASSET_PATH=koi-guide/v2/book.pdf` 를 함께 등록한다. 공개 버킷이면 발급이 거부된다.
 3. **`NICEPAY_DIGITAL_DELIVERY_ENABLED=true` 시크릿 등록** (`NICEPAY_EBOOK_ASSET_PATH` 는 기본값을 쓰면 생략 가능)
 4. **`nicepay-approve` Edge Function 배포** (`verify_jwt=false`)
 5. 가장 싼 상품 실결제 1건 → `success.html` 다운로드 버튼 확인 → 링크로 PDF 열림 확인 → 나이스페이 관리자에서 취소
