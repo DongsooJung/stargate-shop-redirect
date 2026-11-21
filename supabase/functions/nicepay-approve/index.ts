@@ -67,7 +67,7 @@ type CatalogEntry = { sku: string; name: string; amount: number };
 
 /** toss-confirm · portone-verify 와 동일한 서버 카탈로그 (가격 변경 시 catalog.js 와 함께 수정) */
 const SERVER_CATALOG: Record<string, CatalogEntry> = {
-  "koi-algorithms-guide": { sku: "SGE-EBOOK-KOI-25", name: "KOI 수상자의 25개 핵심 알고리즘 가이드", amount: 30000 },
+  "koi-algorithms-guide": { sku: "SGE-EBOOK-KOI-25", name: "KOI 수상자의 100개 핵심 알고리즘 가이드", amount: 49000 },
   "koi-advanced": { sku: "SGE-COURSE-KOI-ADV", name: "정보올림피아드 심화 (자료구조·알고리즘)", amount: 429000 },
   "algorithms-bundle": { sku: "SGE-COURSE-ALGO-BUNDLE", name: "알고리즘 종합 패키지 (입문+심화)", amount: 690600 },
   "kmo-number-comb": { sku: "SGE-COURSE-KMO-NC", name: "KMO 대비 정수론·조합", amount: 384000 },

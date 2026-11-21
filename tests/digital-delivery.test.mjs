@@ -7,7 +7,7 @@ import {
   resolveDigitalDelivery,
 } from "../supabase/functions/_shared/digital-delivery.mjs";
 const order = { status:"DONE",providerVerified:true,persisted:true,test:false,refunded:false,
-  sku:"SGE-EBOOK-KOI-25",productId:"koi-algorithms-guide",currency:"KRW",amount:30000 };
+  sku:"SGE-EBOOK-KOI-25",productId:"koi-algorithms-guide",currency:"KRW",amount:49000 };
 const assets = { [order.sku]:{bucket:"shop-digital-private",path:"koi-guide/v1/book.pdf"} };
 const url="https://inftexpcnfinglwlrvsj.supabase.co/storage/v1/object/sign/shop-digital-private/koi-guide/v1/book.pdf?token=stub";
 function storage({isPublic=false,fail=false}={}) {return {getBucket:async()=>({data:{public:isPublic}}),
@@ -43,13 +43,13 @@ test("a tampered asset path still fails closed",async()=>{
 
 /* ---------- 원장 행 → 발급 주문 ---------- */
 
-const ledgerRow={order_id:"SGE-ABC123-XY",product_id:"koi-algorithms-guide",sku:"SGE-EBOOK-KOI-25",status:"DONE",amount:30000,currency:"KRW"};
+const ledgerRow={order_id:"SGE-ABC123-XY",product_id:"koi-algorithms-guide",sku:"SGE-EBOOK-KOI-25",status:"DONE",amount:49000,currency:"KRW"};
 const liveRaw={provider:"nicepay",channelType:"LIVE",resultCode:"0000",nicepayStatus:"paid",tid:"TID1234567890"};
 const on={NICEPAY_DIGITAL_DELIVERY_ENABLED:"true"};
 
 test("live order on the ledger maps to a verifiable order",()=>{
   assert.deepEqual(deliveryOrderFromLedger(ledgerRow,liveRaw),
-    {status:"DONE",sku:"SGE-EBOOK-KOI-25",productId:"koi-algorithms-guide",currency:"KRW",amount:30000,
+    {status:"DONE",sku:"SGE-EBOOK-KOI-25",productId:"koi-algorithms-guide",currency:"KRW",amount:49000,
      test:false,refunded:false,providerVerified:true,persisted:true});
 });
 test("live order on the ledger gets the link when enabled",async()=>{

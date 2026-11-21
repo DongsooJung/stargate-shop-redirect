@@ -64,7 +64,7 @@ export async function issueDigitalDownload({ order, storage, assets = {}, enable
   if (!order || order.status !== "DONE" || order.providerVerified !== true || order.persisted !== true)
     return blocked("UNVERIFIED_ORDER");
   if (order.test !== false || order.refunded !== false) return blocked("TEST_OR_REFUNDED");
-  const catalog = { "SGE-EBOOK-KOI-25": { productId: "koi-algorithms-guide", amount: 30000 } };
+  const catalog = { "SGE-EBOOK-KOI-25": { productId: "koi-algorithms-guide", amount: 49000 } };
   const product = catalog[order.sku];
   if (!product) return blocked("NOT_DIGITAL_PRODUCT");
   if (order.productId !== product.productId || order.currency !== "KRW" || order.amount !== product.amount)
