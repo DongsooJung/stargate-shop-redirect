@@ -54,6 +54,7 @@ public.shop_orders  (raw_response.provider = "nicepay", channelType = LIVE/TEST)
 | 클라이언트 키 (`R2_…`) | `payment-config.js` `STARGATE_NICEPAY.clientId`, 함수의 `DEFAULT_CLIENT_KEY` | 공개 가능 |
 | 시크릿 키 | Edge Function Secret `NICEPAY_SECRET_KEY` | **저장소·브라우저 금지** |
 | 클라이언트 키 서버 재정의 | Edge Function Secret `NICEPAY_CLIENT_KEY` (선택) | 비밀 아님 |
+| 전자책 자동 다운로드 | Edge Function Secret `NICEPAY_DIGITAL_DELIVERY_ENABLED`(기본 `false`), `NICEPAY_EBOOK_ASSET_PATH`(기본 `koi-guide/v1/book.pdf`) — `supabase/DIGITAL_DELIVERY_SETUP.md` | 비밀 아님 (설정값) |
 
 ### 결제 경로 우선순위
 PayPal → **NICEPAY** → PortOne(테스트, `reviewSkus` 지정 SKU만) → TossPayments → 이메일 주문.

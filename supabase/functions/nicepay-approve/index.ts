@@ -20,13 +20,24 @@
  *  - NICEPAY_SECRET_KEY 는 Edge Function Secret 으로만 존재한다. 저장소·브라우저 금지.
  *  - 주문 원장(public.shop_orders)은 service_role 로만 기록. 동일 orderId 는 멱등 처리.
  *
+ * 전자책 자동 다운로드 (기본 꺼짐)
+ *  - 승인·원장 기록이 끝난 실결제 주문에 한해 _shared/digital-delivery.mjs 로 15분 서명 링크를 발급하고
+ *    조회 응답의 delivery 로 돌려준다. success.html 은 delivery.status==="ready" 일 때만 다운로드 버튼을 그린다.
+ *  - NICEPAY_DIGITAL_DELIVERY_ENABLED 가 정확히 "true" 가 아니면 delivery 는 {status:"pending",
+ *    reason:"DELIVERY_DISABLED"} 이고 화면은 기존 문의 안내를 그대로 유지한다.
+ *  - 서명 URL 은 303 리다이렉트 주소나 로그에 넣지 않는다(브라우저 기록·리퍼러 노출). 승인 직후 발급은
+ *    상태만 로그로 남기고, 실제 링크는 success.html 이 {orderId, productId} 로 다시 조회할 때 발급한다.
+ *
  * 필요한 Secret
  *  NICEPAY_SECRET_KEY   (필수) 나이스페이 관리자 > 개발정보 > 시크릿 키 (Basic 인증)
  *  NICEPAY_CLIENT_KEY   (선택) 기본값은 아래 DEFAULT_CLIENT_KEY. 키 재발급 시 여기만 바꾸면 된다.
+ *  NICEPAY_DIGITAL_DELIVERY_ENABLED (선택) 기본 "false". 비공개 버킷·PDF 업로드 확인 후 "true".
+ *  NICEPAY_EBOOK_ASSET_PATH         (선택) 기본 "koi-guide/v1/book.pdf". 비공개 버킷 안의 판매 PDF 경로.
  */
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
+import { deliveryOrderFromLedger, resolveDigitalDelivery } from "../_shared/digital-delivery.mjs";
 
 /** 클라이언트 키는 브라우저에 노출되는 공개 식별자다 (payment-config.js 와 동일 값). */
 const DEFAULT_CLIENT_KEY = "R2_92ee7f9929f24589b5808f7f94a393c8";
@@ -222,6 +233,30 @@ function db() {
   });
 }
 
+/* ---------- 전자책 다운로드 발급 ---------- */
+
+type DeliveryStorage = ReturnType<typeof createClient>["storage"];
+
+type Delivery =
+  | { status: "ready"; downloadUrl: string; expiresAt: string }
+  | { status: "pending"; reason: string };
+
+/** 승인·저장이 끝난 주문에만 발급한다. 발급 실패는 예외가 아니라 pending 사유로 돌려준다. */
+async function resolveDelivery(storage: DeliveryStorage, order: Record<string, unknown>): Promise<Delivery> {
+  const result = await resolveDigitalDelivery({
+    order,
+    storage,
+    env: {
+      NICEPAY_DIGITAL_DELIVERY_ENABLED: Deno.env.get("NICEPAY_DIGITAL_DELIVERY_ENABLED"),
+      NICEPAY_EBOOK_ASSET_PATH: Deno.env.get("NICEPAY_EBOOK_ASSET_PATH"),
+    },
+  });
+  // 응답에 실을 값은 확인한 문자열만 새로 담는다.
+  if (result?.status === "ready" && typeof result.downloadUrl === "string" && typeof result.expiresAt === "string")
+    return { status: "ready", downloadUrl: result.downloadUrl, expiresAt: result.expiresAt };
+  return { status: "pending", reason: typeof result?.reason === "string" ? result.reason : "DELIVERY_UNAVAILABLE" };
+}
+
 /* ---------- 1) returnUrl: 인증 결과 → 승인 ---------- */
 
 async function handleReturn(req: Request, raw: string): Promise<Response> {
@@ -389,6 +424,22 @@ async function handleReturn(req: Request, raw: string): Promise<Response> {
     console.error("ORDER_WRITE_FAILED after approval", orderId, paidTid);
     return failTo("ORDER_WRITE_FAILED", "결제는 승인됐지만 주문 기록에 실패했습니다. 주문번호와 함께 문의해 주세요.");
   }
+
+  // 승인·원장 기록까지 끝난 주문에 대해서만 발급을 시도한다. 링크 자체는 리다이렉트에 싣지 않고
+  // 상태만 남긴다 — 첫 실판매에서 활성화 설정이 어긋났는지 로그로 바로 알기 위해서다.
+  const delivery = await resolveDelivery(client.storage, {
+    status: "DONE",
+    sku: product.sku,
+    productId,
+    currency: "KRW",
+    amount: product.amount,
+    test: sandbox,
+    refunded: false,
+    providerVerified: true,
+    persisted: true,
+  });
+  if (delivery.status !== "ready") console.warn("digital delivery pending", orderId, delivery.reason);
+
   return done();
 }
 
@@ -414,9 +465,12 @@ async function handleLookup(raw: string, origin: string | null): Promise<Respons
     return json({ ok: false, code: "MISSING_PARAMETERS", message: "orderId 와 productId 가 올바르지 않습니다." }, 400, origin);
   }
 
-  const { data: row, error } = await db()
+  const client = db();
+  // 열 이름을 나열하지 않고 한 행 전체를 읽는다 — 원장 스키마에 없는 열을 select 하면 조회 자체가
+  // 실패해 결제 완료 화면이 깨진다. 응답에는 아래에서 고른 값만 싣는다.
+  const { data: row, error } = await client
     .from("shop_orders")
-    .select("order_id, product_id, status, method, approved_at, receipt_url, amount, sku, product_name, fail_code, fail_message, raw_response")
+    .select("*")
     .eq("order_id", orderId)
     .maybeSingle();
   if (error) return json({ ok: false, code: "ORDER_READ_FAILED", message: "주문 조회에 실패했습니다." }, 500, origin);
@@ -439,6 +493,8 @@ async function handleLookup(raw: string, origin: string | null): Promise<Respons
       test: raw_.channelType === "TEST",
       payment: { status: "PAID", method: row.method, approvedAt: row.approved_at, receiptUrl: row.receipt_url },
       product: { sku: row.sku ?? "", name: row.product_name ?? "", amount: row.amount },
+      // 전자책이 아닌 상품·테스트 결제·발급 꺼짐은 모두 pending 이고, success.html 은 기존 안내를 유지한다.
+      delivery: await resolveDelivery(client.storage, deliveryOrderFromLedger(row, raw_)),
     },
     200,
     origin,
